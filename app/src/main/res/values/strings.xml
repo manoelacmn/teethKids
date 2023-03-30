@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">telacadastro</string>
+    <string name="seja_bem_vindo">Seja bem vindo!!</string>
+    <string name="criar_conta">Criar Conta</string>
+    <string name="entrar">entrar</string>
+    <string name="senha">Senha</string>
+    <string name="usu_rio">Usuário</string>
+</resources>
