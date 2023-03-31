@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".continuarCadastro">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="187dp"
+        android:layout_marginBottom="137dp"
+        android:text="Adicione uma foto: "
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatTextView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="144dp"
+        android:layout_height="133dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="88dp"
+        android:src="@drawable/hqdefault"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="307dp"
+        android:text="Adicione seu currículo: "
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eD_nomePerfil" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="225dp"
+        android:layout_marginBottom="118dp"
+        android:text="Nome de Perfil: "
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatTextView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView9"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/eD_nomePerfil"
+        android:layout_width="246dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/green_project"
+        android:hint="Digite o nome do seu Perfil"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatTextView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7"
+        app:layout_constraintVertical_bias="0.48000002" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edCurriculo"
+        android:layout_width="369dp"
+        android:layout_height="258dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="35dp"
+        android:hint="Adicione aqui"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView8" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
