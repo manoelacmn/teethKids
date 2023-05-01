@@ -143,6 +143,7 @@
         app:layout_constraintVertical_bias="0.229" />
 
     <androidx.appcompat.widget.AppCompatCheckedTextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -161,7 +162,7 @@
         app:layout_constraintVertical_bias="0.129" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/BtnEntar_tela_login"
+        android:id="@+id/BtnEntar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"
@@ -189,9 +190,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BtnEntar_tela_login" />
+        app:layout_constraintTop_toBottomOf="@id/BtnEntar" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="240sp"
@@ -204,7 +206,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.995"
         app:layout_constraintStart_toEndOf="@+id/appCompatTextView3"
-        app:layout_constraintTop_toBottomOf="@+id/BtnEntar_tela_login"
+        app:layout_constraintTop_toBottomOf="@+id/BtnEntar"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

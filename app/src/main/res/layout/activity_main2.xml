@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/nomedousuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="54dp"
+        android:text="Nome do individo"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvonline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/foto_do_usuario"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="235dp"
+        android:layout_marginBottom="16dp"
+        android:text="019991243367"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/endereço"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvreputação" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/endereço"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="295dp"
+        android:layout_marginBottom="7dp"
+        android:text="Endereço"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/edCurriculo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/telefone" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/foto_do_usuario"
+        android:layout_width="130dp"
+        android:layout_height="157dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="41dp"
+        android:src="@drawable/download"
+        app:layout_constraintBottom_toTopOf="@+id/tvreputação"
+        app:layout_constraintEnd_toStartOf="@+id/nomedousuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvonline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="143dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="16dp"
+        android:text="onlie?"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/switchtv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/foto_do_usuario"
+        app:layout_constraintTop_toBottomOf="@+id/nomedousuario" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchtv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="207dp"
+        android:layout_marginBottom="141dp"
+        android:shadowColor="@color/green_project"
+        app:layout_constraintBottom_toTopOf="@+id/edCurriculo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintStart_toEndOf="@+id/tvonline"
+        app:layout_constraintTop_toBottomOf="@+id/nomedousuario"
+        app:layout_constraintVertical_bias="0.344" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvreputação"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="235dp"
+        android:layout_marginBottom="20dp"
+        android:text="minha reputação"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/telefone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto_do_usuario" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/edCurriculo"
+        android:layout_width="298dp"
+        android:layout_height="243dp"
+        android:layout_marginTop="7dp"
+        android:gravity="center"
+        android:text="mini curriculo"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/BtnEmergencia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/endereço" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/BtnEmergencia"
+        android:layout_width="184dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="26dp"
+        android:backgroundTint="@color/red_project"
+        android:text="EMERGÊNCIA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edCurriculo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
