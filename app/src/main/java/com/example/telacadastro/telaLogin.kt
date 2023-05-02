@@ -2,10 +2,16 @@ package com.example.telacadastro
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.telacadastro.databinding.TelaLoginBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class telaLogin:AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
 
     private lateinit var binding: TelaLoginBinding
 
@@ -14,14 +20,46 @@ class telaLogin:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = TelaLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        auth = Firebase.auth
         binding.cadastro.setOnClickListener{tvcadastro-> ircadastro()}
 
-        binding.BtnEntar.setOnClickListener {btn -> irTelaPerfil()}
+        binding.BtnEntar.setOnClickListener {btn ->
+            val password = binding.EtSenha.text.toString();
+            val email = binding.EtUsuario.text.toString();
+            signIn(email,password);
+        }
+
+
     }
 
 
-
+    private fun signIn(email: String, password: String) {
+        // [START sign_in_with_email]
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(TAG, "signInWithEmail:success")
+                    val user = auth.currentUser
+                    Log.w(TAG, "signInWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        baseContext,
+                        "logged as ,${email}",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                    irTelaPerfil()
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "signInWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        baseContext,
+                        "Authentication failed.",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                }
+            }
+        // [END sign_in_with_email]
+    }
 
 
 
@@ -34,6 +72,9 @@ class telaLogin:AppCompatActivity() {
     private fun irTelaPerfil(){
         var telaperfil = Intent(this,MainActivity2::class.java)
         startActivity(telaperfil)
+    }
+    companion object {
+        private const val TAG = "EmailPassword"
     }
 
 }
