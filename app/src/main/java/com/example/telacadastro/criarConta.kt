@@ -2,15 +2,24 @@ package com.example.telacadastro
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.telacadastro.databinding.ActivityCriarcontaBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
 
 class criarConta: AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+// ...
+// Initialize Firebase Auth
+
+
 
     private lateinit var binding: ActivityCriarcontaBinding
 
@@ -22,6 +31,7 @@ class criarConta: AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        auth = Firebase.auth
         super.onCreate(savedInstanceState)
         binding = ActivityCriarcontaBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -34,7 +44,7 @@ class criarConta: AppCompatActivity() {
             val endereco = binding.EtEnderecoCriarConta.text.toString()
             val cv = binding.EtCurriculoCriarConta.text.toString()
 
-
+            singUpNewAccount(nome , email, senha)
             val db = Firebase.firestore
             val usuario = hashMapOf(
                 "email" to email,
@@ -48,10 +58,39 @@ class criarConta: AppCompatActivity() {
         }
     }
 
+    private fun singUpNewAccount(name: String , email: String, password: String)
+    {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(TAG, "createUserWithEmail:success")
+                    val user = auth.currentUser
+                    Toast.makeText(
+                        baseContext,
+                        "Authentication succeeded",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                    //updateUI(user)
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        baseContext,
+                        "Authentication failed.",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                    //updateUI(null)
+                }
+            }
+    }
 
     private fun irParaTelaLogin(){
-        var telaLog = Intent(this,telaLogin::class.java)
+        val telaLog = Intent(this,telaLogin::class.java)
         startActivity(telaLog)
+    }
+    companion object {
+        private const val TAG = "singUp"
     }
 }
 
