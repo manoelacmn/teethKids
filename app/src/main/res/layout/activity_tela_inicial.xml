@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTeethKids"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TeethKids"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="179dp"
+        android:layout_height="213dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="397dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTeethKids"
+        app:srcCompat="@drawable/download" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTelaEmergencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tela das Emergências"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="430sp"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTelaPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tela de Perfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="550sp"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
