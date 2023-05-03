@@ -2,6 +2,7 @@ package com.example.telacadastro
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,13 +25,26 @@ class telaLogin:AppCompatActivity() {
         binding.cadastro.setOnClickListener{tvcadastro-> ircadastro()}
 
         binding.BtnEntar.setOnClickListener {btn ->
-            val password = binding.EtSenha.text.toString();
-            val email = binding.EtUsuario.text.toString();
-            signIn(email,password);
-        }
+
+            if(binding.EtSenha.text.isNullOrEmpty()){
+                Toast.makeText(baseContext,"ze da manga",Toast.LENGTH_LONG).show()
+
+
+            }else if (binding.EtUsuario.text.isNullOrEmpty()){
+                Toast.makeText(baseContext,"ze da manga",Toast.LENGTH_LONG).show()
+            }else{
+                val password = binding.EtSenha.text.toString();
+                val email = binding.EtUsuario.text.toString();
+                signIn(email,password);
+            }
+
+
 
 
     }
+    }
+
+
 
 
     private fun signIn(email: String, password: String) {
