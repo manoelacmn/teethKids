@@ -38,6 +38,7 @@ class MainActivity2 : AppCompatActivity() {
                 user.uid,
                 Toast.LENGTH_SHORT,
             ).show()
+
         }
         super.onCreate(savedInstanceState)
         binding = ActivityMain2Binding.inflate(layoutInflater)
