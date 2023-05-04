@@ -13,7 +13,6 @@ import com.google.firebase.ktx.Firebase
 
 class telaLogin:AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-
     private lateinit var binding: TelaLoginBinding
 
 
