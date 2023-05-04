@@ -14,12 +14,11 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
-        android:layout_marginBottom="39dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="TeethKids"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -29,41 +28,40 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_width="179dp"
         android:layout_height="213dp"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="38dp"
         android:layout_marginEnd="116dp"
         android:layout_marginBottom="397dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTeethKids"
         app:srcCompat="@drawable/download" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnTelaEmergencia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="244dp"
         android:backgroundTint="@color/green_project"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="Tela das Emergências"
-        app:layout_constraintBottom_toTopOf="@+id/btnTelaPerfil"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.98"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnTelaPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
         android:layout_marginBottom="133dp"
         android:backgroundTint="@color/green_project"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="Tela de Perfil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTelaEmergencia"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
