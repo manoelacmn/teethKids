@@ -11,11 +11,12 @@
         android:id="@+id/imgFotoPerfil"
         android:layout_width="165dp"
         android:layout_height="159dp"
-        android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="22dp"
         android:src="@drawable/download"
         app:layout_constraintBottom_toTopOf="@+id/etTelefone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +27,10 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="14dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:hint="Nome"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,6 +41,10 @@
         android:layout_height="41dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="18dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnVerReputacao"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/appCompatEditText"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -45,13 +53,12 @@
         android:id="@+id/btnVerReputacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="76dp"
         android:backgroundTint="@color/green_project"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="Ver reputação"
         app:layout_constraintBottom_toTopOf="@+id/appCompatEditText2"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil" />
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -59,8 +66,13 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="200dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:hint="Telefone"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatEditText2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgFotoPerfil" />
 
@@ -70,7 +82,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:hint="Email"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatEditText4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatEditText3" />
 
@@ -79,8 +95,12 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:hint="Endereço 1"
+        app:layout_constraintBottom_toTopOf="@+id/etEnderco2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTelefone" />
 
@@ -89,8 +109,12 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:hint="Endereço 2"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatEditText3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatEditText2" />
 
@@ -99,8 +123,12 @@
         android:layout_width="250sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:hint="Endereço 3"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatEditText5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEnderco2" />
 
@@ -108,32 +136,41 @@
         android:id="@+id/appCompatEditText4"
         android:layout_width="380dp"
         android:layout_height="150dp"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:hint="Mini-Currículo"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatEditText5" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
         android:backgroundTint="@color/green_project"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="Salvar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatEditText4" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="9dp"
         android:layout_marginBottom="15dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:gravity="center"
         android:text="Status"
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/btnVerReputacao"
+        app:layout_constraintEnd_toStartOf="@+id/switch1"
         app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil"
         app:layout_constraintTop_toBottomOf="@+id/appCompatEditText" />
 
