@@ -60,6 +60,7 @@ class telaLogin:AppCompatActivity() {
                         "logged as ,${email}",
                         Toast.LENGTH_SHORT,
                     ).show()
+
                     irTelaInicial()
                 } else {
                     // If sign in fails, display a message to the user.

@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import com.example.telacadastro.databinding.ActivityMainBinding
 import com.google.firebase.ktx.Firebase
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -70,11 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun runtimeEnableAutoInit() {
-        // [START fcm_runtime_enable_auto_init]
-        Firebase.messaging.isAutoInitEnabled = true
-        // [END fcm_runtime_enable_auto_init]
-    }
+
 
     var builder = NotificationCompat.Builder(this, "emergencyAlert")
         .setSmallIcon(R.drawable.heart_circle_plus_solid)

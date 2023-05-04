@@ -7,6 +7,8 @@ import android.widget.Toast
 import com.example.telacadastro.databinding.ActivityEmergenciaBinding
 import com.example.telacadastro.databinding.ActivityMain2Binding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity2 : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -14,6 +16,29 @@ class MainActivity2 : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val user = Firebase.auth.currentUser
+        user?.let {
+            // Name, email address, and profile photo Url
+            val name = it.displayName
+            val email = it.email
+            val photoUrl = it.photoUrl
+
+            // Check if user's email is verified
+            val emailVerified = it.isEmailVerified
+
+            // The user's ID, unique to the Firebase project. Do NOT use this value to
+            // authenticate with your backend server, if you have one. Use
+            // FirebaseUser.getIdToken() instead.
+            val uid = it.uid
+        }
+        if (user != null) {
+            Toast.makeText(
+                baseContext,
+                user.uid,
+                Toast.LENGTH_SHORT,
+            ).show()
+        }
         super.onCreate(savedInstanceState)
         binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -49,5 +74,10 @@ class MainActivity2 : AppCompatActivity() {
     private fun iremergencia(){
         var irParaEmerg = Intent(this,Emergencia::class.java)
         startActivity(irParaEmerg)
+    }
+    companion object {
+
+        private val TAG = "myProfile"
+
     }
 }
