@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "473502227423",
-    "project_id": "testespi",
-    "storage_bucket": "testespi.appspot.com"
+    "project_number": "398899058076",
+    "project_id": "teethkids-10c6a",
+    "storage_bucket": "teethkids-10c6a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:473502227423:android:ee1af16c4c5b739c20426a",
+        "mobilesdk_app_id": "1:398899058076:android:1965f77a579285faafe459",
         "android_client_info": {
           "package_name": "com.example.telacadastro"
         }
       },
       "oauth_client": [
         {
-          "client_id": "473502227423-8qateemotaad5s3kspoiv7kcefe1spts.apps.googleusercontent.com",
+          "client_id": "398899058076-57l394aehqdt6qp7k6vg4lg9p839o47t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDf-MnbhgWKYiVIHB_i0O3yk4ZlwhDLOsc"
+          "current_key": "AIzaSyCv5_-XNJPMuc38YSiX9rC_mV5g00SckQk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "473502227423-8qateemotaad5s3kspoiv7kcefe1spts.apps.googleusercontent.com",
+              "client_id": "398899058076-57l394aehqdt6qp7k6vg4lg9p839o47t.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
