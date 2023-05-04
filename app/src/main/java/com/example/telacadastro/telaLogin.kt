@@ -61,7 +61,7 @@ class telaLogin:AppCompatActivity() {
                         "logged as ,${email}",
                         Toast.LENGTH_SHORT,
                     ).show()
-                    irTelaPerfil()
+                    irTelaInicial()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
@@ -83,9 +83,9 @@ class telaLogin:AppCompatActivity() {
     }
 
 
-    private fun irTelaPerfil(){
-        var telaperfil = Intent(this,MainActivity2::class.java)
-        startActivity(telaperfil)
+    private fun irTelaInicial(){
+        var telaI = Intent(this,Tela_Inicial::class.java)
+        startActivity(telaI)
     }
     companion object {
         private const val TAG = "EmailPassword"
