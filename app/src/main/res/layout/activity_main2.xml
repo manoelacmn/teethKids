@@ -56,13 +56,23 @@
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etTelefone"
-        android:layout_width="150dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginTop="22dp"
         android:hint="Telefone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgFotoPerfil" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/appCompatEditText5"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="10dp"
+        android:hint="Email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatEditText3" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/appCompatEditText2"
@@ -97,19 +107,18 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/appCompatEditText4"
         android:layout_width="380dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
         android:hint="Mini-Currículo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatEditText3" />
+        app:layout_constraintTop_toBottomOf="@+id/appCompatEditText5" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="11dp"
         android:backgroundTint="@color/green_project"
         android:text="Salvar"
         app:layout_constraintStart_toStartOf="parent"
