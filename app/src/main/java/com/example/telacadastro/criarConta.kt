@@ -46,12 +46,13 @@ class criarConta: AppCompatActivity() {
 
             singUpNewAccount(nome , email, senha)
             val db = Firebase.firestore
+//
             val usuario = hashMapOf(
                 "email" to email,
                 "senha" to senha,
                 "nome" to nome,
                 "endereco" to endereco,
-                "curriculo" to cv,
+                "curriculo" to cv
             )
             db.collection("usuarios").add(usuario)
             irParaTelaLogin()
