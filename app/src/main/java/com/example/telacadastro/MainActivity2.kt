@@ -9,14 +9,18 @@ import android.widget.Toast
 import com.example.telacadastro.databinding.ActivityEmergenciaBinding
 import com.example.telacadastro.databinding.ActivityMain2Binding
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.functions.FirebaseFunctions
+import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity2 : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding:ActivityMain2Binding
+    private lateinit var functions: FirebaseFunctions
 
 
     @SuppressLint("StringFormatInvalid")
@@ -24,7 +28,7 @@ class MainActivity2 : AppCompatActivity() {
 
 
 
-
+        functions = Firebase.functions("southamerica-east1")
 
 
         val user = Firebase.auth.currentUser
@@ -66,6 +70,17 @@ class MainActivity2 : AppCompatActivity() {
             Log.d(TAG, msg)
             Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
 
+            fun  updateFcmTokem(uid: String,token: String): Task<String> {
+                val data = hashMapOf(
+                    "fcmtoken" to token,
+                    "uid" to uid
+                )
+                return functions.getHttpsCallable("updateUserFcm")
+                    .call(data)
+                    .continueWith {task -> val result = task.result?.data as String
+                    result}
+            }
+            user?.uid?.let { updateFcmTokem(it ,token) }
         })
 
 

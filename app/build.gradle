@@ -45,7 +45,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-messaging:23.1.2'
-    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.3'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.2'
     implementation 'androidx.work:work-runtime-ktx:2.8.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -64,5 +64,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging'
 
     implementation 'com.google.firebase:firebase-auth-ktx'
+
+
+    implementation 'com.google.firebase:firebase-functions-ktx:20.3.0'
+
+
 
 }
