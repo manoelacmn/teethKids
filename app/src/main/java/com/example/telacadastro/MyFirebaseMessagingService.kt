@@ -9,6 +9,7 @@ import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
@@ -21,6 +22,7 @@ abstract class MyFirebaseMessagingService :  FirebaseMessagingService(){
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d(TAG, "From: ${remoteMessage.from}")
+
 
         // Check if message contains a data payload.
         if (remoteMessage.data.isNotEmpty()) {
@@ -38,6 +40,12 @@ abstract class MyFirebaseMessagingService :  FirebaseMessagingService(){
         // Check if message contains a notification payload.
         remoteMessage.notification?.let {
             Log.d(TAG, "Message Notification Body: ${it.body}")
+            Toast.makeText(
+                baseContext,
+                "BODY: ${it.body}",
+                Toast.LENGTH_SHORT,
+            ).show()
+
         }
 
         // Also if you intend on generating your own notifications as a result of a received FCM

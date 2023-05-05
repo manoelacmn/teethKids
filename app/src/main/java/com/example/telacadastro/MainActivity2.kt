@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.functions.FirebaseFunctions
+import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 
@@ -71,17 +73,25 @@ class MainActivity2 : AppCompatActivity() {
             Log.d(TAG, msg)
             Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
 
-            fun  updateFcmTokem(uid: String,token: String): Task<String> {
+            val user = Firebase.auth.currentUser
+            user?.let {
+                // Name, email address, and profile photo Url
+                val email = it.email
+
+            }
+
+
+            fun  updateFcmTokem(email: String,token: String): Task<String> {
                 val data = hashMapOf(
                     "fcmtoken" to token,
-                    "uid" to uid
+                    "email" to email
                 )
                 return functions.getHttpsCallable("updateUserFcm")
                     .call(data)
                     .continueWith {task -> val result = task.result?.data as String
                     result}
             }
-            user?.uid?.let { updateFcmTokem(it ,token) }
+            updateFcmTokem(user?.email.toString(),token)
         })
 
 
@@ -151,17 +161,17 @@ class MainActivity2 : AppCompatActivity() {
 
             //singUpNewAccount(nome , email)
             val db = Firebase.firestore
-//
-            val usuario = hashMapOf(
-                "email" to email,
-                "nome" to nome,
-                "endereco1" to endereco1,
-                "endereco2" to endereco2,
-                "endereco3" to endereco3,
-                "curriculo" to cv
-            )
-            db.collection("usuarios").add(usuario)
-            Toast.makeText(baseContext,"Atualizado",Toast.LENGTH_LONG).show()
+// está duplicando
+//            val usuario = hashMapOf(
+//                "email" to email,
+//                "nome" to nome,
+//                "endereco1" to endereco1,
+//                "endereco2" to endereco2,
+//                "endereco3" to endereco3,
+//                "curriculo" to cv
+//            )
+//            db.collection("usuarios").add(usuario)
+//            Toast.makeText(baseContext,"Atualizado",Toast.LENGTH_LONG).show()
         }
     }
 }
