@@ -6,4 +6,5 @@
     <string name="senha">Senha</string>
     <string name="usu_rio">Usuário</string>
   <string name="default_notification_channel_id">defaultFcm</string>
+  <string name="msg_token_fmt">uwu</string>
 </resources>
