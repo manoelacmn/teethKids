@@ -6,15 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".Emergencia">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEnviar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="392dp"
-        android:layout_marginBottom="712dp"
-        android:text="ola"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="456dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginBottom="217dp"
+        android:backgroundTint="@color/green_project"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="Enviar"
+        android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/uploadImage_View"
+        android:layout_width="211dp"
+        android:layout_height="189dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEnviar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.704"></androidx.appcompat.widget.AppCompatImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
