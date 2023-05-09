@@ -34,6 +34,9 @@ class Tela_Inicial : AppCompatActivity() {
         binding.btnTelaPerfil.setOnClickListener{btnir ->
             irTelaperfil()
         }
+        binding.btnTelaEmergencia.setOnClickListener { btnir ->
+            emergencia()
+        }
 
 
 
@@ -43,5 +46,9 @@ class Tela_Inicial : AppCompatActivity() {
     private fun irTelaperfil(){
         var irPerfil = Intent(this,MainActivity2::class.java)
         startActivity(irPerfil)
+    }
+    private fun emergencia(){
+        var irEmergencia = Intent(this,Emergencia::class.java)
+        startActivity(irEmergencia)
     }
 }
