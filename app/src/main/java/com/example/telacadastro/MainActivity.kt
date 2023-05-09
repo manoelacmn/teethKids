@@ -21,11 +21,14 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    var storage: FirebaseStorage? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         binding.BtnCriarConta.setOnClickListener { bcriarconta ->
             irParaCriarConta()
         }
+
+        storage = Firebase.storage
 
 
 

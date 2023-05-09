@@ -1,4 +1,5 @@
 <resources>
+    <string name="menu_1">menu_1</string>
     <string name="app_name">telacadastro</string>
     <string name="seja_bem_vindo">Seja bem vindo!!</string>
     <string name="criar_conta">Criar Conta</string>
@@ -9,4 +10,6 @@
   <string name="msg_token_fmt">uwu</string>
   <string name="channel_name">Emergencias</string>
   <string name="channel_description">default firebase notifications</string>
+    <string name="submenu">sub menu 1</string>
+    <string name="submenu2">sub menu 2</string>
 </resources>
