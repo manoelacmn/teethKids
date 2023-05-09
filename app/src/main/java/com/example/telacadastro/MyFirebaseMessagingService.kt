@@ -9,6 +9,7 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import android.content.Context
+import android.graphics.BitmapFactory
 import androidx.core.app.NotificationManagerCompat
 
 class MyFirebaseMessagingService :  FirebaseMessagingService(){
@@ -18,10 +19,12 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         Log.d(TAG, "From: ${remoteMessage.from}")
 
 
+
         // Check if message contains a data payload.
         if (remoteMessage.data.isNotEmpty()) {
             Log.d(TAG, "Message data payload: ${remoteMessage.data}")
-
+            Log.d(TAG,"UID: ${remoteMessage.data["uid"]}")
+            remoteMessage.data["uid"]?.let { sendNotification(it) }
             // Check if data needs to be processed by long running job
             if (needsToBeScheduled()) {
                 // For long-running tasks (10 seconds or more) use WorkManager.
@@ -29,20 +32,6 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 handleNow()
             }
         }
-
-        // Check if message contains a notification payload.
-        remoteMessage.notification?.let {
-            Log.d(TAG, "Message Notification Body: ${it.body}")
-            Toast.makeText(
-                baseContext,
-                "BODY: ${it.body}",
-                Toast.LENGTH_SHORT,
-            ).show()
-            it.body?.let { it1 -> sendNotification(it1) }
-        }
-
-        // Also if you intend on generating your own notifications as a result of a received FCM
-        // message, here is where that should be initiated. See sendNotification method below.
     }
     // [END receive_message]
 
@@ -88,13 +77,12 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         val name = getString(R.string.channel_name)
         val descriptionText = getString(R.string.channel_description)
         val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel("1234",name,importance).apply {
+        val channel = NotificationChannel(name,name,importance).apply {
             description = descriptionText
         }
         val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(channel)
-
-        val builder = NotificationCompat.Builder(this,"FCMdefault")
+        val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
             .setSmallIcon(androidx.core.R.drawable.notification_template_icon_bg)
             .setContentTitle("My notification")
             .setStyle(NotificationCompat.BigTextStyle()
