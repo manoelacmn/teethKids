@@ -17,7 +17,7 @@ import com.google.api.Context
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
-abstract class MyFirebaseMessagingService :  FirebaseMessagingService(){
+class MyFirebaseMessagingService :  FirebaseMessagingService(){
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
