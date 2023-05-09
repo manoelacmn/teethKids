@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         binding.BtnCriarConta.setOnClickListener { bcriarconta ->
             irParaCriarConta()
         }
+
+
     }
 
 

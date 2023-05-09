@@ -2,20 +2,14 @@ package com.example.telacadastro
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
-import android.app.Service
-import android.content.ContentValues.TAG
-import android.content.Intent
-import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
-import com.google.api.Context
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import android.content.Context
+import androidx.core.app.NotificationManagerCompat
 
 class MyFirebaseMessagingService :  FirebaseMessagingService(){
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
@@ -32,7 +26,6 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             if (needsToBeScheduled()) {
                 // For long-running tasks (10 seconds or more) use WorkManager.
             } else {
-                // Handle message within 10 seconds
                 handleNow()
             }
         }
@@ -45,7 +38,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 "BODY: ${it.body}",
                 Toast.LENGTH_SHORT,
             ).show()
-
+            it.body?.let { it1 -> sendNotification(it1) }
         }
 
         // Also if you intend on generating your own notifications as a result of a received FCM
@@ -90,6 +83,41 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         Log.d(TAG, "sendRegistrationTokenToServer($token)")
     }
 
+    private fun sendNotification(msg:String){
+
+        val name = getString(R.string.channel_name)
+        val descriptionText = getString(R.string.channel_description)
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel("1234",name,importance).apply {
+            description = descriptionText
+        }
+        val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+
+        val builder = NotificationCompat.Builder(this,"FCMdefault")
+            .setSmallIcon(androidx.core.R.drawable.notification_template_icon_bg)
+            .setContentTitle("My notification")
+            .setStyle(NotificationCompat.BigTextStyle()
+                .bigText(msg))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        notificationManager.createNotificationChannel(channel)
+        val notificationID = 0;
+        notificationManager.notify(notificationID,builder.build())
+    }
+    private fun createNotificationChannel(){
+        val name = getString(R.string.channel_name)
+        val descriptionText = getString(R.string.channel_description)
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel("1234",name,importance).apply {
+            description = descriptionText
+        }
+        val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+
+
+    }
+
 //    private fun sendNotification(messageBody: String) {
 //        val intent = Intent(this, MainActivity::class.java)
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -124,15 +152,15 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 //        val notificationId = 0
 //        notificationManager.notify(notificationId, notificationBuilder.build())
 //    }
-//
-//    companion object {
-//        private const val TAG = "MyFirebaseMsgService"
+
+    companion object {
+        private const val TAG = "MyFirebaseMsgService"
+    }
+
+//    internal class MyWorker(appContext: Context, workerParams: WorkerParameters) : Worker(appContext, workerParams) {
+//        override fun doWork(): Result {
+//            // TODO(developer): add long running task here.
+//            return Result.success()
+//        }
 //    }
-//
-////    internal class MyWorker(appContext: Context, workerParams: WorkerParameters) : Worker(appContext, workerParams) {
-////        override fun doWork(): Result {
-////            // TODO(developer): add long running task here.
-////            return Result.success()
-////        }
-////    }
 }
