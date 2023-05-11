@@ -14,10 +14,17 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.core.app.NotificationManagerCompat
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.ktx.storage
 
 
 class MyFirebaseMessagingService :  FirebaseMessagingService(){
+
+    lateinit var storage: FirebaseStorage
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
+
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d(TAG, "From: ${remoteMessage.from}")
@@ -77,6 +84,31 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
     }
 
     private fun sendNotification(msg:String){
+        storage = Firebase.storage
+
+
+        var storageRef = storage.reference
+
+        var emergencias: StorageReference? = storageRef.child("emergencias/1")
+
+      //  var spaceRef = storageRef.child("1/")
+
+        var orangutan = emergencias?.child("orangutan_square-763017175.jpg")
+
+
+
+        val ONE_MEGABYTE: Long = 1024 * 1024
+
+        orangutan?.getBytes(ONE_MEGABYTE)?.addOnSuccessListener {image->
+            val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
+            Log.d("IMAGE","IMAGE RECEIVED")
+        }?.addOnFailureListener {
+            // Handle any errors
+        }
+
+        val httpsReference = storage.getReferenceFromUrl(
+            "https://firebasestorage.googleapis.com/v0/b/teethkids-10c6a.appspot.com/o/emergencias%2F1%2Forangutan_square-763017175.jpg?alt=media&token=4eede945-cad9-46da-a193-f3dc7f1123ee"
+        )
 
         val name = getString(R.string.channel_name)
         val descriptionText = getString(R.string.channel_description)
@@ -102,16 +134,16 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         }
 
         val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_MUTABLE )
+            PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_IMMUTABLE )
 
         } else {
             TODO("VERSION.SDK_INT < S")
         } // setting the mutability flag )
-
+        
 
         val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
             .setSmallIcon(androidx.core.R.drawable.notification_template_icon_bg)
-            .setContentTitle("My notification")
+            .setContentTitle("NEW emergency")
             .setStyle(NotificationCompat.BigTextStyle()
                 .bigText(msg))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -121,18 +153,19 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         val notificationID = 0;
         notificationManager.notify(notificationID,builder.build())
     }
-    private fun createNotificationChannel(){
-        val name = getString(R.string.channel_name)
-        val descriptionText = getString(R.string.channel_description)
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel("1234",name,importance).apply {
-            description = descriptionText
-        }
-        val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.createNotificationChannel(channel)
 
-
-    }
+//    private fun createNotificationChannel(){
+//        val name = getString(R.string.channel_name)
+//        val descriptionText = getString(R.string.channel_description)
+//        val importance = NotificationManager.IMPORTANCE_DEFAULT
+//        val channel = NotificationChannel("1234",name,importance).apply {
+//            description = descriptionText
+//        }
+//        val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//        notificationManager.createNotificationChannel(channel)
+//
+//
+//    }
 
 //    private fun sendNotification(messageBody: String) {
 //        val intent = Intent(this, MainActivity::class.java)

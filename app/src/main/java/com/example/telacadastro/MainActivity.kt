@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         storage = Firebase.storage
-
+        askNotificationPermission()
 
 
     }

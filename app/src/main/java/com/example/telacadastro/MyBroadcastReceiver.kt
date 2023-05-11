@@ -1,10 +1,12 @@
 package com.example.telacadastro
 
+import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -35,11 +37,15 @@ class MyBroadcastReceiver : BroadcastReceiver() {
         }
 
 
+       // val notificationManager: NotificationManager = getSystemService(contextontext.NOTIFICATION_SERVICE) as NotificationManager
+
 
         val message = intent?.getStringExtra("MESSAGE")
         val uid = intent?.getStringExtra("emergencyUid").toString();
         val id = intent?.getStringExtra("notificationID").toString();
 
+        val notificationManager: NotificationManager = context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//        notificationManager.cancel(id.toInt())
         if (user != null) {
             acceptEmergency(uid,user.uid);
         }
