@@ -1,5 +1,6 @@
 package com.example.telacadastro
 
+import android.app.Notification
 import android.app.Notification.EXTRA_NOTIFICATION_ID
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -12,6 +13,7 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.ktx.Firebase
@@ -91,7 +93,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
         var emergencias: StorageReference? = storageRef.child("emergencias/1")
 
-      //  var spaceRef = storageRef.child("1/")
+        //  var spaceRef = storageRef.child("1/")
 
         var orangutan = emergencias?.child("orangutan_square-763017175.jpg")
 
@@ -99,59 +101,109 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
         val ONE_MEGABYTE: Long = 1024 * 1024
 
+        var monkey: Bitmap? = null
+
         orangutan?.getBytes(ONE_MEGABYTE)?.addOnSuccessListener {image->
-            val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
-            Log.d("IMAGE","IMAGE RECEIVED")
+            monkey = BitmapFactory.decodeByteArray(image, 0, image.size)
+            val name = getString(R.string.channel_name)
+            val descriptionText = getString(R.string.channel_description)
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(name,name,importance).apply {
+                description = descriptionText
+            }
+            val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+
+            val intent = Intent(this, MyBroadcastReceiver::class.java)
+                .putExtra("emergencyUid",msg )
+                .putExtra("notificationID","emergencias")
+                .apply { action = "com.example.ACTION_LOG" }
+
+            //intent.putExtra("emergencyUid",msg)
+            val intentExtras = intent.extras
+            if (intentExtras != null) {
+                for (key in intentExtras.keySet()) {
+                    val value = intentExtras.get(key)
+                    Log.d("IntentExtras", "$key: $value")
+                }
+            }
+
+            val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_IMMUTABLE )
+
+            } else {
+                TODO("VERSION.SDK_INT < S")
+            } // setting the mutability flag )
+
+
+            val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
+                .setSmallIcon(androidx.core.R.drawable.notification_template_icon_bg)
+                .setContentTitle("NEW emergency")
+//            .setStyle(NotificationCompat.BigTextStyle()
+//                .bigText(msg))
+                .setStyle(NotificationCompat.BigPictureStyle().bigPicture(monkey))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .addAction(R.drawable.ic_action_name, "Aceitar Emergência?",pendingIntent)
+
+
+            notificationManager.createNotificationChannel(channel)
+            val notificationID = 0;
+            notificationManager.notify(notificationID,builder.build())
+
         }?.addOnFailureListener {
             // Handle any errors
         }
+
+        //Log.d("IMAGE FILETYPE", )
 
         val httpsReference = storage.getReferenceFromUrl(
             "https://firebasestorage.googleapis.com/v0/b/teethkids-10c6a.appspot.com/o/emergencias%2F1%2Forangutan_square-763017175.jpg?alt=media&token=4eede945-cad9-46da-a193-f3dc7f1123ee"
         )
 
-        val name = getString(R.string.channel_name)
-        val descriptionText = getString(R.string.channel_description)
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel(name,name,importance).apply {
-            description = descriptionText
-        }
-        val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.createNotificationChannel(channel)
-
-        val intent = Intent(this, MyBroadcastReceiver::class.java)
-            .putExtra("emergencyUid",msg )
-            .putExtra("notificationID","emergencias")
-            .apply { action = "com.example.ACTION_LOG" }
-
-        //intent.putExtra("emergencyUid",msg)
-        val intentExtras = intent.extras
-        if (intentExtras != null) {
-            for (key in intentExtras.keySet()) {
-                val value = intentExtras.get(key)
-                Log.d("IntentExtras", "$key: $value")
-            }
-        }
-
-        val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_IMMUTABLE )
-
-        } else {
-            TODO("VERSION.SDK_INT < S")
-        } // setting the mutability flag )
-        
-
-        val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
-            .setSmallIcon(androidx.core.R.drawable.notification_template_icon_bg)
-            .setContentTitle("NEW emergency")
-            .setStyle(NotificationCompat.BigTextStyle()
-                .bigText(msg))
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .addAction(R.drawable.ic_action_name, "Aceitar Emergência?",pendingIntent)
-
-        notificationManager.createNotificationChannel(channel)
-        val notificationID = 0;
-        notificationManager.notify(notificationID,builder.build())
+//        val name = getString(R.string.channel_name)
+//        val descriptionText = getString(R.string.channel_description)
+//        val importance = NotificationManager.IMPORTANCE_DEFAULT
+//        val channel = NotificationChannel(name,name,importance).apply {
+//            description = descriptionText
+//        }
+//        val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//        notificationManager.createNotificationChannel(channel)
+//
+//        val intent = Intent(this, MyBroadcastReceiver::class.java)
+//            .putExtra("emergencyUid",msg )
+//            .putExtra("notificationID","emergencias")
+//            .apply { action = "com.example.ACTION_LOG" }
+//
+//        //intent.putExtra("emergencyUid",msg)
+//        val intentExtras = intent.extras
+//        if (intentExtras != null) {
+//            for (key in intentExtras.keySet()) {
+//                val value = intentExtras.get(key)
+//                Log.d("IntentExtras", "$key: $value")
+//            }
+//        }
+//
+//        val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+//            PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_IMMUTABLE )
+//
+//        } else {
+//            TODO("VERSION.SDK_INT < S")
+//        } // setting the mutability flag )
+//
+//
+//        val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
+//            .setSmallIcon(androidx.core.R.drawable.notification_template_icon_bg)
+//            .setContentTitle("NEW emergency")
+////            .setStyle(NotificationCompat.BigTextStyle()
+////                .bigText(msg))
+//            .setStyle(NotificationCompat.BigPictureStyle().bigPicture(monkey))
+//            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+//            .addAction(R.drawable.ic_action_name, "Aceitar Emergência?",pendingIntent)
+//
+//
+//        notificationManager.createNotificationChannel(channel)
+//        val notificationID = 0;
+//        notificationManager.notify(notificationID,builder.build())
     }
 
 //    private fun createNotificationChannel(){
