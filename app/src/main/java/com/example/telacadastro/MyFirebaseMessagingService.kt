@@ -1,7 +1,9 @@
 package com.example.telacadastro
 
+import android.app.Notification.EXTRA_NOTIFICATION_ID
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.os.Build
 import android.util.Log
 import android.widget.Toast
@@ -9,8 +11,10 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.core.app.NotificationManagerCompat
+
 
 class MyFirebaseMessagingService :  FirebaseMessagingService(){
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
@@ -82,12 +86,36 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         }
         val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(channel)
+
+        val intent = Intent(this, MyBroadcastReceiver::class.java)
+            .putExtra("emergencyUid",msg )
+            .putExtra("notificationID","emergencias")
+            .apply { action = "com.example.ACTION_LOG" }
+
+        //intent.putExtra("emergencyUid",msg)
+        val intentExtras = intent.extras
+        if (intentExtras != null) {
+            for (key in intentExtras.keySet()) {
+                val value = intentExtras.get(key)
+                Log.d("IntentExtras", "$key: $value")
+            }
+        }
+
+        val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_MUTABLE )
+
+        } else {
+            TODO("VERSION.SDK_INT < S")
+        } // setting the mutability flag )
+
+
         val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
             .setSmallIcon(androidx.core.R.drawable.notification_template_icon_bg)
             .setContentTitle("My notification")
             .setStyle(NotificationCompat.BigTextStyle()
                 .bigText(msg))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .addAction(R.drawable.ic_action_name, "Aceitar Emergência?",pendingIntent)
 
         notificationManager.createNotificationChannel(channel)
         val notificationID = 0;
