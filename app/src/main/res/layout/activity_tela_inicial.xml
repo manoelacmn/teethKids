@@ -1,41 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Tela_Inicial"
+    android:background="@color/azul_mais_claro"
 
 
+    tools:context=".Tela_Inicial">
 
-xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="167dp"
+        android:layout_height="135dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_circle_25" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTeethKids"
-        android:backgroundTint="@color/Azul_claro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
+        android:backgroundTint="@color/Azul_claro"
         android:fontFamily="@font/comfortaa_bold"
+        android:text="Nome do Usúario"
         android:textColor="@color/Azul_escuro"
-        android:text="TeethKids"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="OdonTApp"
+        android:textColor="@color/verde_escuro"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvTeethKids"
+        app:layout_constraintStart_toStartOf="@+id/tvTeethKids"
+        app:layout_constraintTop_toBottomOf="@+id/tvTeethKids" />
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
-        android:layout_width="179dp"
-        android:layout_height="213dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="397dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:layout_width="115dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/download" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_person_24" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnTelaEmergencia"
@@ -43,9 +64,9 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_height="wrap_content"
         android:layout_marginBottom="244dp"
         android:backgroundTint="@color/Azul_claro"
-        android:textColor="@color/Azul_escuro"
         android:fontFamily="@font/comfortaa_bold"
         android:text="Tela das Emergências"
+        android:textColor="@color/Azul_escuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
@@ -54,18 +75,172 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         app:layout_constraintVertical_bias="0.98"
         tools:ignore="MissingConstraints" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnTelaPerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="133dp"
-        android:backgroundTint="@color/Azul_claro"
-        android:textColor="@color/Azul_escuro"
-        android:fontFamily="@font/comfortaa_bold"
-        android:text="Tela de Perfil"
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bottom_backgrond"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView10">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/btnTelaPerfil"
+                    android:layout_width="86dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/white_btn_background">
+
+                        <ImageView
+                            android:id="@+id/imageViewPerfil"
+                            android:layout_width="70dp"
+                            android:layout_height="71dp"
+                            android:layout_margin="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.6"
+                            app:srcCompat="@drawable/baseline_circle_24" />
+
+                        <ImageView
+                            android:id="@+id/imageViewP"
+                            android:layout_width="58dp"
+                            android:layout_height="51dp"
+                            android:layout_margin="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/imageViewPerfil"
+                            app:layout_constraintStart_toStartOf="@+id/imageViewPerfil"
+                            app:layout_constraintTop_toTopOf="@+id/imageViewPerfil"
+                            app:srcCompat="@drawable/baseline_perm_identity_24" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/TvPerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/comfortaa_bold"
+                        android:text="Perfil"
+                        android:textAlignment="center"
+                        android:textColor="@color/Azul_escuro"
+                        android:textSize="14sp"
+                        tools:layout_marginStart="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="102dp"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="72dp"
+                        android:background="@drawable/white_btn_background">
+
+                        <ImageView
+                            android:id="@+id/imageviewAlerta"
+                            android:layout_width="71dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/baseline_circle_24" />
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="58dp"
+                            android:layout_height="51dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageviewAlerta"
+                            app:layout_constraintEnd_toEndOf="@+id/imageviewAlerta"
+                            app:layout_constraintStart_toStartOf="@+id/imageviewAlerta"
+                            app:layout_constraintTop_toTopOf="@+id/imageviewAlerta"
+                            app:srcCompat="@drawable/baseline_error_outline_24" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/TvEmergência"
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/comfortaa_bold"
+                        android:text="Emergência"
+                        android:textAlignment="center"
+                        android:textColor="@color/Azul_escuro"
+                        android:textSize="14sp"
+                        tools:layout_marginStart="5dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="62dp"
+                        android:layout_height="63dp"
+                        android:background="@drawable/white_btn_background">
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="63dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/baseline_circle_24" />
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="48dp"
+                            android:layout_height="47dp"
+                            android:layout_margin="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                            app:layout_constraintStart_toStartOf="@+id/imageView3"
+                            app:layout_constraintTop_toTopOf="@+id/imageView3"
+                            app:srcCompat="@drawable/baseline_perm_identity_24" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/TvPerfil1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/comfortaa_bold"
+                        android:text="Perfil"
+                        android:textAlignment="center"
+                        android:textColor="@color/Azul_escuro"
+                        android:textSize="14sp"
+                        tools:layout_marginStart="10dp" />
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

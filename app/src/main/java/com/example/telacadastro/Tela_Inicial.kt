@@ -48,7 +48,7 @@ class Tela_Inicial : AppCompatActivity() {
         startActivity(irPerfil)
     }
     private fun emergencia(){
-        var irEmergencia = Intent(this,Emergencia::class.java)
+        var irEmergencia = Intent(this,recycleVeiw::class.java)
         startActivity(irEmergencia)
     }
 }

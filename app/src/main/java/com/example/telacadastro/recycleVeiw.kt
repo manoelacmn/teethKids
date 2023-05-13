@@ -19,6 +19,15 @@ class recycleVeiw : AppCompatActivity() {
         val listadePerfil : MutableList<perfil> = mutableListOf()
         val adapterPerfil=adpterPerfil(this,listadePerfil)//o construtor espera os parametros  da classe adpeterperfil lista
         binding.recyclerView.adapter = adapterPerfil
+        //criando os itens da lista
+        val perfeil1 = perfil(
+            R.drawable.baseline_person_24,
+            "Nome do usuario",
+            "Distância,Tempo de Espera",
+            "Analisar"
+        )
+        // adicionar na lista d chamada(perfil)
+        listadePerfil.add(perfeil1)
 
     }
 }

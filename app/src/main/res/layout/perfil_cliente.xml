@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_margin="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -37,7 +39,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:maxLines="4"
-        android:text="kkkkkkkkkkkkkkk"
+        android:text="......."
         android:textColor="@color/Azul_escuro"
         android:textSize="16dp"
         app:layout_constraintStart_toEndOf="@id/imgFotoPerfil"
