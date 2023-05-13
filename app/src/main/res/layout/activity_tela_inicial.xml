@@ -146,14 +146,14 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="102dp"
+                    android:layout_width="86dp"
+                    android:layout_height="100dp"
                     android:layout_margin="16dp"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="72dp"
+                        android:layout_width="79dp"
+                        android:layout_height="70dp"
                         android:background="@drawable/white_btn_background">
 
                         <ImageView
@@ -183,13 +183,13 @@
                         android:id="@+id/TvEmergência"
                         android:layout_width="wrap_content"
                         android:layout_height="33dp"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="1dp"
                         android:fontFamily="@font/comfortaa_bold"
                         android:text="Emergência"
                         android:textAlignment="center"
                         android:textColor="@color/Azul_escuro"
-                        android:textSize="14sp"
-                        tools:layout_marginStart="5dp" />
+                        android:textSize="13sp"
+                        tools:layout_marginStart="1dp" />
                 </LinearLayout>
 
                 <LinearLayout
