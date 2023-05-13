@@ -6,10 +6,10 @@
     <string name="entrar">entrar</string>
     <string name="senha">Senha</string>
     <string name="usu_rio">Usuário</string>
-  <string name="default_notification_channel_id">defaultFcm</string>
-  <string name="msg_token_fmt">uwu</string>
-  <string name="channel_name">Emergencias</string>
-  <string name="channel_description">default firebase notifications</string>
+    <string name="default_notification_channel_id">defaultFcm</string>
+    <string name="msg_token_fmt">uwu</string>
+    <string name="channel_name">Emergencias</string>
+    <string name="channel_description">default firebase notifications</string>
     <string name="submenu">Câmera</string>
     <string name="submenu2">Galeria</string>
 </resources>

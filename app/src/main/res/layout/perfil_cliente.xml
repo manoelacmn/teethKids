@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgFotoPerfil"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/baseline_person_24"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/nomeUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="152dp"
+        android:text="Nome usúario"
+        android:textColor="@color/Azul_escuro"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgFotoPerfil"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginStart="140dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/descrição"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:maxLines="4"
+        android:text="kkkkkkkkkkkkkkk"
+        android:textColor="@color/Azul_escuro"
+        android:textSize="16dp"
+        app:layout_constraintStart_toEndOf="@id/imgFotoPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/nomeUsuario" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/BtnAnalisar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:text="Analisar"
+        android:textColor="@color/Azul_escuro"
+        android:backgroundTint="@color/verde_claro"
+        android:layout_margin="10dp"
+
+        app:layout_constraintStart_toEndOf="@id/imgFotoPerfil"
+        app:layout_constraintTop_toBottomOf="@id/descrição" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
