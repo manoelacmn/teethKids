@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/comfortaa_bold"
         android:text="OdonTApp"
-        android:textColor="@color/verde_escuro"
+        android:textColor="@color/Azul_escuro"
         android:textSize="42dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/tvTeethKids"
@@ -58,22 +58,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_person_24" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnTelaEmergencia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="244dp"
-        android:backgroundTint="@color/Azul_claro"
-        android:fontFamily="@font/comfortaa_bold"
-        android:text="Tela das Emergências"
-        android:textColor="@color/Azul_escuro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.98"
-        tools:ignore="MissingConstraints" />
+
 
 
 
@@ -146,13 +131,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnTelaEmergencia"
                     android:layout_width="86dp"
                     android:layout_height="100dp"
                     android:layout_margin="16dp"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="79dp"
+                        android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:background="@drawable/white_btn_background">
 
@@ -183,7 +169,7 @@
                         android:id="@+id/TvEmergência"
                         android:layout_width="wrap_content"
                         android:layout_height="33dp"
-                        android:layout_marginStart="1dp"
+                        android:layout_marginStart="3dp"
                         android:fontFamily="@font/comfortaa_bold"
                         android:text="Emergência"
                         android:textAlignment="center"
