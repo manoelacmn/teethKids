@@ -10,14 +10,16 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/TvTitulo"
-        android:layout_width="355dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_margin="10dp"
         android:fontFamily="@font/comfortaa_bold"
         android:gravity="center"
-        android:text="@string/seja_bem_vindo"
+        android:text="Seja bem-vindo"
         android:textColor="@color/Azul_escuro"
-        android:textSize="38sp"
+        android:textSize="33sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
@@ -40,10 +42,10 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView"
-        android:layout_width="178dp"
-        android:layout_height="189dp"
+        android:layout_width="168dp"
+        android:layout_height="193dp"
         android:layout_marginTop="70dp"
-        android:src="@drawable/dentista"
+        android:src="@drawable/logofalso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -95,7 +97,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="19dp"
             android:fontFamily="@font/comfortaa_bold"
-            android:text="TextView"
+            android:text="Register"
             android:textColor="@color/azul_mais_escuro"
             android:textSize="28dp"
             app:layout_constraintBottom_toBottomOf="parent"

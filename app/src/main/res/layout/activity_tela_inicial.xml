@@ -77,13 +77,16 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <LinearLayout
                     android:id="@+id/btnTelaPerfil"
                     android:layout_width="86dp"
                     android:layout_height="100dp"
-                    android:layout_margin="16dp"
+                    android:layout_margin="19dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="16dp"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -134,7 +137,7 @@
                     android:id="@+id/btnTelaEmergencia"
                     android:layout_width="86dp"
                     android:layout_height="100dp"
-                    android:layout_margin="16dp"
+                    android:layout_margin="19dp"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -171,6 +174,7 @@
                         android:layout_height="33dp"
                         android:layout_marginStart="3dp"
                         android:fontFamily="@font/comfortaa_bold"
+                        android:singleLine="true"
                         android:text="Emergência"
                         android:textAlignment="center"
                         android:textColor="@color/Azul_escuro"
@@ -180,20 +184,20 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="16dp"
+                    android:layout_width="86dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="19dp"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="62dp"
-                        android:layout_height="63dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
                         android:background="@drawable/white_btn_background">
 
                         <ImageView
                             android:id="@+id/imageView3"
-                            android:layout_width="63dp"
-                            android:layout_height="60dp"
+                            android:layout_width="71dp"
+                            android:layout_height="70dp"
                             android:layout_margin="10dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -203,14 +207,17 @@
 
                         <ImageView
                             android:id="@+id/imageView4"
-                            android:layout_width="48dp"
-                            android:layout_height="47dp"
+                            android:layout_width="58dp"
+                            android:layout_height="51dp"
                             android:layout_margin="8dp"
+                            android:layout_marginEnd="5dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                            app:layout_constraintHorizontal_bias="0.75"
                             app:layout_constraintStart_toStartOf="@+id/imageView3"
                             app:layout_constraintTop_toTopOf="@+id/imageView3"
-                            app:srcCompat="@drawable/baseline_perm_identity_24" />
+                            app:layout_constraintVertical_bias="0.526"
+                            app:srcCompat="@drawable/baseline_history_24" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <TextView
@@ -220,14 +227,182 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:fontFamily="@font/comfortaa_bold"
-                        android:text="Perfil"
+                        android:text="Histórico"
                         android:textAlignment="center"
                         android:textColor="@color/Azul_escuro"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
+                        tools:layout_marginStart="10dp" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="384dp"
+                android:layout_height="134dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/btnConfiguração"
+                    android:layout_width="86dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="19dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/white_btn_background">
+
+                        <ImageView
+                            android:id="@+id/imageViewConfiguração"
+                            android:layout_width="70dp"
+                            android:layout_height="71dp"
+                            android:layout_margin="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.6"
+                            app:srcCompat="@drawable/baseline_circle_24" />
+
+                        <ImageView
+                            android:id="@+id/imageView6.6"
+                            android:layout_width="58dp"
+                            android:layout_height="51dp"
+                            android:layout_margin="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/imageViewConfiguração"
+                            app:layout_constraintStart_toStartOf="@+id/imageViewConfiguração"
+                            app:layout_constraintTop_toTopOf="@+id/imageViewConfiguração"
+                            app:srcCompat="@drawable/baseline_settings_24" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/TvConfiguração"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/comfortaa_bold"
+                        android:text="Configuração"
+                        android:textAlignment="center"
+                        android:textColor="@color/Azul_escuro"
+                        android:textSize="11sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnAvaliação"
+                    android:layout_width="86dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="19dp"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/white_btn_background">
+
+                        <ImageView
+                            android:id="@+id/imageviewAvaliação"
+                            android:layout_width="71dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/baseline_circle_24" />
+
+                        <ImageView
+                            android:id="@+id/imageView7.7"
+                            android:layout_width="58dp"
+                            android:layout_height="51dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageviewAvaliação"
+                            app:layout_constraintEnd_toEndOf="@+id/imageviewAvaliação"
+                            app:layout_constraintStart_toStartOf="@+id/imageviewAvaliação"
+                            app:layout_constraintTop_toTopOf="@+id/imageviewAvaliação"
+                            app:srcCompat="@drawable/baseline_star_outline_24" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/TvAvaliações"
+                        android:layout_width="86dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/comfortaa_bold"
+                        android:gravity="center"
+                        android:text="Avaliações"
+                        android:textAlignment="center"
+                        android:textColor="@color/Azul_escuro"
+                        android:textSize="12sp"
+                        tools:layout_marginStart="1dp"
+                        tools:textAlignment="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="86dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="19dp"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/white_btn_background">
+
+                        <ImageView
+                            android:id="@+id/imageView8.8"
+                            android:layout_width="71dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/baseline_circle_24" />
+
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="52dp"
+                            android:layout_height="45dp"
+                            android:layout_margin="8dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/imageView8.8"
+                            app:layout_constraintHorizontal_bias="0.75"
+                            app:layout_constraintStart_toStartOf="@+id/imageView8.8"
+                            app:layout_constraintTop_toTopOf="@+id/imageView8.8"
+                            app:layout_constraintVertical_bias="0.526"
+                            app:srcCompat="@drawable/baseline_logout_24" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/TvLogout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/comfortaa_bold"
+                        android:text="Logout"
+                        android:textAlignment="center"
+                        android:textColor="@color/Azul_escuro"
+                        android:textSize="12sp"
                         tools:layout_marginStart="10dp" />
                 </LinearLayout>
             </TableRow>
         </TableLayout>
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="386dp"
+            android:layout_height="160dp"
+            android:layout_marginBottom="36dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/bannerintra" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
