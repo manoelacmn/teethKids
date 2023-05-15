@@ -4,76 +4,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/Azul_deBackGround"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/TvTitulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="355dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:gravity="center"
-        android:textColor="@color/Azul_escuro"
         android:text="@string/seja_bem_vindo"
-        android:fontFamily="@font/comfortaa_bold"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatImageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/BtnEntrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="59dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="27dp"
-        android:backgroundTint="@color/Azul_claro"
         android:textColor="@color/Azul_escuro"
-        android:gravity="center"
-        android:text="@string/entrar"
-        android:fontFamily="@font/comfortaa_bold"
-        app:layout_constraintBottom_toTopOf="@+id/BtnCriarConta"
+        android:textSize="38sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/BtnCriarConta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="149dp"
-        android:layout_marginBottom="171dp"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView11"
+        android:layout_width="335dp"
+        android:layout_height="67dp"
+        android:layout_margin="10dp"
         android:fontFamily="@font/comfortaa_bold"
-        android:backgroundTint="@color/Azul_claro"
-        android:textColor="@color/Azul_escuro"
         android:gravity="center"
-        android:text="@string/criar_conta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BtnEntrar" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView"
-        android:layout_width="206dp"
-        android:layout_height="224dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="119dp"
-        android:layout_marginBottom="39dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/BtnEntrar"
+        android:text="texto amigavel de boas vindas,Texto amigavel deboas-vindas "
+        android:textAlignment="center"
+        android:textColor="@color/Azul_escuro"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvTitulo" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="178dp"
+        android:layout_height="189dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/dentista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/BtnEntrar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_margin="32dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/botton_background_bluelieth"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView11"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/Login"
+            android:layout_width="191dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_background"
+            android:textSize="28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/BtnCriarConta"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/botton_background_bluemoredark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtnEntrar">
+
+        <TextView
+            android:id="@+id/Register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="19dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="TextView"
+            android:textColor="@color/azul_mais_escuro"
+            android:textSize="28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Register" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
