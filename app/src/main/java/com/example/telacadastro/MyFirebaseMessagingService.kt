@@ -128,6 +128,11 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 }
             }
 
+            val refuseIntentExtras = Intent(this, MyBroadcastReceiver::class.java)
+                .putExtra("emergencyUid",msg )
+                .putExtra("notificationID","emergencias")
+                .apply { action = "com.example.ACTION_LOG" }
+
             val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_IMMUTABLE )
 
@@ -135,6 +140,12 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 TODO("VERSION.SDK_INT < S")
             } // setting the mutability flag )
 
+            val refuseIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_IMMUTABLE )
+
+            } else {
+                TODO("VERSION.SDK_INT < S")
+            } // setting the mutability flag )
 
             val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
                 .setSmallIcon(androidx.core.R.drawable.notification_template_icon_bg)
@@ -144,6 +155,8 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 .setStyle(NotificationCompat.BigPictureStyle().bigPicture(monkey))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .addAction(R.drawable.ic_action_name, "Aceitar Emergência?",pendingIntent)
+                .addAction(0,"RECUSAR",refuseIntent)
+                .setAutoCancel(true)
 
 
             notificationManager.createNotificationChannel(channel)

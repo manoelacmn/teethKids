@@ -22,6 +22,9 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
 
+        val notificationManager: NotificationManager = context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+
         functions = Firebase.functions("southamerica-east1")
         auth = Firebase.auth
         val user = Firebase.auth.currentUser
@@ -39,12 +42,25 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 
        // val notificationManager: NotificationManager = getSystemService(contextontext.NOTIFICATION_SERVICE) as NotificationManager
 
+         fun acceptEmergency(emergency: String, uid: String): Task<HttpsCallableResult> {
+            notificationManager.cancel(0)
+            Log.d("FUNCTION","START")
+            val data = hashMapOf(
+                "emergency" to emergency,
+                "userName" to uid
+            )
+            return functions
+                .getHttpsCallable("acceptEmergency")
+                .call(data)
+        }
+
+
+
 
         val message = intent?.getStringExtra("MESSAGE")
         val uid = intent?.getStringExtra("emergencyUid").toString();
         val id = intent?.getStringExtra("notificationID").toString();
 
-        val notificationManager: NotificationManager = context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 //        notificationManager.cancel(id.toInt())
         if (user != null) {
             acceptEmergency(uid,user.uid);
@@ -62,16 +78,17 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 
 
 // TOOO change uid to username
-    private fun acceptEmergency(emergency: String, uid: String): Task<HttpsCallableResult> {
-        Log.d("FUNCTION","START")
-        val data = hashMapOf(
-            "emergency" to emergency,
-            "userName" to uid
-        )
-        return functions
-            .getHttpsCallable("acceptEmergency")
-            .call(data)
-    }
+//    private fun acceptEmergency(emergency: String, uid: String): Task<HttpsCallableResult> {
+//
+//        Log.d("FUNCTION","START")
+//        val data = hashMapOf(
+//            "emergency" to emergency,
+//            "userName" to uid
+//        )
+//        return functions
+//            .getHttpsCallable("acceptEmergency")
+//            .call(data)
+//    }
 
 //    export const acceptEmergency = functions.region("southamerica-east1").https.onCall(async (data, context) => {
 //        const emergency = data.emergency.toString();
