@@ -29,7 +29,7 @@ class recycleVeiw : AppCompatActivity() {
         // configurando o adapter
 
 
-        callListAllEmergencies()
+
 
 
         val listadePerfil: MutableList<perfil> = mutableListOf()
@@ -39,55 +39,66 @@ class recycleVeiw : AppCompatActivity() {
         )//o construtor espera os parametros  da classe adpeterperfil lista
         binding.recyclerView.adapter = adapterPerfil
         //criando os itens da lista
-        val perfeil1 = perfil(
-            R.drawable.baseline_person_24,
-            "Nome do usuario",
-            "Distância,Tempo de Espera",
-            "Analisar"
-        )
-        // adicionar na lista d chamada(perfil)
-        listadePerfil.add(perfeil1)
+//        val perfeil1 = perfil(
+//            R.drawable.baseline_person_24,
+//            "Nome do usuario",
+//            "Distância,Tempo de Espera",
+//            "Analisar"
+//        )
+//        // adicionar na lista d chamada(perfil)
+//        listadePerfil.add(perfeil1)
 
-    }
 
-    private fun callListAllEmergencies() {
 
-        val data = hashMapOf<String, Any>() // Pass any necessary data to the function
+        fun callListAllEmergencies() {
 
-        val result = functions.getHttpsCallable("listAllEmergencies")
-            .call(data)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val result =
-                        task.result?.data.toString()  //[ {uid=2211221121221, nome=guts, status=new}, {uid=2112122121, nome=uwu, status=new}]
+            val data = hashMapOf<String, Any>() // Pass any necessary data to the function
 
-                    Log.d(
-                        "RESULT:",
-                        result.toString()
-                    ) //[ {uid=2211221121221, nome=guts, status=new}, {uid=2112122121, nome=uwu, status=new}]
+            val result = functions.getHttpsCallable("listAllEmergencies")
+                .call(data)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val result =
+                            task.result?.data.toString()  //[ {uid=2211221121221, nome=guts, status=new}, {uid=2112122121, nome=uwu, status=new}]
 
-                    val list = result
-                        .substring(1, result.length - 1) // Remove the square brackets
-                        .split("}, ") // Split the elements
+                        Log.d(
+                            "RESULT:",
+                            result.toString()
+                        ) //[ {uid=2211221121221, nome=guts, status=new}, {uid=2112122121, nome=uwu, status=new}]
 
-                    val hashMapList = list.map { element ->
-                        val keyValuePairs = element
-                            .replace("{", "")
-                            .replace("}", "")
-                            .split(", ")
+                        val list = result
+                            .substring(1, result.length - 1) // Remove the square brackets
+                            .split("}, ") // Split the elements
 
-                        val hashMap = hashMapOf<String, Any>()
-                        keyValuePairs.forEach { pair ->
-                            val keyValue = pair.split("=")
-                            val key = keyValue[0].trim()
-                            val value = keyValue[1].trim()
+                        val hashMapList = list.map { element ->
+                            val keyValuePairs = element
+                                .replace("{", "")
+                                .replace("}", "")
+                                .split(", ")
 
-                            hashMap[key] = value
+                            val hashMap = hashMapOf<String, Any>()
+                            keyValuePairs.forEach { pair ->
+                                val keyValue = pair.split("=")
+                                val key = keyValue[0].trim()
+                                val value = keyValue[1].trim()
 
+                                hashMap[key] = value
+
+                            }
+                            Log.d("NEW HASHMAP:", hashMap.toString())
+                            var profile = perfil(
+                                R.drawable.baseline_person_24,
+                                hashMap["nome"] as String,
+                                "Distância,Tempo de Espera",
+                                "Analisar"
+                            )
+
+                            listadePerfil.add(profile)
                         }
-                        Log.d("NEW HASHMAP:",hashMap.toString())
+                        binding.recyclerView.adapter = adapterPerfil
                     }
                 }
-            }
+        }
+        callListAllEmergencies()
     }
 }
