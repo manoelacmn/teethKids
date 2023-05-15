@@ -164,7 +164,7 @@
                             app:layout_constraintEnd_toEndOf="@+id/imageviewAlerta"
                             app:layout_constraintStart_toStartOf="@+id/imageviewAlerta"
                             app:layout_constraintTop_toTopOf="@+id/imageviewAlerta"
-                            app:srcCompat="@drawable/baseline_error_outline_24" />
+                          android:contentDescription="TODO" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
