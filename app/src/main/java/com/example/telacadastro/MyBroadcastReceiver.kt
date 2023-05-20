@@ -22,7 +22,8 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
 
-        val notificationManager: NotificationManager = context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager: NotificationManager =
+            context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
 
         functions = Firebase.functions("southamerica-east1")
@@ -40,11 +41,11 @@ class MyBroadcastReceiver : BroadcastReceiver() {
         }
 
 
-       // val notificationManager: NotificationManager = getSystemService(contextontext.NOTIFICATION_SERVICE) as NotificationManager
+        // val notificationManager: NotificationManager = getSystemService(contextontext.NOTIFICATION_SERVICE) as NotificationManager
 
-         fun acceptEmergency(emergency: String, uid: String): Task<HttpsCallableResult> {
-            notificationManager.cancel(0)
-            Log.d("FUNCTION","START")
+        fun acceptEmergency(emergency: String, uid: String): Task<HttpsCallableResult> {
+             notificationManager.cancel(0)
+            Log.d("FUNCTION", "START")
             val data = hashMapOf(
                 "emergency" to emergency,
                 "userName" to uid
@@ -54,49 +55,62 @@ class MyBroadcastReceiver : BroadcastReceiver() {
                 .call(data)
         }
 
-
+        fun refuseEmergency(emergency: String, uid: String): Task<HttpsCallableResult> {
+            notificationManager.cancel(0)
+            Log.d("FUNCTION", "START")
+            val data = hashMapOf(
+                "emergency" to emergency,
+                "userName" to uid
+            )
+            return functions
+                .getHttpsCallable("refuseEmergency")
+                .call(data)
+        }
 
 
         val message = intent?.getStringExtra("MESSAGE")
         val uid = intent?.getStringExtra("emergencyUid").toString();
         val id = intent?.getStringExtra("notificationID").toString();
 
+
+//
+//        val intentExtras = intent?.extras
+//            if (intentExtras != null) {
+//                for (key in intentExtras.keySet()) {
+//                    val value = intentExtras.get(key)
+//                    Log.d("ALL INTENT EXTRAS", "$key: $value")
+//                }
+//            }
+
 //        notificationManager.cancel(id.toInt())
-        if (user != null) {
-            acceptEmergency(uid,user.uid);
+        if (id == "acceptEmergency") {
+
+            if (user != null) {
+                acceptEmergency(uid, user.uid);
+            }
+            Log.d("channelID", id)
+            Log.d(context.toString(), uid)
+            Log.d(context.toString(), "new message")
+            if (message != null) {
+                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+            }
         }
 
-        Log.d("channelID",id)
-        Log.d(context.toString(),uid)
-        Log.d(context.toString(),"new message")
-        if (message!=null){
-            Toast.makeText(context,message,Toast.LENGTH_LONG).show()
+        if (id == "refuseEmergency") {
+
+            if (user != null) {
+                refuseEmergency(uid, user.uid);
+            }
+            Log.d("channelID", id)
+            Log.d(context.toString(), uid)
+            Log.d(context.toString(), "new message")
+            if (message != null) {
+                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+            }
         }
-
-
     }
 
 
-// TOOO change uid to username
-//    private fun acceptEmergency(emergency: String, uid: String): Task<HttpsCallableResult> {
-//
-//        Log.d("FUNCTION","START")
-//        val data = hashMapOf(
-//            "emergency" to emergency,
-//            "userName" to uid
-//        )
-//        return functions
-//            .getHttpsCallable("acceptEmergency")
-//            .call(data)
-//    }
-
-//    export const acceptEmergency = functions.region("southamerica-east1").https.onCall(async (data, context) => {
-//        const emergency = data.emergency.toString();
-//        // const uid = context.auth?.uid;
-//        const userName = data.userName.toString();
-//        const emergencyDocRef = db.collection("emergency").doc(emergency);
-//        (await emergencyDocRef.update({status: "accepted", acceptedBy: userName}));
-//    });
 
 }
 

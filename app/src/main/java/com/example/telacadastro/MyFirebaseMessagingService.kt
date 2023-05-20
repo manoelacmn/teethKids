@@ -16,15 +16,35 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.core.app.NotificationManagerCompat
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 
 
+
 class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
     lateinit var storage: FirebaseStorage
+
+     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings");
+
+    val EXAMPLE_COUNTER = booleanPreferencesKey("isAvalible")
+
+
+
+//    val exampleCounterFlow: Flow<Boolean> = dataStore.data
+//        .map { preferences ->
+//            // No type safety.
+//            preferences[EXAMPLE_COUNTER] ?: 0
+//        } as Flow<Boolean>
+
+
+
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
 
         // TODO(developer): Handle FCM messages here.
@@ -33,10 +53,15 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
 
 
+
+
+
+
         // Check if message contains a data payload.
         if (remoteMessage.data.isNotEmpty()) {
             Log.d(TAG, "Message data payload: ${remoteMessage.data}")
             Log.d(TAG,"UID: ${remoteMessage.data["uid"]}")
+
             remoteMessage.data["uid"]?.let { sendNotification(it) }
             // Check if data needs to be processed by long running job
             if (needsToBeScheduled()) {
@@ -64,17 +89,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         // FCM registration token to your app server.
         sendRegistrationToServer(token)
     }
-    // [END on_new_token]
 
-//    private fun scheduleJob() {
-//        // [START dispatch_job]
-//        val work = OneTimeWorkRequest.Builder(MyWorker::class.java)
-//            .build()
-//        WorkManager.getInstance(this)
-//            .beginWith(work)
-//            .enqueue()
-//        // [END dispatch_job]
-//    }
 
     private fun handleNow() {
         Log.d(TAG, "Short lived task is done.")
@@ -116,21 +131,23 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
             val intent = Intent(this, MyBroadcastReceiver::class.java)
                 .putExtra("emergencyUid",msg )
-                .putExtra("notificationID","emergencias")
+                .putExtra("notificationID","acceptEmergency")
+                .putExtra("FURRY","STRAITGH")
                 .apply { action = "com.example.ACTION_LOG" }
 
             //intent.putExtra("emergencyUid",msg)
-            val intentExtras = intent.extras
-            if (intentExtras != null) {
-                for (key in intentExtras.keySet()) {
-                    val value = intentExtras.get(key)
-                    Log.d("IntentExtras", "$key: $value")
-                }
-            }
+//            val intentExtras = intent.extras
+//            if (intentExtras != null) {
+//                for (key in intentExtras.keySet()) {
+//                    val value = intentExtras.get(key)
+//                    Log.d("IntentExtras", "$key: $value")
+//                }
+//            }
 
             val refuseIntentExtras = Intent(this, MyBroadcastReceiver::class.java)
                 .putExtra("emergencyUid",msg )
-                .putExtra("notificationID","emergencias")
+                .putExtra("notificationID","refuseEmergency")
+                .putExtra("FURRY","FEMBOY")
                 .apply { action = "com.example.ACTION_LOG" }
 
             val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -148,10 +165,8 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             } // setting the mutability flag )
 
             val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
-                .setSmallIcon(androidx.core.R.drawable.notification_template_icon_bg)
+                .setSmallIcon(R.drawable.baseline_healing_24)
                 .setContentTitle("NEW emergency")
-//            .setStyle(NotificationCompat.BigTextStyle()
-//                .bigText(msg))
                 .setStyle(NotificationCompat.BigPictureStyle().bigPicture(monkey))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .addAction(R.drawable.ic_action_name, "Aceitar Emergência?",pendingIntent)
@@ -169,9 +184,6 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
         //Log.d("IMAGE FILETYPE", )
 
-        val httpsReference = storage.getReferenceFromUrl(
-            "https://firebasestorage.googleapis.com/v0/b/teethkids-10c6a.appspot.com/o/emergencias%2F1%2Forangutan_square-763017175.jpg?alt=media&token=4eede945-cad9-46da-a193-f3dc7f1123ee"
-        )
 
 //        val name = getString(R.string.channel_name)
 //        val descriptionText = getString(R.string.channel_description)

@@ -54,7 +54,6 @@
         android:layout_marginBottom="76dp"
         android:backgroundTint="@color/Azul_claro"
         android:textColor="@color/Azul_escuro"
-
         android:fontFamily="@font/comfortaa_bold"
         android:text="Ver reputação"
         app:layout_constraintBottom_toTopOf="@+id/etEndereco1EditarPerfil"

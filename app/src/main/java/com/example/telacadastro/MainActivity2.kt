@@ -1,12 +1,19 @@
 package com.example.telacadastro
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.util.Log
 import android.widget.Toast
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
 import com.example.telacadastro.databinding.ActivityCriarcontaBinding
 import com.example.telacadastro.databinding.ActivityEmergenciaBinding
 import com.example.telacadastro.databinding.ActivityMain2Binding
@@ -19,8 +26,40 @@ import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.forEach
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+
+
+//val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings");
+
+
 
 class MainActivity2 : AppCompatActivity() {
+
+    val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings");
+
+
+
+    val EXAMPLE_COUNTER = booleanPreferencesKey("isAvalible");
+//
+//
+    suspend fun incrementCounter() {
+        dataStore.edit { settings ->
+            val currentCounterValue = settings[EXAMPLE_COUNTER] ?: false
+            settings[EXAMPLE_COUNTER] = true
+        }
+    }
+
+//    val exampleCounterFlow  = dataStore.data
+//        .map { preferences ->
+//            // No type safety.
+//            preferences[EXAMPLE_COUNTER] ?: 0
+//        }
+
     private lateinit var auth: FirebaseAuth
     private lateinit var binding:ActivityMain2Binding
     private lateinit var functions: FirebaseFunctions
@@ -104,9 +143,45 @@ class MainActivity2 : AppCompatActivity() {
         var ligadoOuDesligado = ""
         if (isCheked) {
             ligadoOuDesligado = "Ligado"
+//            runBlocking { launch {
+//                dataStore.edit { settings ->
+//                    settings[EXAMPLE_COUNTER] = true
+//            } }
+
 
             val status = binding.switch1.text.toString()
             statustperfil(status)
+
+            runBlocking {
+                launch {
+                    dataStore.edit { settings ->
+                        settings[EXAMPLE_COUNTER] = true
+//                        Log.d("CHANGING STATUS:",settings[EXAMPLE_COUNTER].toString())
+//                        return@edit{ settings[EXAMPLE_COUNTER]}
+                    }
+
+
+//                    val exampleCounterFlow: Flow<Boolean> = dataStore.data.map { preferences ->
+//                        preferences[EXAMPLE_COUNTER] ?: 0
+//
+//                    } as Flow<Boolean>
+                    val boolKey = booleanPreferencesKey("isAvalible")
+
+                    fun isAvalible(): Flow<Boolean> {
+                        return dataStore.data.map {pref->
+                            val availability = pref[boolKey] ?: false
+                            availability
+                        }
+
+                     };
+
+                    val result = isAvalible()
+
+                    Log.d("BOOLKEY",result.toString())
+
+
+                }
+            }
 
             Toast.makeText(
                 baseContext,
@@ -120,6 +195,34 @@ class MainActivity2 : AppCompatActivity() {
                 "Offline",
                 Toast.LENGTH_SHORT,
             ).show()
+
+//            runBlocking {
+//                launch {
+//                    dataStore.edit { settings ->
+//                        settings[EXAMPLE_COUNTER] = false
+//                        Log.d("CHANGING STATUS:",settings[EXAMPLE_COUNTER].toString())
+//                    }
+//
+//                    dataStore.data.collect {
+//                            value -> println("Collected $value")
+//                    }
+//
+//
+//                    dataStore.data.map {value -> Log.d("DATASTORE VALUES:",value.toString())
+//                    }
+//
+//
+////                    dataStore.data
+////                        .map { preferences ->
+////                            // No type safety.
+////                            preferences[EXAMPLE_COUNTER] ?: 0
+////                            Log.d("Collected2:",preferences[EXAMPLE_COUNTER].toString())
+////                        }
+//                }
+//            }
+
+
+
         }
         binding.switch1.text = ligadoOuDesligado
         }
