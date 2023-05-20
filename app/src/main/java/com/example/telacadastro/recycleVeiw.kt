@@ -1,23 +1,24 @@
 package com.example.telacadastro
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.telacadastro.adapter.adpterPerfil
+import com.example.telacadastro.adapter.AdpterPerfil
 import com.example.telacadastro.databinding.ActivityRecycleVeiwBinding
 import com.example.telacadastro.model.perfil
 import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.tasks.await
 
 
 private lateinit var binding: ActivityRecycleVeiwBinding
 private lateinit var functions: FirebaseFunctions
+private var perfil: MutableList<perfil> = mutableListOf()
+private lateinit var adpterPerfil: AdpterPerfil
 
-class recycleVeiw : AppCompatActivity() {
+class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
     override fun onCreate(savedInstanceState: Bundle?) {
         functions = Firebase.functions("southamerica-east1")
         super.onCreate(savedInstanceState)
@@ -31,13 +32,11 @@ class recycleVeiw : AppCompatActivity() {
 
 
 
+        adpterPerfil = AdpterPerfil(this, perfil,this@recycleVeiw)
 
-        val listadePerfil: MutableList<perfil> = mutableListOf()
-        val adapterPerfil = adpterPerfil(
-            this,
-            listadePerfil
-        )//o construtor espera os parametros  da classe adpeterperfil lista
-        binding.recyclerView.adapter = adapterPerfil
+
+        //o construtor espera os parametros  da classe adpeterperfil lista
+        binding.recyclerView.adapter = adpterPerfil
         //criando os itens da lista
 //        val perfeil1 = perfil(
 //            R.drawable.baseline_person_24,
@@ -93,12 +92,29 @@ class recycleVeiw : AppCompatActivity() {
                                 "Analisar"
                             )
 
-                            listadePerfil.add(profile)
+                            perfil.add(profile)
                         }
-                        binding.recyclerView.adapter = adapterPerfil
+                        binding.recyclerView.adapter = adpterPerfil
                     }
                 }
         }
         callListAllEmergencies()
+
+
     }
+
+
+    private  fun  irTelaperfil(){
+        var iranalise = Intent(this,perfil_socorrista::class.java)
+        startActivity(iranalise)
+    }
+
+    override fun onClick(position: Int) {
+        when(position){
+            0->startActivity(Intent(this,perfil_socorrista::class.java))
+        }
+
+    }
+
+
 }

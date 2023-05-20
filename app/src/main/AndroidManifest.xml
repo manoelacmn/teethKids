@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Telacadastro"
         tools:targetApi="31">
         <activity
+            android:name=".perfil_socorrista"
+            android:exported="false" />
+        <activity
             android:name=".recycleVeiw"
             android:exported="false" />
         <activity

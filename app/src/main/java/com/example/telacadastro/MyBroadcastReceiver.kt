@@ -66,7 +66,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
             acceptEmergency(uid,user.uid);
         }
 
-        Log.d("channelID",id)
+        Log.d("channelID",id) 
         Log.d(context.toString(),uid)
         Log.d(context.toString(),"new message")
         if (message!=null){
