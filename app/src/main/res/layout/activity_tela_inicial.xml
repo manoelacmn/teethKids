@@ -141,6 +141,7 @@
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ly_tela_emergencia"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:background="@drawable/white_btn_background">
@@ -160,11 +161,11 @@
                             android:id="@+id/imageView7"
                             android:layout_width="58dp"
                             android:layout_height="51dp"
+                            android:contentDescription="TODO"
                             app:layout_constraintBottom_toBottomOf="@+id/imageviewAlerta"
                             app:layout_constraintEnd_toEndOf="@+id/imageviewAlerta"
                             app:layout_constraintStart_toStartOf="@+id/imageviewAlerta"
-                            app:layout_constraintTop_toTopOf="@+id/imageviewAlerta"
-                          android:contentDescription="TODO" />
+                            app:layout_constraintTop_toTopOf="@+id/imageviewAlerta" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
