@@ -24,9 +24,6 @@
             android:name=".Tela_Inicial"
             android:exported="false" />
         <activity
-            android:name=".TelaInicial"
-            android:exported="false" />
-        <activity
             android:name=".notification"
             android:exported="false" />
         <activity
@@ -35,9 +32,7 @@
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
-        <activity
-            android:name=".continuarCadastro"
-            android:exported="false" />
+
         <activity
             android:name=".telaLogin"
             android:exported="false" />

@@ -63,12 +63,28 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView5"
-        android:layout_width="347dp"
-        android:layout_height="385dp"
+        android:layout_width="233dp"
+        android:layout_height="286dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.417"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNome"
+        android:layout_width="284dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="64dp"
+        android:text="usuario"
+        android:textColor="@color/Azul_escuro"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.271" />
 </androidx.constraintlayout.widget.ConstraintLayout>

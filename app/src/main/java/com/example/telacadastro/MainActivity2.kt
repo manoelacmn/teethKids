@@ -165,7 +165,6 @@ class MainActivity2 : AppCompatActivity() {
             val endereco2 = binding.etEndereco2EditarPerfil.text.toString()
             val endereco3 = binding.etEndereco3EditarPerfil.text.toString()
             val cv = binding.etCurriculoEditarPerfil.text.toString()
-
             val user = Firebase.auth.currentUser
             user?.let {
                 // Name, email address, and profile photo Url
@@ -192,17 +191,19 @@ class MainActivity2 : AppCompatActivity() {
                 "status" to result
             )
             updateUserInfo(usuario);
-//            db.collection("usuarios").add(usuario)
-//            Toast.makeText(baseContext,"Atualizado",Toast.LENGTH_LONG).show()
+            db.collection("usuarios").add(usuario)
+            Toast.makeText(baseContext,"Atualizado",Toast.LENGTH_LONG).show()
         }
 
 
 
 
-        binding.switch1.setOnCheckedChangeListener{buttonView,isCheked -> isCheked
-        var ligadoOuDesligado = ""
-        if (isCheked) {
-            ligadoOuDesligado = "Ligado"
+       // binding.switch1.setOnCheckedChangeListener{buttonView,isCheked -> isCheked
+       // var ligadoOuDesligado = ""
+
+
+      //  if (isCheked) {
+        //    ligadoOuDesligado = "Ligado"
 //            runBlocking { launch {
 //                dataStore.edit { settings ->
 //                    settings[EXAMPLE_COUNTER] = true
@@ -283,8 +284,8 @@ class MainActivity2 : AppCompatActivity() {
 
 
 
-        }
-        }
+        //}
+        //}
     }
 
     private fun statustperfil(status:String) {
@@ -330,17 +331,6 @@ class MainActivity2 : AppCompatActivity() {
 
         var result:String = ""
 
-        binding.switch1.setOnCheckedChangeListener { _, isChecked ->
-            val result = if (isChecked) {
-                // The switch is checked.
-                "online"
-            } else {
-                // The switch isn't checked.
-                "offline"
-            }
-
-        }
-        Log.d("SWITCH STATUS", result.toString())
 
 
         binding.btnSalvarDados.setOnClickListener { btnSalvarDados ->
@@ -383,6 +373,20 @@ class MainActivity2 : AppCompatActivity() {
 
 
 
+    //    binding.switch1.setOnCheckedChangeListener { _, isChecked ->
+      //      val result = if (isChecked) {
+                // The switch is checked.
+         //       "online"
+           //     println("online")
+
+
+            //} else {
+                // The switch isn't checked.
+              //  "offline"
+            //}
+
+        //}
+        //Log.d("SWITCH STATUS", result.toString())
     }
 }
 

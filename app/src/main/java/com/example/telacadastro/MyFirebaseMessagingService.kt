@@ -17,21 +17,20 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.core.app.NotificationManagerCompat
 import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
-
+import java.util.prefs.Preferences
 
 
 class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
     lateinit var storage: FirebaseStorage
 
-     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings");
+    // private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings");
 
     val EXAMPLE_COUNTER = booleanPreferencesKey("isAvalible")
 
@@ -162,8 +161,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
             } else {
                 TODO("VERSION.SDK_INT < S")
-            } // setting the mutability flag )
-
+            } // setting the mutability flag )         }
             val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
                 .setSmallIcon(R.drawable.baseline_healing_24)
                 .setContentTitle("NEW emergency")
