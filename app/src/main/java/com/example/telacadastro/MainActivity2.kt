@@ -65,7 +65,9 @@ class MainActivity2 : AppCompatActivity() {
 
 
         functions = Firebase.functions("southamerica-east1")
-
+        super.onCreate(savedInstanceState)
+        binding = ActivityMain2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val user = Firebase.auth.currentUser
         user?.let {
@@ -129,9 +131,6 @@ class MainActivity2 : AppCompatActivity() {
 
 
 
-        super.onCreate(savedInstanceState)
-        binding = ActivityMain2Binding.inflate(layoutInflater)
-        setContentView(binding.root)
 
 
         var result: String = ""
@@ -347,7 +346,7 @@ class MainActivity2 : AppCompatActivity() {
                    val user = Firebase.auth.currentUser
             user?.let {
                 // Name, email address, and profile photo Url
-                val uid = it.email
+                val uid = it.uid
 
             }
 

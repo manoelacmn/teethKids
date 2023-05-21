@@ -133,31 +133,31 @@
         app:layout_constraintTop_toBottomOf="@+id/etEndereco2EditarPerfil" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etCurriculoEditarPerfil"
-        android:layout_width="380dp"
-        android:textColorHint="@color/Azul_escuro"
-        android:layout_height="150dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="2dp"
-        android:fontFamily="@font/comfortaa_bold"
-        android:hint="Mini-Currículo"
-        app:layout_constraintBottom_toTopOf="@+id/btnSalvarDados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailEditarPerfil" />
+      android:id="@+id/etCurriculoEditarPerfil"
+      android:layout_width="380dp"
+      android:layout_height="150dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginBottom="2dp"
+      android:fontFamily="@font/comfortaa_bold"
+      android:hint="Mini-Currículo"
+      android:textColorHint="@color/Azul_escuro"
+      app:layout_constraintBottom_toTopOf="@+id/btnSalvarDados"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/etEmailEditarPerfil" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSalvarDados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/Azul_claro"
-        android:textColor="@color/Azul_escuro"
-        android:fontFamily="@font/comfortaa_bold"
-        android:text="Salvar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCurriculoEditarPerfil" />
+      android:id="@+id/btnSalvarDados"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:backgroundTint="@color/Azul_claro"
+      android:fontFamily="@font/comfortaa_bold"
+      android:text="Salvar"
+      android:textColor="@color/Azul_escuro"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/etCurriculoEditarPerfil" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView2"
