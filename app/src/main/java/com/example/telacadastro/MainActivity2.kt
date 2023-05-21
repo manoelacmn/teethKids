@@ -89,11 +89,11 @@ class MainActivity2 : AppCompatActivity() {
             val uid = it.uid
         }
         if (user != null) {
-            Toast.makeText(
-                baseContext,
-                user.uid,
-                Toast.LENGTH_SHORT,
-            ).show()
+//            Toast.makeText(
+//                baseContext,
+//                user.uid,
+//                Toast.LENGTH_SHORT,
+//            ).show()
 
         }
 
@@ -110,7 +110,7 @@ class MainActivity2 : AppCompatActivity() {
             // Log and toast
             val msg = token
             Log.d(TAG, msg)
-            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+//            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
 
             val user = Firebase.auth.currentUser
             user?.let {
@@ -246,6 +246,22 @@ class MainActivity2 : AppCompatActivity() {
         softKeyManager.hideSoftInputFromWindow(binding.btnSalvarDados.windowToken, 0)
     }
 
+    private fun updateUserInfo(data: HashMap<String,String>): Task<String> {
+        // Create the arguments to the callable function.
+
+
+        return functions
+            .getHttpsCallable("updateUserInfo")
+            .call(data)
+            .continueWith { task ->
+                // This continuation runs on either success or failure, but if the task
+                // has failed then result will throw an Exception which will be
+                // propagated down.
+                val result = task.result?.data as String
+                result
+            }
+    }
+
 
     private fun onCreate(savedInstanceState: Bundle?, optionalParam: String? = null) {
         auth = Firebase.auth
@@ -262,19 +278,36 @@ class MainActivity2 : AppCompatActivity() {
             val endereco3 = binding.etEndereco3EditarPerfil.text.toString()
             val cv = binding.etCurriculoEditarPerfil.text.toString()
 
+
             //singUpNewAccount(nome , email)
             val db = Firebase.firestore
-// está duplicando
-//            val usuario = hashMapOf(
-//                "email" to email,
-//                "nome" to nome,
-//                "endereco1" to endereco1,
-//                "endereco2" to endereco2,
-//                "endereco3" to endereco3,
-//                "curriculo" to cv
-//            )
+
+
+            val usuario = hashMapOf(
+                "phoneNumber" to
+                "nome" to nome,
+                "address1" to endereco1,
+                "address2" to endereco2,
+                "address3" to endereco3,
+                "curriculum" to cv
+            )
 //            db.collection("usuarios").add(usuario)
 //            Toast.makeText(baseContext,"Atualizado",Toast.LENGTH_LONG).show()
         }
+
+
+
+
     }
 }
+
+
+
+//const userUid = data.userUid;
+//const name = data.name;
+//const phoneNumber = data.phoneNumber;
+//const curriculum = data.curriculum;
+//const status = data.name;
+//const address1 = data.address1;
+//const address2 = data.address2;
+//const address3 = data.address3;
