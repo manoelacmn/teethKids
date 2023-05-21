@@ -12,10 +12,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.telacadastro.databinding.ActivityCriarcontaBinding
-import com.example.telacadastro.databinding.ActivityEmergenciaBinding
 import com.example.telacadastro.databinding.ActivityMain2Binding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
@@ -27,8 +24,6 @@ import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.forEach
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -67,7 +62,6 @@ class MainActivity2 : AppCompatActivity() {
 
     @SuppressLint("StringFormatInvalid")
     override fun onCreate(savedInstanceState: Bundle?) {
-
 
 
         functions = Firebase.functions("southamerica-east1")
@@ -139,6 +133,72 @@ class MainActivity2 : AppCompatActivity() {
         binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        var result: String = ""
+        binding.switch1.setOnCheckedChangeListener{buttonView,isCheked -> isCheked
+            if (isCheked) {
+                result = "online"
+                Log.d("SWITCH", "ACTIVATED")
+                Toast.makeText(
+                    baseContext,
+                    result.toString(),
+                    Toast.LENGTH_SHORT,
+                ).show()
+            }else {
+                result ="offline"
+                Toast.makeText(
+                    baseContext,
+                    result,
+                    Toast.LENGTH_SHORT,
+                ).show()
+            }
+            binding.switch1.text = result
+        }
+
+
+        binding.btnSalvarDados.setOnClickListener { btnSalvarDados ->
+            hideSoftKeyboard()
+            val phoneNumber = binding.etTelefone.text.toString()
+            val email = binding.etEmailEditarPerfil.text.toString()
+            val nome = binding.etNomeEditarPerfil.text.toString()
+            val endereco1 = binding.etEndereco1EditarPerfil.text.toString()
+            val endereco2 = binding.etEndereco2EditarPerfil.text.toString()
+            val endereco3 = binding.etEndereco3EditarPerfil.text.toString()
+            val cv = binding.etCurriculoEditarPerfil.text.toString()
+
+            val user = Firebase.auth.currentUser
+            user?.let {
+                // Name, email address, and profile photo Url
+                val uid = it.email
+
+            }
+
+            //singUpNewAccount(nome , email)
+            val db = Firebase.firestore
+
+
+
+            Log.d("SWITCH STATUS", result)
+
+
+            val usuario = hashMapOf(
+                "userUid" to (user?.uid),
+                "phoneNumber" to phoneNumber,
+                "nome" to nome,
+                "address1" to endereco1,
+                "address2" to endereco2,
+                "address3" to endereco3,
+                "curriculum" to cv,
+                "status" to result
+            )
+            updateUserInfo(usuario);
+//            db.collection("usuarios").add(usuario)
+//            Toast.makeText(baseContext,"Atualizado",Toast.LENGTH_LONG).show()
+        }
+
+
+
+
         binding.switch1.setOnCheckedChangeListener{buttonView,isCheked -> isCheked
         var ligadoOuDesligado = ""
         if (isCheked) {
@@ -149,52 +209,52 @@ class MainActivity2 : AppCompatActivity() {
 //            } }
 
 
-            val status = binding.switch1.text.toString()
-            statustperfil(status)
-
-            runBlocking {
-                launch {
-                    dataStore.edit { settings ->
-                        settings[EXAMPLE_COUNTER] = true
-//                        Log.d("CHANGING STATUS:",settings[EXAMPLE_COUNTER].toString())
-//                        return@edit{ settings[EXAMPLE_COUNTER]}
-                    }
-
-
-//                    val exampleCounterFlow: Flow<Boolean> = dataStore.data.map { preferences ->
-//                        preferences[EXAMPLE_COUNTER] ?: 0
+//            val status = binding.switch1.text.toString()
+//            statustperfil(status)
 //
-//                    } as Flow<Boolean>
-                    val boolKey = booleanPreferencesKey("isAvalible")
+//            runBlocking {
+//                launch {
+//                    dataStore.edit { settings ->
+//                        settings[EXAMPLE_COUNTER] = true
+////                        Log.d("CHANGING STATUS:",settings[EXAMPLE_COUNTER].toString())
+////                        return@edit{ settings[EXAMPLE_COUNTER]}
+//                    }
+//
+//
+////                    val exampleCounterFlow: Flow<Boolean> = dataStore.data.map { preferences ->
+////                        preferences[EXAMPLE_COUNTER] ?: 0
+////
+////                    } as Flow<Boolean>
+//                    val boolKey = booleanPreferencesKey("isAvalible")
+//
+//                    fun isAvalible(): Flow<Boolean> {
+//                        return dataStore.data.map {pref->
+//                            val availability = pref[boolKey] ?: false
+//                            availability
+//                        }
+//
+//                     };
+//
+//                    val result = isAvalible()
+//
+//                    Log.d("BOOLKEY",result.toString())
+//
+//
+//                }
+//            }
 
-                    fun isAvalible(): Flow<Boolean> {
-                        return dataStore.data.map {pref->
-                            val availability = pref[boolKey] ?: false
-                            availability
-                        }
-
-                     };
-
-                    val result = isAvalible()
-
-                    Log.d("BOOLKEY",result.toString())
-
-
-                }
-            }
-
-            Toast.makeText(
-                baseContext,
-                "Online",
-                Toast.LENGTH_SHORT,
-            ).show()
-        }else {
-            ligadoOuDesligado="Desligado"
-            Toast.makeText(
-                baseContext,
-                "Offline",
-                Toast.LENGTH_SHORT,
-            ).show()
+//            Toast.makeText(
+//                baseContext,
+//                "Online",
+//                Toast.LENGTH_SHORT,
+//            ).show()
+//        }else {
+//            ligadoOuDesligado="Desligado"
+//            Toast.makeText(
+//                baseContext,
+//                "Offline",
+//                Toast.LENGTH_SHORT,
+//            ).show()
 
 //            runBlocking {
 //                launch {
@@ -224,7 +284,6 @@ class MainActivity2 : AppCompatActivity() {
 
 
         }
-        binding.switch1.text = ligadoOuDesligado
         }
     }
 
@@ -246,7 +305,7 @@ class MainActivity2 : AppCompatActivity() {
         softKeyManager.hideSoftInputFromWindow(binding.btnSalvarDados.windowToken, 0)
     }
 
-    private fun updateUserInfo(data: HashMap<String,String>): Task<String> {
+    private fun updateUserInfo(data: HashMap<String, String?>): Task<String> {
         // Create the arguments to the callable function.
 
 
@@ -269,8 +328,25 @@ class MainActivity2 : AppCompatActivity() {
         binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var result:String = ""
+
+        binding.switch1.setOnCheckedChangeListener { _, isChecked ->
+            val result = if (isChecked) {
+                // The switch is checked.
+                "online"
+            } else {
+                // The switch isn't checked.
+                "offline"
+            }
+
+        }
+        Log.d("SWITCH STATUS", result.toString())
+
+
         binding.btnSalvarDados.setOnClickListener { btnSalvarDados ->
             hideSoftKeyboard()
+            val status = result.toString()
+            val phoneNumber = binding.etTelefone.text.toString()
             val email = binding.etEmailEditarPerfil.text.toString()
             val nome = binding.etNomeEditarPerfil.text.toString()
             val endereco1 = binding.etEndereco1EditarPerfil.text.toString()
@@ -278,19 +354,28 @@ class MainActivity2 : AppCompatActivity() {
             val endereco3 = binding.etEndereco3EditarPerfil.text.toString()
             val cv = binding.etCurriculoEditarPerfil.text.toString()
 
+                   val user = Firebase.auth.currentUser
+            user?.let {
+                // Name, email address, and profile photo Url
+                val uid = it.email
+
+            }
 
             //singUpNewAccount(nome , email)
             val db = Firebase.firestore
 
 
             val usuario = hashMapOf(
-                "phoneNumber" to
+                "userUid" to (user?.uid),
+                "phoneNumber" to phoneNumber,
                 "nome" to nome,
                 "address1" to endereco1,
                 "address2" to endereco2,
                 "address3" to endereco3,
-                "curriculum" to cv
+                "curriculum" to cv,
+                "status" to status
             )
+            updateUserInfo(usuario);
 //            db.collection("usuarios").add(usuario)
 //            Toast.makeText(baseContext,"Atualizado",Toast.LENGTH_LONG).show()
         }
