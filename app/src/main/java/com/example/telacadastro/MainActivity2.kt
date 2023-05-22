@@ -134,7 +134,7 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        var result: String = ""
+        var result: String = "offline"
         binding.switch1.setOnCheckedChangeListener{buttonView,isCheked -> isCheked
             if (isCheked) {
                 result = "online"
