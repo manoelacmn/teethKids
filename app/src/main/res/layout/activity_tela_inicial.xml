@@ -93,7 +93,7 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
-                        android:background="@drawable/white_btn_background">
+                        android:background="@drawable/box_widget">
 
                         <ImageView
                             android:id="@+id/imageViewPerfil"
@@ -144,7 +144,7 @@
                         android:id="@+id/ly_tela_emergencia"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
-                        android:background="@drawable/white_btn_background">
+                        android:background="@drawable/box_widget">
 
                         <ImageView
                             android:id="@+id/imageviewAlerta"
@@ -193,7 +193,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
-                        android:background="@drawable/white_btn_background">
+                        android:background="@drawable/box_widget">
 
                         <ImageView
                             android:id="@+id/imageView3"
@@ -254,7 +254,7 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
-                        android:background="@drawable/white_btn_background">
+                        android:background="@drawable/box_widget">
 
                         <ImageView
                             android:id="@+id/imageViewConfiguração"
@@ -301,7 +301,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
-                        android:background="@drawable/white_btn_background">
+                        android:background="@drawable/box_widget">
 
                         <ImageView
                             android:id="@+id/imageviewAvaliação"
@@ -351,7 +351,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
-                        android:background="@drawable/white_btn_background">
+                        android:background="@drawable/box_widget">
 
                         <ImageView
                             android:id="@+id/imageView8.8"
