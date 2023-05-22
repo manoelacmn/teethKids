@@ -7,22 +7,22 @@
     android:background="@drawable/background_2"
     tools:context=".criarConta">
 
+
     <ImageView
         android:id="@+id/roundedImageView"
-        android:layout_width="496dp"
-        android:layout_height="720dp"
+        android:layout_width="371dp"
+        android:layout_height="681dp"
+        android:background="#fffffff"
         android:bottomLeftRadius="30dp"
         android:bottomRightRadius="30dp"
-        android:topLeftRadius="30dp"
-        android:topRightRadius="30dp"
-        android:background="#00334040"
         android:scaleType="centerCrop"
         android:src="@drawable/box_widget"
+        android:topLeftRadius="30dp"
+        android:topRightRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653" />
+        app:layout_constraintVertical_bias="0.729"
+        tools:layout_editor_absoluteX="20dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView4"
@@ -36,11 +36,9 @@
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
+        app:layout_constraintVertical_bias="0.068" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView5"
@@ -51,24 +49,24 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
         app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="@+id/roundedImageView"
         app:layout_constraintTop_toTopOf="@+id/roundedImageView"
         app:layout_constraintVertical_bias="0.063" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtEmail_Criar_Conta"
-        android:layout_width="452dp"
-        android:layout_height="49dp"
+        android:layout_width="344dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
         android:fontFamily="@font/comfortaa_bold"
         android:hint="Digite o E-mail"
         app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
         app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="@+id/roundedImageView"
         app:layout_constraintTop_toTopOf="@+id/roundedImageView"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.157" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView6"
@@ -82,10 +80,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EtEmail_Criar_Conta"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintVertical_bias="0.126" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtSenha_Criar_Conta"
@@ -216,10 +214,10 @@
         android:text="Criar Conta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.747" />
+        app:layout_constraintVertical_bias="0.555" />
 
     <ImageView
         android:id="@+id/imageView2"
