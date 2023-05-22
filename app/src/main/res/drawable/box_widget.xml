@@ -4,11 +4,11 @@
         android:bottomRightRadius="30dp"
         android:topLeftRadius="30dp"
         android:topRightRadius="30dp" />
-    <solid android:color="#50ffffff " />
+    <solid android:color="#45ffffff " />
 
     <stroke
         android:width="5dp"
-        android:color="#95272643" />
+        android:color="#3082A7A6" />
 
     <padding
         android:bottom="1dp"

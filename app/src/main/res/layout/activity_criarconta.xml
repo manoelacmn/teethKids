@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_2"
+    android:background="@drawable/teeth_3_2"
     tools:context=".criarConta">
 
 
     <ImageView
         android:id="@+id/roundedImageView"
-        android:layout_width="371dp"
-        android:layout_height="681dp"
+        android:layout_width="370dp"
+        android:layout_height="696dp"
         android:background="#fffffff"
         android:bottomLeftRadius="30dp"
         android:bottomRightRadius="30dp"
@@ -19,229 +19,161 @@
         android:src="@drawable/box_widget"
         android:topLeftRadius="30dp"
         android:topRightRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729"
-        tools:layout_editor_absoluteX="20dp" />
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="160dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView4"
-        android:layout_width="275dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="53.5dp"
-        android:layout_marginEnd="53.5dp"
-        android:fontFamily="@font/comfortaa_bold"
+        android:layout_width="394dp"
+        android:layout_height="101dp"
+        android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:text="Criar conta"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.068" />
+        android:textSize="60sp"
+        tools:layout_editor_absoluteX="-36dp"
+        tools:layout_editor_absoluteY="42dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="E-mail"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
-        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
-        app:layout_constraintTop_toTopOf="@+id/roundedImageView"
-        app:layout_constraintVertical_bias="0.063" />
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="191dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtEmail_Criar_Conta"
         android:layout_width="344dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
         android:hint="Digite o E-mail"
-        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
-        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
-        app:layout_constraintHorizontal_bias="0.259"
-        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
-        app:layout_constraintTop_toTopOf="@+id/roundedImageView"
-        app:layout_constraintVertical_bias="0.157" />
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="245dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="279dp"
-        android:layout_marginBottom="402dp"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Senha"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EtEmail_Criar_Conta"
-        app:layout_constraintVertical_bias="0.126" />
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="312dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtSenha_Criar_Conta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="247dp"
+        android:layout_width="344dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
         android:hint="Digite a senha"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView6"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="364dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="279dp"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Nome"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EtSenha_Criar_Conta"
-        app:layout_constraintVertical_bias="0.042" />
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="427dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtNome_Criar_Conta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="344dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
         android:hint="Digite seu Nome"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="479dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="279dp"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Endereço"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.212"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EtNome_Criar_Conta"
-        app:layout_constraintVertical_bias="0.06" />
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="546dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtEndereco_Criar_Conta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="196dp"
+        android:layout_width="344dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
         android:hint="Digite seu Endereço"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView8"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="599dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="279dp"
-        android:layout_marginBottom="160dp"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Currículo"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.241"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EtEndereco_Criar_Conta"
-        app:layout_constraintVertical_bias="0.309" />
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="662dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtCurriculo_Criar_Conta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="116dp"
+        android:layout_width="344dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
-        android:fontFamily="@font/comfortaa_bold"
-        android:hint="Digite seu Curriculo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView9"
-        app:layout_constraintVertical_bias="0.0" />
+        android:fontFamily="sans-serif-condensed-medium"
+        android:hint="Digite seu Currículo"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="716dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="225dp"
+        android:layout_height="64dp"
+        app:srcCompat="@drawable/box_widget"
+        tools:layout_editor_absoluteX="86dp"
+        tools:layout_editor_absoluteY="774dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/BtnCriarConta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="156dp"
+        android:layout_height="56dp"
         android:backgroundTint="@color/green_project"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-black"
         android:text="Criar Conta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.783"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.555" />
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="835dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="69dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/baseline_circle_24"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="775dp" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="62dp"
         android:layout_height="42dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginBottom="112dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EtCurriculo_Criar_Conta"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        app:srcCompat="@android:drawable/ic_menu_camera"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="784dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="226dp"
-        android:layout_marginBottom="59dp"
-        android:text="Abrir Camera"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/EtCurriculo_Criar_Conta" />
+        android:text="Abrir Câmera"
+        tools:layout_editor_absoluteX="198dp"
+        tools:layout_editor_absoluteY="796dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
