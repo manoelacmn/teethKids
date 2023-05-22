@@ -2,6 +2,7 @@ package com.example.telacadastro.adapter
 // no adapter vai erdar as caracteriscias do recycle View
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
         init {
             itemView.setOnClickListener{
                 val position = adapterPosition
+                Log.d("NOME Clicked:",nome.text.toString())
                 listener.onClick(position)
             }
         }

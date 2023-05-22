@@ -6,6 +6,4 @@ data class perfil(
     val Descrição: String,
     val analisar: String
 
-
-
 )

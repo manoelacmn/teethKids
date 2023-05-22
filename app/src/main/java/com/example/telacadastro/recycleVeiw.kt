@@ -111,10 +111,12 @@ class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
 
     override fun onClick(position: Int) {
         when(position){
-            0->startActivity(Intent(this,perfil_socorrista::class.java))
+            position->startActivity(
+                Intent(this,perfil_socorrista::class.java)
+                    .putExtra("nome","")
+
+            )
         }
-
+        Log.d("INTENT","INDO A INTENT");
     }
-
-
 }
