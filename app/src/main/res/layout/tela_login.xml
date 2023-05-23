@@ -18,14 +18,24 @@
         tools:layout_editor_absoluteX="37dp"
         tools:layout_editor_absoluteY="47dp" />
 
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="361dp"
+        android:layout_height="344dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
+        app:srcCompat="@drawable/box_widget" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/usu_rio"
-        android:textSize="14sp"
         android:textColor="@color/Azul_escuro"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.152"
@@ -43,6 +53,7 @@
         android:layout_marginBottom="247dp"
         android:backgroundTint="@color/green_project"
         android:fontFamily="sans-serif-condensed-medium"
+        android:textColorHint="@color/teal_700"
         android:hint="Digite o E-mail"
         android:textSize="16sp"
         android:textColor="@color/Azul_escuro"
@@ -63,7 +74,7 @@
         android:layout_marginBottom="180dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/senha"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textColor="@color/Azul_escuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +94,7 @@
         android:backgroundTint="@color/green_project"
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Digite a Senha"
+        android:textColorHint="@color/teal_700"
         android:inputType="textPassword"
         android:textSize="16sp"
         android:textColor="@color/Azul_escuro"
