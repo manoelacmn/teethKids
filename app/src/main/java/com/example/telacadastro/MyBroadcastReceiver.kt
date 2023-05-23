@@ -108,7 +108,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 //                .putExtra("nome",nome)
 
             val newIntent = Intent(context, perfil_socorrista::class.java).apply {
-                putExtra("emergencyUid", uid)
+                putExtra("uid", uid)
                 putExtra("nome", nome)
                 putExtra("imagePath",ImagePath)
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK

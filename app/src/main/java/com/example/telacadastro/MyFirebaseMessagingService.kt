@@ -157,6 +157,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             }
 
             var refuseIntentExtras = Intent(this, perfil_socorrista::class.java).apply {
+
                 putExtra("nome", nome)
                 putExtra("emergencyUid", msg)
                 putExtra("notificationID", "refuseEmergency")
@@ -164,17 +165,19 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 apply { action = "com.example.ACTION_LOG" }
             }
             val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_CANCEL_CURRENT)
+                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_IMMUTABLE)
             } else {
-                TODO("VERSION.SDK_INT < S")
+               // TODO("VERSION.SDK_INT < S")
+                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_UPDATE_CURRENT)
             }
             // setting the mutability flag )
 
             val refuseIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_CANCEL_CURRENT )
+                PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_IMMUTABLE )
 
             } else {
-                TODO("VERSION.SDK_INT < S")
+//                TODO("VERSION.SDK_INT < S")
+                PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_UPDATE_CURRENT )
             } // setting the mutability flag )         }
             val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
                 .setSmallIcon(R.drawable.baseline_healing_24)
