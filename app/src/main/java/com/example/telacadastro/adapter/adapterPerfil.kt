@@ -36,6 +36,7 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
                     Intent(context, perfil_socorrista::class.java).apply {
                         putExtra("nome",nome.text.toString());
                         putExtra("uid",uid.text.toString())
+                        putExtra("imagePath",imagePath.text.toString())
                     },
                     null)
             }
