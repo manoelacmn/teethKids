@@ -7,24 +7,38 @@
     android:background="@drawable/teeth_1_3">
 
 
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginBottom="579dp"
+        android:fontFamily="sans-serif-black"
         android:text="Login"
-        android:fontFamily="@font/comfortaa_bold"
         android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="31dp" />
+
+    <ImageView
+        android:id="@+id/pannel"
+        android:layout_width="369dp"
+        android:layout_height="411dp"
+        app:srcCompat="@drawable/box_widget"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="344dp"
+        android:layout_height="64dp"
+        app:srcCompat="@drawable/box_widget"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="371dp"
+        app:layout_constraintBottom_toBottomOf="@+id/EtSenha"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.576"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/EtSenha"
+        app:layout_constraintTop_toBottomOf="@+id/TvSenha"
         app:layout_constraintVertical_bias="0.0" />
+        />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView2"
@@ -50,15 +64,27 @@
         android:layout_marginTop="13dp"
         android:layout_marginEnd="274dp"
         android:layout_marginBottom="311dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/usu_rio"
         android:textSize="24sp"
-        android:fontFamily="@font/comfortaa_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.095" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="344dp"
+        android:layout_height="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/EtUsuario"
+        app:layout_constraintEnd_toEndOf="@+id/EtUsuario"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/EtUsuario"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/box_widget" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtUsuario"
@@ -69,9 +95,9 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="247dp"
         android:backgroundTint="@color/green_project"
-        android:hint="Digite E-mail"
-        android:textSize="14sp"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:hint="    Digite E-mail"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -87,9 +113,9 @@
         android:layout_marginTop="14dp"
         android:layout_marginEnd="289dp"
         android:layout_marginBottom="180dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/senha"
         android:textSize="24sp"
-        android:fontFamily="@font/comfortaa_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -106,13 +132,13 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="127dp"
         android:backgroundTint="@color/green_project"
-        android:hint="Digite a Senha"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:hint="   Digite a Senha"
         android:inputType="textPassword"
-        android:textSize="24sp"
-        android:fontFamily="@font/comfortaa_bold"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvSenha"
         app:layout_constraintVertical_bias="0.0" />
@@ -140,9 +166,9 @@
         android:layout_marginTop="11dp"
         android:layout_marginEnd="235dp"
         android:layout_marginBottom="80dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Relembrar senha"
         android:textSize="14sp"
-        android:fontFamily="@font/comfortaa_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.68"
@@ -159,10 +185,10 @@
         android:layout_marginTop="22dp"
         android:layout_marginEnd="39dp"
         android:layout_marginBottom="80dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Esqueceu senha"
         android:textColor="@color/red_project"
         android:textSize="14sp"
-        android:fontFamily="@font/comfortaa_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -179,7 +205,7 @@
         android:layout_marginEnd="150dp"
         android:layout_marginBottom="54dp"
         android:backgroundTint="@color/green_project"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-black"
         android:text="Entrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -197,8 +223,10 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BtnEntar" />
+        app:layout_constraintTop_toTopOf="@+id/BtnEntar"
+        app:layout_constraintVertical_bias="0.497" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/cadastro"
