@@ -61,7 +61,7 @@ class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
         //criando os itens da lista
 //        val perfeil1 = perfil(
 //            R.drawable.baseline_person_24,
-//            "Nome do usuario",
+//            "Nome do usuario",1
 //            "Distância,Tempo de Espera",
 //            "Analisar"
 //        )
@@ -110,7 +110,8 @@ class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
                                 R.drawable.baseline_person_24,
                                 hashMap["nome"] as String,
                                 "Distância,Tempo de Espera",
-                                "Analisar"
+                                "Analisar",
+                                hashMap["uid"] as String
                             )
 
                             perfil.add(profile)
@@ -131,13 +132,12 @@ class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
     }
 
     override fun onClick(position: Int) {
-        when(position){
-            position->startActivity(
-                Intent(this,perfil_socorrista::class.java)
-                    .putExtra("nome","")
-
-            )
-        }
+//        when(position){
+//            position->startActivity(
+//                Intent(this,perfil_socorrista::class.java)
+//
+//            )
+//        }
         Log.d("INTENT","INDO A INTENT");
     }
 }

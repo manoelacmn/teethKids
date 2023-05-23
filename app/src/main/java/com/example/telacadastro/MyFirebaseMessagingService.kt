@@ -60,8 +60,15 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         if (remoteMessage.data.isNotEmpty()) {
             Log.d(TAG, "Message data payload: ${remoteMessage.data}")
             Log.d(TAG,"UID: ${remoteMessage.data["uid"]}")
+            Log.d(TAG,"NOME: ${remoteMessage.data["nome"]}")
 
-            remoteMessage.data["uid"]?.let { sendNotification(it) }
+//            val nome = remoteMessage.data["nome"]}
+
+            remoteMessage.data["uid"]?.let { remoteMessage.data["nome"]?.let { it1 ->
+                sendNotification(it,
+                    it1
+                )
+            } }
             // Check if data needs to be processed by long running job
             if (needsToBeScheduled()) {
                 // For long-running tasks (10 seconds or more) use WorkManager.
@@ -99,9 +106,10 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         Log.d(TAG, "sendRegistrationTokenToServer($token)")
     }
 
-    private fun sendNotification(msg:String){
+    private fun sendNotification(msg:String,nome:String){
         storage = Firebase.storage
 
+        Log.d("DEFINITVE NOME",nome)
 
         var storageRef = storage.reference
 
@@ -128,12 +136,18 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
 
-            val intent = Intent(this, MyBroadcastReceiver::class.java)
-                .putExtra("emergencyUid",msg )
-                .putExtra("notificationID","acceptEmergency")
-                .putExtra("FURRY","STRAITGH")
-                .apply { action = "com.example.ACTION_LOG" }
 
+
+
+
+
+            val intent = Intent(this, MyBroadcastReceiver::class.java).apply {
+                putExtra("emergencyUid", msg)
+                putExtra("nome", nome)
+                putExtra("notificationID", "acceptEmergency")
+                putExtra("FURRY", "STRAITGH")
+                apply { action = "com.example.ACTION_LOG" }
+            }
             //intent.putExtra("emergencyUid",msg)
 //            val intentExtras = intent.extras
 //            if (intentExtras != null) {
@@ -143,14 +157,16 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 //                }
 //            }
 
-            val refuseIntentExtras = Intent(this, MyBroadcastReceiver::class.java)
-                .putExtra("emergencyUid",msg )
-                .putExtra("notificationID","refuseEmergency")
-                .putExtra("FURRY","FEMBOY")
-                .apply { action = "com.example.ACTION_LOG" }
-
+            val refuseIntentExtras = Intent(this, MyBroadcastReceiver::class.java).apply {
+                putExtra("nome", nome)
+                putExtra("emergencyUid", msg)
+                putExtra("notificationID", "refuseEmergency")
+                putExtra("FURRY", "FEMBOY")
+                apply { action = "com.example.ACTION_LOG" }
+            }
             val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_IMMUTABLE )
+                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_MUTABLE)
+
 
             } else {
                 TODO("VERSION.SDK_INT < S")

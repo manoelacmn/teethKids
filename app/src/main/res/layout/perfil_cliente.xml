@@ -73,5 +73,19 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+      android:id="@+id/uid"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center"
+      android:visibility="gone"
+     />
+<!--    <TextView-->
+<!--      android:id="@+id/nome"-->
+<!--      android:layout_width="match_parent"-->
+<!--      android:layout_height="match_parent"-->
+<!--      android:gravity="center"-->
+<!--      android:visibility="gone"-->
+<!--      />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

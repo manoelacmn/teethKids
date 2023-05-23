@@ -1,6 +1,7 @@
 package com.example.telacadastro
 
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -72,8 +73,13 @@ class MyBroadcastReceiver : BroadcastReceiver() {
         val message = intent?.getStringExtra("MESSAGE")
         val uid = intent?.getStringExtra("emergencyUid").toString();
         val id = intent?.getStringExtra("notificationID").toString();
+        val nome = intent?.getStringExtra("nome").toString()
+        val furry = intent?.getStringExtra("FURRY").toString()
 
-
+        Log.d("NOME ON BRODCAST:", nome)
+        Log.d("NOME ON BRODCAST:", intent?.getStringExtra("nome").toString())
+        Log.d("FURRY",furry)
+        Log.d("UID ON BROADCAST:",uid)
 //
 //        val intentExtras = intent?.extras
 //            if (intentExtras != null) {
@@ -85,10 +91,20 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 
 //        notificationManager.cancel(id.toInt())
         if (id == "acceptEmergency") {
+//            val newIntent = Intent(context,perfil_socorrista::class.java)
+//                .putExtra("emergencyUid",uid)
+//                .putExtra("nome",nome)
 
-            if (user != null) {
-                acceptEmergency(uid, user.uid);
+            val newIntent = Intent(context, perfil_socorrista::class.java).apply {
+                putExtra("emergencyUid", uid)
+                putExtra("nome", nome)
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
+
+            context.startActivity(newIntent)
+//            if (user != null) {
+//                acceptEmergency(uid, user.uid);
+//            }
             Log.d("channelID", id)
             Log.d(context.toString(), uid)
             Log.d(context.toString(), "new message")
@@ -105,9 +121,9 @@ class MyBroadcastReceiver : BroadcastReceiver() {
             Log.d("channelID", id)
             Log.d(context.toString(), uid)
             Log.d(context.toString(), "new message")
-            if (message != null) {
-                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-            }
+//            if (message != null) {
+//                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+//            }
         }
     }
 

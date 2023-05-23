@@ -2,6 +2,7 @@ package com.example.telacadastro.adapter
 // no adapter vai erdar as caracteriscias do recycle View
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.telacadastro.R
 import com.example.telacadastro.model.perfil
+import com.example.telacadastro.perfil_socorrista
 import com.example.telacadastro.recycleVeiw
 
 class  AdpterPerfil(private  val context: Context,private val perfil: MutableList<perfil>,val listener:Myclicklistenner ): RecyclerView.Adapter<AdpterPerfil.PerfilViewHolder>(){
@@ -20,11 +23,20 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
         val foto = itemView.findViewById<ImageView>(R.id.imgFotoPerfil) // recuperando a view do layout
         val nome: TextView = itemView.findViewById<TextView>(R.id.nomeUsuario)
         val descrição = itemView.findViewById<TextView>(R.id.descrição)
+        val uid = itemView.findViewById<TextView>(R.id.uid)
         init {
             itemView.setOnClickListener{
                 val position = adapterPosition
                 Log.d("NOME Clicked:",nome.text.toString())
+                Log.d("UID Clicked:",uid.text.toString())
                 listener.onClick(position)
+
+                startActivity(context,
+                    Intent(context, perfil_socorrista::class.java).apply {
+                        putExtra("nome",nome.text.toString());
+                        putExtra("uid",uid.text.toString())
+                    },
+                    null)
             }
         }
 
@@ -52,6 +64,7 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
         holder.foto.setImageResource(perfil[position].fot)
         holder.nome.text = perfil[position].nome
         holder.descrição.text=perfil[position].Descrição
+        holder.uid.text=perfil[position].uid
     }
 
     interface  Myclicklistenner{

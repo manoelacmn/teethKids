@@ -6,6 +6,8 @@ import android.util.Log
 import com.example.telacadastro.databinding.ActivityCriarcontaBinding
 import com.example.telacadastro.databinding.ActivityPerfilSocorristaBinding
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.HttpsCallableResult
 import com.google.firebase.functions.ktx.functions
@@ -15,6 +17,7 @@ class perfil_socorrista : AppCompatActivity() {
 
     private lateinit var functions : FirebaseFunctions
     private lateinit var binding: ActivityPerfilSocorristaBinding
+    private lateinit var auth: FirebaseAuth
 
     companion object{
         const val  LETTER = "latter"
@@ -25,14 +28,38 @@ class perfil_socorrista : AppCompatActivity() {
         val letterId = intent?.extras?.getString("LETTER").toString()
         binding = ActivityPerfilSocorristaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
+
+
+        auth = Firebase.auth
+        val user = Firebase.auth.currentUser
+        user?.let {
+
+            val uid = it.uid
+        }
+
+
         //binding.tvNome.setText("adicionar o id do usuarioa aqui")
+        val uid = intent?.getStringExtra("emergencyUid").toString();
+
+        val nome = intent?.getStringExtra("nome").toString();
+
+        binding.tvNome.text = nome
+
+        Log.d("INTENT EXTRA",uid)
 
         binding.BtnAceitar.setOnClickListener {
             Log.d("SOCORRISTA SCREEN","BTN PRESSED")
-            acceptEmergency("uid","")
+            if (user != null) {
+                acceptEmergency(uid,user.uid)
+            }
         }
         binding.BtnRejeitar.setOnClickListener {
-            refuseEmergency("","")
+            if (user != null) {
+                refuseEmergency(uid,user.uid)
+            }
 
         }
     }
