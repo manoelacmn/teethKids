@@ -13,78 +13,24 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="Login"
-        android:textSize="50sp"
+        android:textSize="48sp"
+        android:textColor="@color/Azul_escuro"
         tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="31dp" />
-
-    <ImageView
-        android:id="@+id/pannel"
-        android:layout_width="369dp"
-        android:layout_height="411dp"
-        app:srcCompat="@drawable/box_widget"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="300dp" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="344dp"
-        android:layout_height="64dp"
-        app:srcCompat="@drawable/box_widget"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="371dp"
-        app:layout_constraintBottom_toBottomOf="@+id/EtSenha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/EtSenha"
-        app:layout_constraintTop_toBottomOf="@+id/TvSenha"
-        app:layout_constraintVertical_bias="0.0" />
-        />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView2"
-        android:layout_width="173dp"
-        android:layout_height="167dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="119dp"
-        android:layout_marginBottom="374dp"
-        android:src="@drawable/download"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteY="47dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="274dp"
-        android:layout_marginBottom="311dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/usu_rio"
-        android:textSize="24sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2"
-        app:layout_constraintVertical_bias="0.095" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="344dp"
-        android:layout_height="64dp"
-        app:layout_constraintBottom_toBottomOf="@+id/EtUsuario"
-        app:layout_constraintEnd_toEndOf="@+id/EtUsuario"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/EtUsuario"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/box_widget" />
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
+        app:layout_constraintVertical_bias="0.357" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtUsuario"
@@ -96,14 +42,14 @@
         android:layout_marginBottom="247dp"
         android:backgroundTint="@color/green_project"
         android:fontFamily="sans-serif-condensed-medium"
-        android:hint="    Digite E-mail"
+        android:hint="Digite o E-mail"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/TvSenha"
@@ -115,7 +61,7 @@
         android:layout_marginBottom="180dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/senha"
-        android:textSize="24sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -133,12 +79,12 @@
         android:layout_marginBottom="127dp"
         android:backgroundTint="@color/green_project"
         android:fontFamily="sans-serif-condensed-medium"
-        android:hint="   Digite a Senha"
+        android:hint="Digite a Senha"
         android:inputType="textPassword"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvSenha"
         app:layout_constraintVertical_bias="0.0" />
@@ -168,13 +114,13 @@
         android:layout_marginBottom="80dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Relembrar senha"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toEndOf="@+id/CboxSalvarSenha"
         app:layout_constraintTop_toBottomOf="@+id/EtSenha"
-        app:layout_constraintVertical_bias="0.229" />
+        app:layout_constraintVertical_bias="0.095" />
 
     <androidx.appcompat.widget.AppCompatCheckedTextView
 
@@ -194,7 +140,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/TvRelembrarSenha"
         app:layout_constraintTop_toBottomOf="@+id/EtSenha"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintVertical_bias="0.058" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/BtnEntar"
@@ -205,8 +151,9 @@
         android:layout_marginEnd="150dp"
         android:layout_marginBottom="54dp"
         android:backgroundTint="@color/green_project"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Entrar"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -216,17 +163,17 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="371dp"
+        android:layout_height="26dp"
         android:layout_marginTop="48dp"
         android:text="Não tem uma conta ?"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/BtnEntar"
-        app:layout_constraintVertical_bias="0.497" />
+        app:layout_constraintVertical_bias="0.518" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/cadastro"
@@ -238,11 +185,11 @@
         android:textColor="@color/red_project"
         android:textSize="14sp"
 
-        app:layout_constraintBottom_toTopOf="@+id/appCompatTextView3"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.975"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/appCompatTextView3"
         app:layout_constraintTop_toBottomOf="@+id/BtnEntar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
