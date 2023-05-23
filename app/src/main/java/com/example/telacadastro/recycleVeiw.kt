@@ -97,13 +97,13 @@ class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
                                 .split(", ")
 
                             val hashMap = hashMapOf<String, Any>()
+                            Log.d("CREATING RESULT",list.toString())
                             keyValuePairs.forEach { pair ->
                                 val keyValue = pair.split("=")
                                 val key = keyValue[0].trim()
                                 val value = keyValue[1].trim()
-
                                 hashMap[key] = value
-
+                                Log.d("CREATING HASHMAP",hashMap.toString())
                             }
                             Log.d("NEW HASHMAP:", hashMap.toString())
                             var profile = perfil(
@@ -111,7 +111,8 @@ class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
                                 hashMap["nome"] as String,
                                 "Distância,Tempo de Espera",
                                 "Analisar",
-                                hashMap["uid"] as String
+                                hashMap["uid"] as String,
+                                hashMap["ImageRoot"] as String
                             )
 
                             perfil.add(profile)

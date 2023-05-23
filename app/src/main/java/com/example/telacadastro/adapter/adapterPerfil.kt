@@ -23,7 +23,8 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
         val foto = itemView.findViewById<ImageView>(R.id.imgFotoPerfil) // recuperando a view do layout
         val nome: TextView = itemView.findViewById<TextView>(R.id.nomeUsuario)
         val descrição = itemView.findViewById<TextView>(R.id.descrição)
-        val uid = itemView.findViewById<TextView>(R.id.uid)
+        val uid: TextView = itemView.findViewById<TextView>(R.id.uid)
+        val imagePath = itemView.findViewById<TextView>(R.id.imagePath)
         init {
             itemView.setOnClickListener{
                 val position = adapterPosition
@@ -65,6 +66,7 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
         holder.nome.text = perfil[position].nome
         holder.descrição.text=perfil[position].Descrição
         holder.uid.text=perfil[position].uid
+        holder.imagePath.text=perfil[position].imagePath
     }
 
     interface  Myclicklistenner{

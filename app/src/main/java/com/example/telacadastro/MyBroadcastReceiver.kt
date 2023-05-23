@@ -22,7 +22,18 @@ class MyBroadcastReceiver : BroadcastReceiver() {
     private lateinit var functions: FirebaseFunctions
     private lateinit var auth: FirebaseAuth
 
+    private var message: String? = null
+    var uid: String? = null
+    var id: String? = null
+    var nome: String? = null
+    private var furry: String? = null
+
     override fun onReceive(context: Context?, intent: Intent?) {
+         furry =  null;
+        nome = null
+        id = null
+        message = null
+        uid = null
 
         val notificationManager: NotificationManager =
             context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -70,16 +81,16 @@ class MyBroadcastReceiver : BroadcastReceiver() {
         }
 
 
-        val message = intent?.getStringExtra("MESSAGE")
-        val uid = intent?.getStringExtra("emergencyUid").toString();
-        val id = intent?.getStringExtra("notificationID").toString();
-        val nome = intent?.getStringExtra("nome").toString()
-        val furry = intent?.getStringExtra("FURRY").toString()
+         message = intent?.getStringExtra("MESSAGE")
+         uid = intent?.getStringExtra("emergencyUid").toString();
+         id = intent?.getStringExtra("notificationID").toString();
+         nome = intent?.getStringExtra("nome").toString()
+        furry = intent?.getStringExtra("FURRY").toString()
 
-        Log.d("NOME ON BRODCAST:", nome)
+        Log.d("NOME ON BRODCAST:", nome!!)
         Log.d("NOME ON BRODCAST:", intent?.getStringExtra("nome").toString())
-        Log.d("FURRY",furry)
-        Log.d("UID ON BROADCAST:",uid)
+        Log.d("FURRY", furry!!)
+        Log.d("UID ON BROADCAST:", uid!!)
 //
 //        val intentExtras = intent?.extras
 //            if (intentExtras != null) {
@@ -102,11 +113,13 @@ class MyBroadcastReceiver : BroadcastReceiver() {
             }
 
             context.startActivity(newIntent)
+            notificationManager.cancel(0)
+
 //            if (user != null) {
 //                acceptEmergency(uid, user.uid);
 //            }
-            Log.d("channelID", id)
-            Log.d(context.toString(), uid)
+            Log.d("channelID", id!!)
+            Log.d(context.toString(), uid!!)
             Log.d(context.toString(), "new message")
             if (message != null) {
                 Toast.makeText(context, message, Toast.LENGTH_LONG).show()
@@ -116,10 +129,10 @@ class MyBroadcastReceiver : BroadcastReceiver() {
         if (id == "refuseEmergency") {
 
             if (user != null) {
-                refuseEmergency(uid, user.uid);
+                refuseEmergency(uid!!, user.uid);
             }
-            Log.d("channelID", id)
-            Log.d(context.toString(), uid)
+            Log.d("channelID", id!!)
+            Log.d(context.toString(), uid!!)
             Log.d(context.toString(), "new message")
 //            if (message != null) {
 //                Toast.makeText(context, message, Toast.LENGTH_LONG).show()

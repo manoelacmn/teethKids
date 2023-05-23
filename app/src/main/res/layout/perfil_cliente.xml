@@ -80,6 +80,14 @@
       android:gravity="center"
       android:visibility="gone"
      />
+
+    <TextView
+      android:id="@+id/imagePath"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center"
+      android:visibility="gone"
+      />
 <!--    <TextView-->
 <!--      android:id="@+id/nome"-->
 <!--      android:layout_width="match_parent"-->

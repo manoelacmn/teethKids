@@ -23,6 +23,7 @@ class perfil_socorrista : AppCompatActivity() {
         const val  LETTER = "latter"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
+        var uid:String = ""
         functions = Firebase.functions("southamerica-east1")
         super.onCreate(savedInstanceState)
         val letterId = intent?.extras?.getString("LETTER").toString()
@@ -42,9 +43,11 @@ class perfil_socorrista : AppCompatActivity() {
 
 
         //binding.tvNome.setText("adicionar o id do usuarioa aqui")
-        val uid = intent?.getStringExtra("emergencyUid").toString();
+//        val uid = intent?.getStringExtra("emergencyUid").toString();
 
         val nome = intent?.getStringExtra("nome").toString();
+
+        uid = intent?.getStringExtra("uid").toString();
 
         binding.tvNome.text = nome
 
@@ -52,11 +55,19 @@ class perfil_socorrista : AppCompatActivity() {
 
         binding.BtnAceitar.setOnClickListener {
             Log.d("SOCORRISTA SCREEN","BTN PRESSED")
+            Log.d("EMERGENCY UID:",uid)
+            if (user != null) {
+                Log.d("USER UID",user.uid)
+            }
             if (user != null) {
                 acceptEmergency(uid,user.uid)
             }
         }
         binding.BtnRejeitar.setOnClickListener {
+            Log.d("EMERGENCY UID:",uid)
+            if (user != null) {
+                Log.d("USER UID",user.uid)
+            }
             if (user != null) {
                 refuseEmergency(uid,user.uid)
             }
@@ -64,6 +75,7 @@ class perfil_socorrista : AppCompatActivity() {
         }
     }
     fun acceptEmergency(emergency: String, uid: String): Task<HttpsCallableResult> {
+
         Log.d("FUNCTION", "START")
         val data = hashMapOf(
             "emergency" to emergency,

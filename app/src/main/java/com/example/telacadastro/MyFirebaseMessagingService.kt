@@ -131,8 +131,8 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             val descriptionText = getString(R.string.channel_description)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(name,name,importance).apply {
-                description = descriptionText
-            }
+                description = descriptionText }
+
             val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
 
@@ -141,7 +141,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
 
 
-            val intent = Intent(this, MyBroadcastReceiver::class.java).apply {
+            var intent = Intent(this, MyBroadcastReceiver::class.java).apply {
                 putExtra("emergencyUid", msg)
                 putExtra("nome", nome)
                 putExtra("notificationID", "acceptEmergency")
@@ -157,7 +157,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 //                }
 //            }
 
-            val refuseIntentExtras = Intent(this, MyBroadcastReceiver::class.java).apply {
+            var refuseIntentExtras = Intent(this, MyBroadcastReceiver::class.java).apply {
                 putExtra("nome", nome)
                 putExtra("emergencyUid", msg)
                 putExtra("notificationID", "refuseEmergency")
