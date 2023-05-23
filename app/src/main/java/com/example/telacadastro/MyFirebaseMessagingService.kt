@@ -152,7 +152,6 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 putExtra("nome", nome)
                 putExtra("imagePath",ImageRoot)
                 putExtra("notificationID", "acceptEmergency")
-                putExtra("FURRY", "STRAITGH")
 //                apply { action = "com.example.ACTION_LOG" }
             }
 
@@ -161,11 +160,10 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 putExtra("nome", nome)
                 putExtra("emergencyUid", msg)
                 putExtra("notificationID", "refuseEmergency")
-                putExtra("FURRY", "FEMBOY")
                 apply { action = "com.example.ACTION_LOG" }
             }
             val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_IMMUTABLE)
+                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_MUTABLE)
             } else {
                // TODO("VERSION.SDK_INT < S")
                 PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_UPDATE_CURRENT)
