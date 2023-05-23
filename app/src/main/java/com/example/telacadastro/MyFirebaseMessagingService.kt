@@ -1,5 +1,6 @@
 package com.example.telacadastro
 
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.Notification.EXTRA_NOTIFICATION_ID
 import android.app.NotificationChannel
@@ -7,7 +8,6 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.os.Build
 import android.util.Log
-import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -51,23 +51,21 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         Log.d(TAG, "From: ${remoteMessage.from}")
 
 
-
-
-
-
-
         // Check if message contains a data payload.
         if (remoteMessage.data.isNotEmpty()) {
             Log.d(TAG, "Message data payload: ${remoteMessage.data}")
             Log.d(TAG,"UID: ${remoteMessage.data["uid"]}")
             Log.d(TAG,"NOME: ${remoteMessage.data["nome"]}")
+            Log.d(TAG,"IMAGE PATH: ${remoteMessage.data["ImageRoot"]}" )
 
 //            val nome = remoteMessage.data["nome"]}
 
             remoteMessage.data["uid"]?.let { remoteMessage.data["nome"]?.let { it1 ->
-                sendNotification(it,
-                    it1
-                )
+                remoteMessage.data["ImageRoot"]?.let { it2 ->
+                    sendNotification(it,
+                        it1 , it2
+                    )
+                }
             } }
             // Check if data needs to be processed by long running job
             if (needsToBeScheduled()) {
@@ -106,7 +104,8 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
         Log.d(TAG, "sendRegistrationTokenToServer($token)")
     }
 
-    private fun sendNotification(msg:String,nome:String){
+    @SuppressLint("UnspecifiedImmutableFlag")
+    private fun sendNotification(msg:String, nome:String, ImageRoot:String){
         storage = Firebase.storage
 
         Log.d("DEFINITVE NOME",nome)
@@ -119,13 +118,13 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
         var orangutan = emergencias?.child("orangutan_square-763017175.jpg")
 
-
+        val imageRef = storageRef.child(ImageRoot)
 
         val ONE_MEGABYTE: Long = 1024 * 1024
 
         var monkey: Bitmap? = null
 
-        orangutan?.getBytes(ONE_MEGABYTE)?.addOnSuccessListener {image->
+        imageRef.getBytes(ONE_MEGABYTE).addOnSuccessListener { image->
             monkey = BitmapFactory.decodeByteArray(image, 0, image.size)
             val name = getString(R.string.channel_name)
             val descriptionText = getString(R.string.channel_description)
@@ -138,26 +137,26 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
 
 
-
-
+//            this.startActivity(intent)
+            //intent.putExtra("emergencyUid",msg)
+    //            val intentExtras = intent.extras
+    //            if (intentExtras != null) {
+    //                for (key in intentExtras.keySet()) {
+    //                    val value = intentExtras.get(key)
+    //                    Log.d("IntentExtras", "$key: $value")
+    //                }
+    //            }
 
             var intent = Intent(this, MyBroadcastReceiver::class.java).apply {
                 putExtra("emergencyUid", msg)
                 putExtra("nome", nome)
+                putExtra("imagePath",ImageRoot)
                 putExtra("notificationID", "acceptEmergency")
                 putExtra("FURRY", "STRAITGH")
-                apply { action = "com.example.ACTION_LOG" }
+//                apply { action = "com.example.ACTION_LOG" }
             }
-            //intent.putExtra("emergencyUid",msg)
-//            val intentExtras = intent.extras
-//            if (intentExtras != null) {
-//                for (key in intentExtras.keySet()) {
-//                    val value = intentExtras.get(key)
-//                    Log.d("IntentExtras", "$key: $value")
-//                }
-//            }
 
-            var refuseIntentExtras = Intent(this, MyBroadcastReceiver::class.java).apply {
+            var refuseIntentExtras = Intent(this, perfil_socorrista::class.java).apply {
                 putExtra("nome", nome)
                 putExtra("emergencyUid", msg)
                 putExtra("notificationID", "refuseEmergency")
@@ -165,15 +164,14 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 apply { action = "com.example.ACTION_LOG" }
             }
             val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_MUTABLE)
-
-
+                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_CANCEL_CURRENT)
             } else {
                 TODO("VERSION.SDK_INT < S")
-            } // setting the mutability flag )
+            }
+            // setting the mutability flag )
 
             val refuseIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_IMMUTABLE )
+                PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_CANCEL_CURRENT )
 
             } else {
                 TODO("VERSION.SDK_INT < S")

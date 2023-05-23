@@ -86,6 +86,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
          id = intent?.getStringExtra("notificationID").toString();
          nome = intent?.getStringExtra("nome").toString()
         furry = intent?.getStringExtra("FURRY").toString()
+        var ImagePath = intent?.getStringExtra("imagePath").toString()
 
         Log.d("NOME ON BRODCAST:", nome!!)
         Log.d("NOME ON BRODCAST:", intent?.getStringExtra("nome").toString())
@@ -109,11 +110,12 @@ class MyBroadcastReceiver : BroadcastReceiver() {
             val newIntent = Intent(context, perfil_socorrista::class.java).apply {
                 putExtra("emergencyUid", uid)
                 putExtra("nome", nome)
+                putExtra("imagePath",ImagePath)
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
 
             context.startActivity(newIntent)
-            notificationManager.cancel(0)
+//            notificationManager.cancel(0)
 
 //            if (user != null) {
 //                acceptEmergency(uid, user.uid);
