@@ -8,7 +8,7 @@
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView"
+        android:id="@+id/text_login_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
@@ -19,17 +19,17 @@
         tools:layout_editor_absoluteY="47dp" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/imagem_esqueceu"
         android:layout_width="361dp"
         android:layout_height="344dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
+        app:layout_constraintTop_toBottomOf="@+id/text_login_title"
         app:srcCompat="@drawable/box_widget" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView2"
+        android:id="@+id/text_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
@@ -39,12 +39,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="@+id/imageView12"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
+        app:layout_constraintStart_toStartOf="@+id/imagem_esqueceu"
+        app:layout_constraintTop_toBottomOf="@+id/text_login_title"
         app:layout_constraintVertical_bias="0.317" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/EtUsuario"
+        android:id="@+id/edit_usuario"
         android:layout_width="335dp"
         android:layout_height="55dp"
         android:layout_marginStart="40dp"
@@ -57,14 +57,14 @@
         android:textColorHint="@color/teal_700"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView12"
+        app:layout_constraintEnd_toEndOf="@+id/imagem_esqueceu"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView12"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2"
+        app:layout_constraintStart_toStartOf="@+id/imagem_esqueceu"
+        app:layout_constraintTop_toBottomOf="@+id/text_usuario"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/TvSenha"
+        android:id="@+id/text_senha2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -76,12 +76,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.708"
-        app:layout_constraintStart_toStartOf="@+id/imageView12"
-        app:layout_constraintTop_toBottomOf="@+id/EtUsuario"
+        app:layout_constraintStart_toStartOf="@+id/imagem_esqueceu"
+        app:layout_constraintTop_toBottomOf="@+id/edit_usuario"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/EtSenha"
+        android:id="@+id/edit_senha2"
         android:layout_width="314dp"
         android:layout_height="42dp"
         android:layout_marginStart="40dp"
@@ -95,14 +95,14 @@
         android:textColorHint="@color/teal_700"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView12"
+        app:layout_constraintEnd_toEndOf="@+id/imagem_esqueceu"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView12"
-        app:layout_constraintTop_toBottomOf="@+id/TvSenha"
+        app:layout_constraintStart_toStartOf="@+id/imagem_esqueceu"
+        app:layout_constraintTop_toBottomOf="@+id/text_senha2"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/CboxSalvarSenha"
+        android:id="@+id/checkbox_senha"
         android:layout_width="83dp"
         android:layout_height="54dp"
         android:layout_marginTop="16dp"
@@ -110,14 +110,14 @@
         android:layout_marginBottom="82dp"
         android:backgroundTint="@color/green_project"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/EtSenha"
+        app:layout_constraintEnd_toEndOf="@id/edit_senha2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/imageView12"
-        app:layout_constraintTop_toBottomOf="@+id/EtSenha"
+        app:layout_constraintStart_toStartOf="@id/imagem_esqueceu"
+        app:layout_constraintTop_toBottomOf="@+id/edit_senha2"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/TvRelembrarSenha"
+        android:id="@+id/text_relembrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
@@ -130,16 +130,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/TvSenha"
-        app:layout_constraintTop_toBottomOf="@+id/EtSenha"
+        app:layout_constraintStart_toStartOf="@id/text_senha2"
+        app:layout_constraintTop_toBottomOf="@+id/edit_senha2"
         app:layout_constraintVertical_bias="0.094" />
 
     <androidx.appcompat.widget.AppCompatCheckedTextView
-
+        app:layout_constraintEnd_toEndOf="@id/imagem_esqueceu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-
         android:layout_marginTop="22dp"
         android:layout_marginBottom="80dp"
         android:fontFamily="sans-serif-condensed-medium"
@@ -147,14 +146,13 @@
         android:textColor="@color/red_project"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/imageView12"
         app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/TvRelembrarSenha"
-        app:layout_constraintTop_toBottomOf="@+id/EtSenha"
+        app:layout_constraintStart_toEndOf="@+id/text_relembrar"
+        app:layout_constraintTop_toBottomOf="@+id/edit_senha2"
         app:layout_constraintVertical_bias="0.064" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/BtnEntar"
+        android:id="@+id/button_entrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
@@ -169,11 +167,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TvRelembrarSenha"
+        app:layout_constraintTop_toBottomOf="@+id/text_relembrar"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView3"
+        android:id="@+id/text_ntemconta"
         android:layout_width="371dp"
         android:layout_height="26dp"
         android:layout_marginTop="48dp"
@@ -183,11 +181,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BtnEntar"
+        app:layout_constraintTop_toTopOf="@+id/button_entrar"
         app:layout_constraintVertical_bias="0.518" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cadastro"
+        android:id="@+id/text_cadastre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="240sp"
@@ -196,11 +194,11 @@
         android:textColor="@color/red_project"
         android:textSize="14sp"
 
-        app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView3"
+        app:layout_constraintBottom_toBottomOf="@+id/text_ntemconta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/appCompatTextView3"
-        app:layout_constraintTop_toBottomOf="@+id/BtnEntar"
+        app:layout_constraintStart_toEndOf="@+id/text_ntemconta"
+        app:layout_constraintTop_toBottomOf="@+id/button_entrar"
         app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
