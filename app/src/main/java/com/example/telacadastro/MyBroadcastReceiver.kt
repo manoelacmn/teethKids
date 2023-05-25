@@ -29,7 +29,6 @@ class MyBroadcastReceiver : BroadcastReceiver() {
     private var furry: String? = null
 
     override fun onReceive(context: Context?, intent: Intent?) {
-         furry =  null;
         nome = null
         id = null
         message = null
@@ -85,12 +84,12 @@ class MyBroadcastReceiver : BroadcastReceiver() {
          uid = intent?.getStringExtra("emergencyUid").toString();
          id = intent?.getStringExtra("notificationID").toString();
          nome = intent?.getStringExtra("nome").toString()
-        furry = intent?.getStringExtra("FURRY").toString()
         var ImagePath = intent?.getStringExtra("imagePath").toString()
+
+         intent?.let { PendingIntent.getBroadcast(context, 0, it,   PendingIntent.FLAG_IMMUTABLE).cancel() }
 
         Log.d("NOME ON BRODCAST:", nome!!)
         Log.d("NOME ON BRODCAST:", intent?.getStringExtra("nome").toString())
-        Log.d("FURRY", furry!!)
         Log.d("UID ON BROADCAST:", uid!!)
 //
 //        val intentExtras = intent?.extras
@@ -100,7 +99,9 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 //                    Log.d("ALL INTENT EXTRAS", "$key: $value")
 //                }
 //            }
-
+        if (intent != null) {
+            PendingIntent.getBroadcast(context, 0, intent,   PendingIntent.FLAG_IMMUTABLE).cancel()
+        }
 //        notificationManager.cancel(id.toInt())
         if (id == "acceptEmergency") {
 //            val newIntent = Intent(context,perfil_socorrista::class.java)

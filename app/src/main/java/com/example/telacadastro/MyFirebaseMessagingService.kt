@@ -67,6 +67,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                     )
                 }
             } }
+
             // Check if data needs to be processed by long running job
             if (needsToBeScheduled()) {
                 // For long-running tasks (10 seconds or more) use WorkManager.
@@ -137,22 +138,22 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
 
 
-//            this.startActivity(intent)
+    //            this.startActivity(intent)
             //intent.putExtra("emergencyUid",msg)
-    //            val intentExtras = intent.extras
-    //            if (intentExtras != null) {
-    //                for (key in intentExtras.keySet()) {
-    //                    val value = intentExtras.get(key)
-    //                    Log.d("IntentExtras", "$key: $value")
-    //                }
-    //            }
+            //            val intentExtras = intent.extras
+            //            if (intentExtras != null) {
+            //                for (key in intentExtras.keySet()) {
+            //                    val value = intentExtras.get(key)
+            //                    Log.d("IntentExtras", "$key: $value")
+            //                }
+            //            }
 
             var intent = Intent(this, MyBroadcastReceiver::class.java).apply {
                 putExtra("emergencyUid", msg)
                 putExtra("nome", nome)
                 putExtra("imagePath",ImageRoot)
                 putExtra("notificationID", "acceptEmergency")
-//                apply { action = "com.example.ACTION_LOG" }
+    //                apply { action = "com.example.ACTION_LOG" }
             }
 
             var refuseIntentExtras = Intent(this, perfil_socorrista::class.java).apply {
@@ -163,20 +164,25 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 apply { action = "com.example.ACTION_LOG" }
             }
             val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_MUTABLE)
+                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_IMMUTABLE)
+
+
+
             } else {
-               // TODO("VERSION.SDK_INT < S")
-                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_UPDATE_CURRENT)
+                // TODO("VERSION.SDK_INT < S")
+                PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_ONE_SHOT)
             }
+//            pendingIntent.cancel()
             // setting the mutability flag )
 
             val refuseIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_IMMUTABLE )
 
             } else {
-//                TODO("VERSION.SDK_INT < S")
-                PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_UPDATE_CURRENT )
-            } // setting the mutability flag )         }
+    //                TODO("VERSION.SDK_INT < S")
+                PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_IMMUTABLE )
+            }
+//            refuseIntent.cancel()// setting the mutability flag )         }
             val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
                 .setSmallIcon(R.drawable.baseline_healing_24)
                 .setContentTitle("NEW emergency")
@@ -191,7 +197,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             val notificationID = 0;
             notificationManager.notify(notificationID,builder.build())
 
-        }?.addOnFailureListener {
+        }.addOnFailureListener {
             // Handle any errors
         }
 
