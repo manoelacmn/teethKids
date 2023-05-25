@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/image_panel"
+        android:id="@+id/roundedImageView"
         android:layout_width="370dp"
         android:layout_height="696dp"
         android:bottomLeftRadius="30dp"
@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.706" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_title"
+        android:id="@+id/appCompatTextView4"
         android:layout_width="394dp"
         android:layout_height="101dp"
         android:fontFamily="sans-serif-black"
@@ -34,26 +34,26 @@
         android:text="Criar conta"
         android:textSize="60sp"
         android:textColor="@color/Azul_escuro"
-        app:layout_constraintBottom_toTopOf="@+id/image_panel"
+        app:layout_constraintBottom_toTopOf="@+id/roundedImageView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.78"
         tools:layout_editor_absoluteX="-36dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_email"
+        android:id="@+id/appCompatTextView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="E-mail"
         android:textColor="@color/Azul_escuro"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_email"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
+        app:layout_constraintBottom_toTopOf="@+id/EtEmail_Criar_Conta"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
         app:layout_constraintHorizontal_bias="0.07"
-        app:layout_constraintStart_toStartOf="@+id/image_panel" />
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_email"
+        android:id="@+id/EtEmail_Criar_Conta"
         android:layout_width="344dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
@@ -61,27 +61,27 @@
         android:hint="Digite o E-mail"
         android:textColorHint="@color/teal_700"
         android:textColor="@color/teal_700"
-        app:layout_constraintBottom_toBottomOf="@+id/image_panel"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
-        app:layout_constraintStart_toStartOf="@+id/image_panel"
-        app:layout_constraintTop_toTopOf="@+id/image_panel"
+        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
+        app:layout_constraintTop_toTopOf="@+id/roundedImageView"
         app:layout_constraintVertical_bias="0.07999998" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_senha"
+        android:id="@+id/appCompatTextView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Senha"
         android:textSize="24sp"
         android:textColor="@color/Azul_escuro"
-        app:layout_constraintBottom_toTopOf="@+id/edit_senha"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
+        app:layout_constraintBottom_toTopOf="@+id/EtSenha_Criar_Conta"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
         app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="@+id/image_panel" />
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_senha"
+        android:id="@+id/EtSenha_Criar_Conta"
         android:layout_width="344dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
@@ -90,27 +90,27 @@
         android:textColorHint="@color/teal_700"
         android:inputType="textPassword"
         android:textColor="@color/teal_700"
-        app:layout_constraintBottom_toBottomOf="@+id/image_panel"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
-        app:layout_constraintStart_toStartOf="@+id/image_panel"
-        app:layout_constraintTop_toTopOf="@+id/image_panel"
+        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
+        app:layout_constraintTop_toTopOf="@+id/roundedImageView"
         app:layout_constraintVertical_bias="0.24000001" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_nome"
+        android:id="@+id/appCompatTextView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Nome"
         android:textSize="24sp"
         android:textColor="@color/Azul_escuro"
-        app:layout_constraintBottom_toTopOf="@+id/edit_nome"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
+        app:layout_constraintBottom_toTopOf="@+id/EtNome_Criar_Conta"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
         app:layout_constraintHorizontal_bias="0.07"
-        app:layout_constraintStart_toStartOf="@+id/image_panel" />
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_nome"
+        android:id="@+id/EtNome_Criar_Conta"
         android:layout_width="344dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
@@ -118,27 +118,27 @@
         android:hint="Digite seu Nome"
         android:textColorHint="@color/teal_700"
         android:textColor="@color/teal_700"
-        app:layout_constraintBottom_toBottomOf="@+id/image_panel"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
-        app:layout_constraintStart_toStartOf="@+id/image_panel"
-        app:layout_constraintTop_toTopOf="@+id/image_panel"
+        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
+        app:layout_constraintTop_toTopOf="@+id/roundedImageView"
         app:layout_constraintVertical_bias="0.39" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_endereco"
+        android:id="@+id/appCompatTextView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Endereço"
         android:textSize="24sp"
         android:textColor="@color/Azul_escuro"
-        app:layout_constraintBottom_toTopOf="@+id/edit_endereco"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
+        app:layout_constraintBottom_toTopOf="@+id/EtEndereco_Criar_Conta"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
         app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toStartOf="@+id/image_panel" />
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_endereco"
+        android:id="@+id/EtEndereco_Criar_Conta"
         android:layout_width="344dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
@@ -146,27 +146,27 @@
         android:hint="Digite seu Endereço"
         android:textColorHint="@color/teal_700"
         android:textColor="@color/teal_700"
-        app:layout_constraintBottom_toBottomOf="@+id/image_panel"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
-        app:layout_constraintStart_toStartOf="@+id/image_panel"
-        app:layout_constraintTop_toTopOf="@+id/image_panel"
+        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
+        app:layout_constraintTop_toTopOf="@+id/roundedImageView"
         app:layout_constraintVertical_bias="0.55" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_curriculo"
+        android:id="@+id/appCompatTextView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Currículo"
         android:textSize="24sp"
         android:textColor="@color/Azul_escuro"
-        app:layout_constraintBottom_toTopOf="@+id/edit_curriculo"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
+        app:layout_constraintBottom_toTopOf="@+id/EtCurriculo_Criar_Conta"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
         app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toStartOf="@+id/image_panel" />
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_curriculo"
+        android:id="@+id/EtCurriculo_Criar_Conta"
         android:layout_width="344dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/green_project"
@@ -174,25 +174,25 @@
         android:hint="Digite seu Currículo"
         android:textColorHint="@color/teal_700"
         android:textColor="@color/teal_700"
-        app:layout_constraintBottom_toBottomOf="@+id/image_panel"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
-        app:layout_constraintStart_toStartOf="@+id/image_panel"
-        app:layout_constraintTop_toTopOf="@+id/image_panel"
+        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
+        app:layout_constraintTop_toTopOf="@+id/roundedImageView"
         app:layout_constraintVertical_bias="0.71000004" />
 
     <ImageView
-        android:id="@+id/image_panel_camera"
+        android:id="@+id/imageView6"
         android:layout_width="225dp"
         android:layout_height="64dp"
-        app:layout_constraintBottom_toBottomOf="@+id/image_panel"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel"
-        app:layout_constraintStart_toStartOf="@+id/image_panel"
-        app:layout_constraintTop_toTopOf="@+id/image_panel"
+        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
+        app:layout_constraintTop_toTopOf="@+id/roundedImageView"
         app:layout_constraintVertical_bias="0.87"
         app:srcCompat="@drawable/box_widget" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_register"
+        android:id="@+id/BtnCriarConta"
         android:layout_width="189dp"
         android:layout_height="74dp"
         android:layout_marginTop="668dp"
@@ -202,40 +202,40 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/image_panel" />
+        app:layout_constraintTop_toTopOf="@+id/roundedImageView" />
 
     <ImageView
-        android:id="@+id/image_circle_camera"
+        android:id="@+id/imageView10"
         android:layout_width="69dp"
         android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/image_panel_camera"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel_camera"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintHorizontal_bias="0.13"
-        app:layout_constraintStart_toStartOf="@+id/image_panel_camera"
-        app:layout_constraintTop_toTopOf="@+id/image_panel_camera"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:srcCompat="@drawable/baseline_circle_24" />
 
     <ImageView
-        android:id="@+id/image_camera"
+        android:id="@+id/imageView2"
         android:layout_width="62dp"
         android:layout_height="42dp"
-        app:layout_constraintBottom_toBottomOf="@+id/image_circle_camera"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel_camera"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toStartOf="@+id/image_panel_camera"
-        app:layout_constraintTop_toTopOf="@+id/image_circle_camera"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView10"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <TextView
-        android:id="@+id/text_camera"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Abrir Câmera"
-        app:layout_constraintBottom_toBottomOf="@+id/image_panel_camera"
-        app:layout_constraintEnd_toEndOf="@+id/image_panel_camera"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="@+id/image_panel_camera"
-        app:layout_constraintTop_toTopOf="@+id/image_panel_camera"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.488" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

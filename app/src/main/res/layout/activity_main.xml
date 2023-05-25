@@ -10,7 +10,7 @@
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_seja"
+        android:id="@+id/TvTitulo"
         android:layout_width="166dp"
         android:layout_height="237dp"
         android:ellipsize="end"
@@ -22,13 +22,13 @@
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_bem"
+        android:id="@+id/TvTitulo2"
         android:layout_width="305dp"
         android:layout_height="241dp"
         android:ellipsize="end"
@@ -39,14 +39,14 @@
         android:textColor="@color/Azul_escuro"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/text_seja"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="@+id/text_seja"
-        app:layout_constraintTop_toTopOf="@+id/text_seja"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.118" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_subtitulo"
+        android:id="@+id/appCompatTextView11"
         android:layout_width="344dp"
         android:layout_height="104dp"
         android:fontFamily="sans-serif-condensed-medium"
@@ -59,22 +59,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_bem"
+        app:layout_constraintTop_toTopOf="@+id/TvTitulo2"
         app:layout_constraintVertical_bias="0.236" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/button_login"
+        android:id="@+id/BtnEntrar"
         android:layout_width="388dp"
         android:layout_height="67dp"
         android:background="@drawable/botton_background_bluelieth"
-        app:layout_constraintBottom_toTopOf="@+id/button_register"
+        app:layout_constraintBottom_toTopOf="@+id/BtnCriarConta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.963">
 
         <TextView
-            android:id="@+id/text_login"
+            android:id="@+id/Login"
             android:layout_width="191dp"
             android:layout_height="51dp"
             android:layout_marginTop="18dp"
@@ -91,7 +91,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/button_register"
+        android:id="@+id/BtnCriarConta"
         android:layout_width="382dp"
         android:layout_height="66dp"
         android:background="@drawable/botton_background_bluemoredark"
@@ -102,7 +102,7 @@
         app:layout_constraintVertical_bias="0.96">
 
         <TextView
-            android:id="@+id/text_register"
+            android:id="@+id/Register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
