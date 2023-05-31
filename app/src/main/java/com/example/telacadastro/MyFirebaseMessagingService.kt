@@ -117,7 +117,6 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
         //  var spaceRef = storageRef.child("1/")
 
-        var orangutan = emergencias?.child("orangutan_square-763017175.jpg")
 
         val imageRef = storageRef.child(ImageRoot)
 
@@ -138,15 +137,6 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
 
 
-    //            this.startActivity(intent)
-            //intent.putExtra("emergencyUid",msg)
-            //            val intentExtras = intent.extras
-            //            if (intentExtras != null) {
-            //                for (key in intentExtras.keySet()) {
-            //                    val value = intentExtras.get(key)
-            //                    Log.d("IntentExtras", "$key: $value")
-            //                }
-            //            }
 
             var intent = Intent(this, MyBroadcastReceiver::class.java).apply {
                 putExtra("emergencyUid", msg)
@@ -182,7 +172,6 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
     //                TODO("VERSION.SDK_INT < S")
                 PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_IMMUTABLE )
             }
-//            refuseIntent.cancel()// setting the mutability flag )         }
             val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
                 .setSmallIcon(R.drawable.baseline_healing_24)
                 .setContentTitle("NEW emergency")
@@ -201,102 +190,11 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             // Handle any errors
         }
 
-        //Log.d("IMAGE FILETYPE", )
 
 
-//        val name = getString(R.string.channel_name)
-//        val descriptionText = getString(R.string.channel_description)
-//        val importance = NotificationManager.IMPORTANCE_DEFAULT
-//        val channel = NotificationChannel(name,name,importance).apply {
-//            description = descriptionText
-//        }
-//        val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//        notificationManager.createNotificationChannel(channel)
-//
-//        val intent = Intent(this, MyBroadcastReceiver::class.java)
-//            .putExtra("emergencyUid",msg )
-//            .putExtra("notificationID","emergencias")
-//            .apply { action = "com.example.ACTION_LOG" }
-//
-//        //intent.putExtra("emergencyUid",msg)
-//        val intentExtras = intent.extras
-//        if (intentExtras != null) {
-//            for (key in intentExtras.keySet()) {
-//                val value = intentExtras.get(key)
-//                Log.d("IntentExtras", "$key: $value")
-//            }
-//        }
-//
-//        val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-//            PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_IMMUTABLE )
-//
-//        } else {
-//            TODO("VERSION.SDK_INT < S")
-//        } // setting the mutability flag )
-//
-//
-//        val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
-//            .setSmallIcon(androidx.core.R.drawable.notification_template_icon_bg)
-//            .setContentTitle("NEW emergency")
-////            .setStyle(NotificationCompat.BigTextStyle()
-////                .bigText(msg))
-//            .setStyle(NotificationCompat.BigPictureStyle().bigPicture(monkey))
-//            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-//            .addAction(R.drawable.ic_action_name, "Aceitar Emergência?",pendingIntent)
-//
-//
-//        notificationManager.createNotificationChannel(channel)
-//        val notificationID = 0;
-//        notificationManager.notify(notificationID,builder.build())
     }
 
-//    private fun createNotificationChannel(){
-//        val name = getString(R.string.channel_name)
-//        val descriptionText = getString(R.string.channel_description)
-//        val importance = NotificationManager.IMPORTANCE_DEFAULT
-//        val channel = NotificationChannel("1234",name,importance).apply {
-//            description = descriptionText
-//        }
-//        val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//        notificationManager.createNotificationChannel(channel)
-//
-//
-//    }
 
-//    private fun sendNotification(messageBody: String) {
-//        val intent = Intent(this, MainActivity::class.java)
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-//        val requestCode = 0
-//        val pendingIntent = PendingIntent.getActivity(
-//            this,
-//            requestCode,
-//            intent,
-//            PendingIntent.FLAG_IMMUTABLE,
-//        )
-//
-//        val channelId = "fcm_default_channel"
-//        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-//        val notificationBuilder = NotificationCompat.Builder(this, channelId)
-//            .setSmallIcon(R.mipmap.ic_launcher)
-//            .setContentTitle("FCM Message")
-//            .setContentText(messageBody)
-//            .setAutoCancel(true)
-//            .setSound(defaultSoundUri)
-//            .setContentIntent(pendingIntent)
-//
-//        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//
-//        // Since android Oreo notification channel is needed.
-//        val channel = NotificationChannel(
-//            channelId,
-//            "Channel human readable title",
-//            NotificationManager.IMPORTANCE_DEFAULT,
-//        )
-//        notificationManager.createNotificationChannel(channel)
-//
-//        val notificationId = 0
-//        notificationManager.notify(notificationId, notificationBuilder.build())
-//    }
 
     companion object {
         private const val TAG = "MyFirebaseMsgService"

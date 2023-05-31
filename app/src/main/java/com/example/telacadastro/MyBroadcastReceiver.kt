@@ -26,7 +26,6 @@ class MyBroadcastReceiver : BroadcastReceiver() {
     var uid: String? = null
     var id: String? = null
     var nome: String? = null
-    private var furry: String? = null
 
     override fun onReceive(context: Context?, intent: Intent?) {
         nome = null
