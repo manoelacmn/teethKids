@@ -44,7 +44,14 @@ class MainActivity : AppCompatActivity() {
 
         storage = Firebase.storage
         askNotificationPermission()
+        val user = Firebase.auth.currentUser
+        if (user != null) {
 
+            var homeScreen = Intent(this, Tela_Inicial::class.java)
+            startActivity(homeScreen)
+        } else {
+            // No user is signed in
+        }
 
     }
 
@@ -54,43 +61,20 @@ class MainActivity : AppCompatActivity() {
         startActivity(criarcontaTela)
     }
 
+    private  fun alreadySignIn()
+    {
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            // User is signed in
+        } else {
+            // No user is signed in
+        }
+    }
+
     private fun irParaTelaLogin() {
         var telaLog = Intent(this, telaLogin::class.java)
         startActivity(telaLog)
     }
-
-//    @SuppressLint("StringFormatInvalid")
-//    private fun token(){
-//        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-//            if (!task.isSuccessful) {
-//                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
-//                return@OnCompleteListener
-//            }
-//            // Get new FCM registration token
-//            val token = task.result
-//
-//            // Log and toast
-//            val msg = getString(R.string.msg_token_fmt, token)
-//            Log.d(TAG, msg)
-//            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-//
-//        }
-//    }
-
-//    private fun createNotificationChannel() {
-//        // Create the NotificationChannel, but only on API 26+ because
-//        // the NotificationChannel class is new and not in the support library
-//        val name = getString(R.string.channel_name)
-//        val descriptionText = getString(R.string.channel_description)
-//        val importance = NotificationManager.IMPORTANCE_DEFAULT
-//        val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-//            description = descriptionText
-//        }
-//        // Register the channel with the system
-//        val notificationManager: NotificationManager =
-//            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//        notificationManager.createNotificationChannel(channel)
-//    }
 
 
     // Declare the launcher at the top of your Activity/Fragment:
@@ -110,14 +94,9 @@ class MainActivity : AppCompatActivity() {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
                 PackageManager.PERMISSION_GRANTED
             ) {
-                // FCM SDK (and your app) can post notifications.
             } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
-                // TODO: display an educational UI explaining to the user the features that will be enabled
-                //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
-                //       "OK" and "No thanks" buttons. If the user selects "OK," directly request the permission.
-                //       If the user selects "No thanks," allow the user to continue without notifications.
+
             } else {
-                // Directly ask for the permission
                 requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
         }
@@ -129,8 +108,6 @@ class MainActivity : AppCompatActivity() {
         .setContentTitle("nova emergência")
         .setContentText("aceitar emergência?")
         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-//        .addAction(R.drawable.ic_snooze, getString(R.string.snooze),
-//            snoozePendingIntent)
 
 
 }
