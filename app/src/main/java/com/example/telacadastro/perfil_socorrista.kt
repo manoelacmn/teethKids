@@ -23,6 +23,8 @@ class perfil_socorrista : AppCompatActivity() {
     private lateinit var binding: ActivityPerfilSocorristaBinding
     private lateinit var auth: FirebaseAuth
     lateinit var storage: FirebaseStorage
+
+
     companion object{
         const val  LETTER = "latter"
     }

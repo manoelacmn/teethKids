@@ -81,7 +81,10 @@ class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
                         val result =
                             task.result?.data.toString()  //[ {uid=2211221121221, nome=guts, status=new}, {uid=2112122121, nome=uwu, status=new}]
 
-                        Log.d("RESULT:", "\n\n${result.toString()}") //[ {uid=2211221121221, nome=guts, status=new}, {uid=2112122121, nome=uwu, status=new}]
+                        Log.d(
+                            "RESULT:",
+                            result.toString()
+                        ) //[ {uid=2211221121221, nome=guts, status=new}, {uid=2112122121, nome=uwu, status=new}]
 
                         val list = result
                             .substring(1, result.length - 1) // Remove the square brackets
@@ -100,18 +103,16 @@ class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
                                 val key = keyValue[0].trim()
                                 val value = keyValue[1].trim()
                                 hashMap[key] = value
-                                Log.d("CREATING HASHMAP","\n\n${hashMap.toString()}\n")
+                                Log.d("CREATING HASHMAP",hashMap.toString())
                             }
-                            Log.d("NEW HASHMAP:", "\n\n${hashMap.toString()}\n")
+                            Log.d("NEW HASHMAP:", hashMap.toString())
                             var profile = perfil(
                                 R.drawable.baseline_person_24,
                                 hashMap["nome"] as String,
                                 "Distância,Tempo de Espera",
                                 "Analisar",
                                 hashMap["uid"] as String,
-                                hashMap["ImageRoot1"] as String,
-                                hashMap["ImageRoot2"] as String,
-                                hashMap["ImageRoot3"] as String
+                                hashMap["ImageRoot"] as String
                             )
 
                             perfil.add(profile)

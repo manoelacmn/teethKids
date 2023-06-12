@@ -92,6 +92,7 @@ class criarConta: AppCompatActivity() {
             }
     }
 
+
     private fun irParaTelaLogin(){
         val telaLog = Intent(this,telaLogin::class.java)
         startActivity(telaLog)
