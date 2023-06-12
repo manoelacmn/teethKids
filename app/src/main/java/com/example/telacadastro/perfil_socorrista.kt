@@ -28,7 +28,7 @@ class perfil_socorrista : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         storage = Firebase.storage
-        var storageReference = FirebaseStorage.getInstance().reference
+        val storageReference = FirebaseStorage.getInstance().reference
 
 
         var uid:String = ""
@@ -57,7 +57,12 @@ class perfil_socorrista : AppCompatActivity() {
 
         uid = intent?.getStringExtra("uid").toString();
 
+        val imagePath2 = intent?.getStringExtra("imagePath2").toString();
+
+        val imagePath1 = intent?.getStringExtra("imagePath1").toString();
+
         val  imagePath = intent?.getStringExtra("imagePath").toString();
+
         binding.tvNome.text = nome
 
         Log.d("IMGEPATH",imagePath)
@@ -68,7 +73,7 @@ class perfil_socorrista : AppCompatActivity() {
 
 //        binding.imageView5
 
-        val ONE_MEGABYTE: Long = 1024 * 1024
+        val ONE_MEGABYTE: Long = 4096 * 4096
         imageRef.getBytes(ONE_MEGABYTE).addOnSuccessListener {image->
             val uwu = BitmapFactory.decodeByteArray(image, 0, image.size)
             binding.imageView5.setImageBitmap(uwu)

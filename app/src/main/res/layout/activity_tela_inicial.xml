@@ -165,8 +165,9 @@
                             app:layout_constraintBottom_toBottomOf="@+id/imageviewAlerta"
                             app:layout_constraintEnd_toEndOf="@+id/imageviewAlerta"
                             app:layout_constraintStart_toStartOf="@+id/imageviewAlerta"
-                            app:layout_constraintTop_toTopOf="@+id/imageviewAlerta" />
-
+                            app:layout_constraintTop_toTopOf="@+id/imageviewAlerta"
+                            app:srcCompat="@drawable/heart_circle_plus_solid"
+                          />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <TextView

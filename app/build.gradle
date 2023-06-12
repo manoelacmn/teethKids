@@ -63,30 +63,24 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    implementation 'com.google.firebase:firebase-analytics-ktx:21.2.2'
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.3.0'
     implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.6.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.6.1'
     implementation 'com.google.firebase:firebase-messaging'
 
     implementation 'com.google.firebase:firebase-auth-ktx'
 
     implementation 'com.google.android.material:material:1.9.0'
 
-    implementation 'com.google.firebase:firebase-functions-ktx:20.3.0'
+    implementation 'com.google.firebase:firebase-functions-ktx:20.3.1'
 
 
 
 //dependencia do datastore
+
     implementation("androidx.datastore:datastore-core:1.0.0")
 
-    implementation "androidx.datastore:datastore-preferences:1.0.0"
-    implementation("androidx.datastore:datastore:1.0.0")
-
-    // optional - RxJava2 support
-    implementation("androidx.datastore:datastore-rxjava2:1.0.0")
-
-    // optional - RxJava3 support
-    implementation("androidx.datastore:datastore-rxjava3:1.0.0")
+    implementation "androidx.datastore:datastore-preferences:1.1.0-alpha04"
 
 
 
