@@ -29,21 +29,12 @@ class perfil_socorrista : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     lateinit var storage: FirebaseStorage
     val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+
+
     companion object{
         const val  LETTER = "latter"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
-        // At the top level of your kotlin file:
-
-//
-//        val EXAMPLE_COUNTER = intPreferencesKey("example_counter")
-//        val exampleCounterFlow: Flow<Int> = context.dataStore.data
-//            .map { preferences ->
-//                // No type safety.
-//                preferences[EXAMPLE_COUNTER] ?: 0
-//            }
-
-
         storage = Firebase.storage
         val storageReference = FirebaseStorage.getInstance().reference
 

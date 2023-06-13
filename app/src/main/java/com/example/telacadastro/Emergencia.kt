@@ -21,7 +21,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import java.io.ByteArrayOutputStream
 
-
+private const val REQUEST_IMAGE_CAPTURE = 1
 class Emergencia : AppCompatActivity() {
 
     private lateinit var binding : ActivityEmergenciaBinding
@@ -34,6 +34,7 @@ class Emergencia : AppCompatActivity() {
         binding.btnEnviar.setOnClickListener{btnir ->
             uploadimage()
         }
+        binding.btnEnviar
         storage= Firebase.storage
     }
 
@@ -45,19 +46,11 @@ class Emergencia : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI)
         startActivityForResult(Intent.createChooser(intent,"escolha uma imagem"),11)
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if(resultCode==Activity.RESULT_OK){
-            if(requestCode == 11){
-                if(data != null){
-                    val uri = data.data
-                    binding.uploadImageView.setImageURI(uri)
-                }
-            }
-        }
+    private fun TirarFoto(){
+        val intent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
     }
+
 
 
 
@@ -69,12 +62,22 @@ class Emergencia : AppCompatActivity() {
                 obterImagemGaleria()
                 true
             }
+            R.id.action_submenu->{
+                TirarFoto()
+                true
+            }
             else ->{
                 return super.onOptionsItemSelected(item)
             }
         }
 
     }
+    override fun onActivityResult(requestCode: Int,resultCode: Int,data:Intent?){
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode== REQUEST_IMAGE_CAPTURE && resultCode== RESULT_OK){
+            val imageBitMap= data?.extras?.get("data") as Bitmap
+            binding.uploadImageView.setImageBitmap(imageBitMap)
+    }}
 
 
 

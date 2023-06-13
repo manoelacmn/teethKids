@@ -37,6 +37,7 @@ class Tela_Inicial : AppCompatActivity() {
         binding.btnTelaEmergencia.setOnClickListener { btnir ->
             emergencia()
         }
+        binding.btnConfiguraO.setOnClickListener({btn -> tirarFoto()})
 
 
 
@@ -50,5 +51,9 @@ class Tela_Inicial : AppCompatActivity() {
     private fun emergencia(){
         var irEmergencia = Intent(this,recycleVeiw::class.java)
         startActivity(irEmergencia)
+    }
+    private fun tirarFoto(){
+        var intent=Intent(this,Emergencia::class.java)
+        startActivity(intent)
     }
 }
