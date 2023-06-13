@@ -32,7 +32,6 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
     // private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings");
 
-    val EXAMPLE_COUNTER = booleanPreferencesKey("isAvalible")
 
 
 
