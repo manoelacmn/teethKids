@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/Azul_claro"
         android:fontFamily="@font/comfortaa_bold"
-        android:text="Nome do Usúario"
+        android:text=""
         android:textColor="@color/Azul_escuro"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView9"

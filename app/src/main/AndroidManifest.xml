@@ -4,9 +4,9 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
-    <uses-permission android:name="android.hardware.camera"
-        android:required="true"/>
-
+    <uses-permission
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +18,12 @@
         android:theme="@style/Theme.Telacadastro"
         tools:targetApi="31">
         <activity
+            android:name=".recycleravaliacao"
+            android:exported="false"/>
+        <activity
+            android:name=".PerfilActivity"
+            android:exported="false" />
+        <activity
             android:name=".perfil_socorrista"
             android:exported="false" />
         <activity
@@ -27,15 +33,11 @@
             android:name=".Tela_Inicial"
             android:exported="false" />
         <activity
-            android:name=".notification"
-            android:exported="false" />
-        <activity
             android:name=".Emergencia"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
-
         <activity
             android:name=".telaLogin"
             android:exported="false" />

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilActivity">
+
+
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgFotoPerfil"
+        android:layout_width="165dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="22dp"
+        android:src="@drawable/download"
+        app:layout_constraintBottom_toTopOf="@+id/etTelefone"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etNomeEditarPerfil"
+        android:textColorHint="@color/Azul_escuro"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="14dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:hint="Nome"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch1"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/etNomeEditarPerfil"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnVerReputacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="76dp"
+        android:backgroundTint="@color/Azul_claro"
+        android:textColor="@color/Azul_escuro"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="Ver reputação"
+        app:layout_constraintBottom_toTopOf="@+id/etEndereco1EditarPerfil"
+        app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etTelefone"
+        android:textColorHint="@color/Azul_escuro"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="202dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:hint="Telefone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnVerReputacao" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:textColorHint="@color/Azul_escuro"
+        android:id="@+id/etEmailEditarPerfil"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:hint="Email"
+        app:layout_constraintBottom_toTopOf="@+id/etCurriculoEditarPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEndereco3EditarPerfil" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etEndereco1EditarPerfil"
+        android:textColorHint="@color/Azul_escuro"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:hint="Endereço 1"
+        app:layout_constraintBottom_toTopOf="@+id/etEndereco2EditarPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etTelefone" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etEndereco2EditarPerfil"
+        android:textColorHint="@color/Azul_escuro"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:hint="Endereço 2"
+        app:layout_constraintBottom_toTopOf="@+id/etEndereco3EditarPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEndereco1EditarPerfil" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etEndereco3EditarPerfil"
+        android:layout_width="250sp"
+        android:textColorHint="@color/Azul_escuro"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:hint="Endereço 3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEndereco2EditarPerfil" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etCurriculoEditarPerfil"
+        android:layout_width="380dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:hint="Mini-Currículo"
+        android:textColorHint="@color/Azul_escuro"
+        app:layout_constraintBottom_toTopOf="@+id/btnSalvarDados"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailEditarPerfil" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSalvarDados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/Azul_claro"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="Salvar"
+        android:textColor="@color/Azul_escuro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCurriculoEditarPerfil" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView2"
+        android:textColor="@color/Azul_escuro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:gravity="center"
+        android:text="Status"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnVerReputacao"
+        app:layout_constraintEnd_toStartOf="@+id/switch1"
+        app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/etNomeEditarPerfil" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
