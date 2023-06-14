@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul_mais_claro"
+    android:background="@color/teste2"
 
 
     tools:context=".Tela_Inicial">
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/Azul_claro"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text=""
         android:textColor="@color/Azul_escuro"
         android:textSize="22sp"
@@ -38,8 +38,8 @@
         android:id="@+id/appCompatTextView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/comfortaa_bold"
-        android:text="OdonTApp"
+        android:fontFamily="sans-serif-black"
+        android:text="OdontApp"
         android:textColor="@color/Azul_escuro"
         android:textSize="42dp"
         android:textStyle="bold"
@@ -57,9 +57,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_person_24" />
-
-
-
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -125,11 +122,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/comfortaa_bold"
+                        android:fontFamily="sans-serif-condensed-medium"
                         android:text="Perfil"
                         android:textAlignment="center"
                         android:textColor="@color/Azul_escuro"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         tools:layout_marginStart="10dp" />
                 </LinearLayout>
 
@@ -159,15 +156,14 @@
 
                         <ImageView
                             android:id="@+id/imageView7"
-                            android:layout_width="58dp"
-                            android:layout_height="51dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:contentDescription="TODO"
                             app:layout_constraintBottom_toBottomOf="@+id/imageviewAlerta"
                             app:layout_constraintEnd_toEndOf="@+id/imageviewAlerta"
                             app:layout_constraintStart_toStartOf="@+id/imageviewAlerta"
                             app:layout_constraintTop_toTopOf="@+id/imageviewAlerta"
-                            app:srcCompat="@drawable/heart_circle_plus_solid"
-                          />
+                            app:srcCompat="@drawable/heart_circle_plus_solid" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <TextView
@@ -175,12 +171,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="33dp"
                         android:layout_marginStart="3dp"
-                        android:fontFamily="@font/comfortaa_bold"
+                        android:fontFamily="sans-serif-condensed-medium"
                         android:singleLine="true"
                         android:text="Emergência"
                         android:textAlignment="center"
                         android:textColor="@color/Azul_escuro"
-                        android:textSize="12sp"
+                        android:textSize="16sp"
                         tools:layout_marginStart="1dp"
                         tools:textAlignment="1" />
                 </LinearLayout>
@@ -228,11 +224,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/comfortaa_bold"
+                        android:fontFamily="sans-serif-condensed-medium"
                         android:text="Histórico"
                         android:textAlignment="center"
                         android:textColor="@color/Azul_escuro"
-                        android:textSize="12sp"
+                        android:textSize="16sp"
                         tools:layout_marginStart="10dp" />
                 </LinearLayout>
             </TableRow>
@@ -285,11 +281,11 @@
                         android:id="@+id/TvConfiguração"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/comfortaa_bold"
+                        android:fontFamily="sans-serif-condensed-medium"
                         android:text="Configuração"
                         android:textAlignment="center"
                         android:textColor="@color/Azul_escuro"
-                        android:textSize="11sp"/>
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -333,12 +329,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/comfortaa_bold"
+                        android:fontFamily="sans-serif-condensed-medium"
                         android:gravity="center"
                         android:text="Avaliações"
                         android:textAlignment="center"
                         android:textColor="@color/Azul_escuro"
-                        android:textSize="12sp"
+                        android:textSize="16sp"
                         tools:layout_marginStart="1dp"
                         tools:textAlignment="1" />
                 </LinearLayout>
@@ -386,11 +382,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/comfortaa_bold"
+                        android:fontFamily="sans-serif-condensed-medium"
                         android:text="Logout"
                         android:textAlignment="center"
                         android:textColor="@color/Azul_escuro"
-                        android:textSize="12sp"
+                        android:textSize="16sp"
                         tools:layout_marginStart="10dp" />
                 </LinearLayout>
             </TableRow>
