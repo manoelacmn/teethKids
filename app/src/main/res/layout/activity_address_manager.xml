@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:padding="16dp">
+
+  <!-- ImageView 1 -->
+<!--  <com.google.android.material.imageview.ShapeableImageView-->
+<!--    android:id="@+id/imageView1"-->
+<!--    android:layout_width="100dp"-->
+<!--    android:layout_height="100dp"-->
+<!--    app:shapeAppearanceOverlay="@style/ImageViewShape"-->
+<!--    app:srcCompat="@drawable/your_image1"-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintHorizontal_chainStyle="spread"-->
+<!--    app:layout_constraintHorizontal_bias="0.5"-->
+<!--    app:layout_constraintMarginEnd="8dp"-->
+<!--    app:layout_constraintMarginStart="8dp"-->
+<!--    app:layout_constraintVertical_bias="0.5" />-->
+
+<!--  &lt;!&ndash; ImageView 2 &ndash;&gt;-->
+<!--  <com.google.android.material.imageview.ShapeableImageView-->
+<!--    android:id="@+id/uwu"-->
+<!--    android:layout_width="100dp"-->
+<!--    android:layout_height="100dp"-->
+<!--    app:shapeAppearanceOverlay="@style/ImageViewShape"-->
+<!--    app:srcCompat="@drawable/your_image2"-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
+<!--    app:layout_constraintEnd_toStartOf="@id/imageView3"-->
+<!--    app:layout_constraintHorizontal_chainStyle="spread"-->
+<!--    app:layout_constraintHorizontal_bias="0.5"-->
+<!--    app:layout_constraintMarginEnd="8dp"-->
+<!--    app:layout_constraintMarginStart="8dp"-->
+<!--    app:layout_constraintVertical_bias="0.5" />-->
+
+<!--  &lt;!&ndash; ImageView 3 &ndash;&gt;-->
+<!--  <com.google.android.material.imageview.ShapeableImageView-->
+<!--    android:id="@+id/imageView3"-->
+<!--    android:layout_width="100dp"-->
+<!--    android:layout_height="100dp"-->
+<!--    app:shapeAppearanceOverlay="@style/ImageViewShape"-->
+<!--    app:srcCompat="@drawable/your_image3"-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintHorizontal_chainStyle="spread"-->
+<!--    app:layout_constraintHorizontal_bias="0.5"-->
+<!--    app:layout_constraintMarginEnd="8dp"-->
+<!--    app:layout_constraintMarginStart="8dp"-->
+<!--    app:layout_constraintVertical_bias="0.5" />-->
+
+<!--  &lt;!&ndash; Button 1 &ndash;&gt;-->
+<!--  <com.google.android.material.button.MaterialButton-->
+<!--    android:id="@+id/button1"-->
+<!--    style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Button 1"-->
+<!--    app:layout_constraintTop_toBottomOf="@id/imageView1"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintEnd_toStartOf="@id/button2"-->
+<!--    app:layout_constraintHorizontal_chainStyle="spread"-->
+<!--    app:layout_constraintHorizontal_bias="0.5"-->
+<!--    app:layout_constraintMarginEnd="8dp"-->
+<!--    app:layout_constraintMarginStart="8dp" />-->
+
+<!--  &lt;!&ndash; Button 2 &ndash;&gt;-->
+<!--  <com.google.android.material.button.MaterialButton-->
+<!--    android:id="@+id/button2"-->
+<!--    style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Button 2"-->
+<!--    app:layout_constraintStart_toEndOf="@id/button1"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintHorizontal_chainStyle="spread"-->
+<!--    app:layout_constraintHorizontal_bias="0.5"-->
+<!--    app:layout_constraintMarginEnd="8dp"-->
+<!--    app:layout_constraintMarginStart="8dp"-->
+<!--    tools:ignore="MissingConstraints" />-->
+
+<!--  &lt;!&ndash; TextView 1 &ndash;&gt;-->
+<!--  <TextView-->
+<!--    android:id="@+id/textView1"-->
+<!--    style="@style/Widget.MaterialComponents.TextView"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Text 1"-->
+<!--    app:layout_constraintTop_toBottomOf="@id/button1"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintHorizontal_bias="0.5"-->
+<!--    app:layout_constraintMarginEnd="8dp"-->
+<!--    app:layout_constraintMarginStart="8dp" />-->
+
+<!--  &lt;!&ndash; TextView 2 &ndash;&gt;-->
+<!--  <TextView-->
+<!--    android:id="@+id/textView2"-->
+<!--    style="@style/Widget.MaterialComponents.TextView"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Text 2"-->
+<!--    app:layout_constraintTop_toBottomOf="@id/textView1"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintHorizontal_bias="0.5"-->
+<!--    app:layout_constraintMarginEnd="8dp"-->
+<!--    app:layout_constraintMarginStart="8dp" />-->
+
+<!--  &lt;!&ndash; TextView 3 &ndash;&gt;-->
+<!--  <TextView-->
+<!--    android:id="@+id/textView3"-->
+<!--    style="@style/Widget.MaterialComponents.TextView"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Text 3"-->
+<!--    app:layout_constraintTop_toBottomOf="@id/textView2"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintHorizontal_bias="0.5"-->
+<!--    app:layout_constraintMarginEnd="8dp"-->
+<!--    app:layout_constraintMarginStart="8dp" />-->
+
+<!--  &lt;!&ndash; TextView 4 &ndash;&gt;-->
+<!--  <TextView-->
+<!--    android:id="@+id/textView4"-->
+<!--    style="@style/Widget.MaterialComponents.TextView"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Text 4"-->
+<!--    app:layout_constraintTop_toBottomOf="@id/textView3"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintHorizontal_bias="0.5"-->
+<!--    app:layout_constraintMarginEnd="8dp"-->
+<!--    app:layout_constraintMarginStart="8dp" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

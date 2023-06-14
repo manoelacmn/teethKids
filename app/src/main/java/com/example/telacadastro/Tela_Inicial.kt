@@ -1,11 +1,14 @@
 package com.example.telacadastro
 
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.telacadastro.databinding.ActivityTelaInicialBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import io.grpc.Internal
 
@@ -16,21 +19,36 @@ class Tela_Inicial : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val db = Firebase.firestore
+
         auth = Firebase.auth
         val user = Firebase.auth.currentUser
         user?.let {
-            val name = it.displayName
-            val email = it.email
-            val photoUrl = it.photoUrl
-
-            // Check if user's email is verified
-//            val emailVerified = it.isEmailVerified
-
             val uid = it.uid
         }
         super.onCreate(savedInstanceState)
         binding= ActivityTelaInicialBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        Log.d("userUID",user!!.uid)
+
+
+        db.collection("usuarios")
+            .whereEqualTo("uid", user!!.uid)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
+                    binding.tvTeethKids.text = document.data["nome"].toString()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents: ", exception)
+            }
+
+
+
         binding.btnTelaPerfil.setOnClickListener{btnir ->
             irTelaperfil()
         }

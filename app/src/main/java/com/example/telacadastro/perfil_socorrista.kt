@@ -21,6 +21,9 @@ import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+
 
 class perfil_socorrista : AppCompatActivity() {
 
@@ -28,12 +31,12 @@ class perfil_socorrista : AppCompatActivity() {
     private lateinit var binding: ActivityPerfilSocorristaBinding
     private lateinit var auth: FirebaseAuth
     lateinit var storage: FirebaseStorage
-    val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+    val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "currentEmergency")
 
 
-    companion object{
-        const val  LETTER = "latter"
-    }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         storage = Firebase.storage
         val storageReference = FirebaseStorage.getInstance().reference

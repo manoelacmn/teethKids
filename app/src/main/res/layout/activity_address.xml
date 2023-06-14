@@ -1,0 +1,107 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:padding="16dp">
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/ruaTextInputLayout"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/ruaEditText"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Rua" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/cepTextInputLayout"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/ruaTextInputLayout"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/cepEditText"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="CEP" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/cidadeTextInputLayout"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/cepTextInputLayout"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/cidadeEditText"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Cidade" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/estadoTextInputLayout"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/cidadeTextInputLayout"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/estadoEditText"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Estado" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/numeroTextInputLayout"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/estadoTextInputLayout"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/numeroEditText"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Número" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <!-- Add spacing between TextInputLayouts -->
+  <Space
+    android:id="@+id/space"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    app:layout_constraintTop_toBottomOf="@id/numeroTextInputLayout"
+    app:layout_constraintBottom_toTopOf="@id/button"
+    app:layout_constraintVertical_chainStyle="spread" />
+
+  <!-- Add your submit button here -->
+  <Button
+    android:id="@+id/button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Submit"
+    app:layout_constraintTop_toBottomOf="@id/space"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

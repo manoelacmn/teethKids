@@ -26,6 +26,7 @@ import com.google.firebase.storage.ktx.storage
 import java.util.prefs.Preferences
 
 
+
 class MyFirebaseMessagingService :  FirebaseMessagingService(){
 
     lateinit var storage: FirebaseStorage
@@ -135,23 +136,12 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             notificationManager.createNotificationChannel(channel)
 
 
-
-//            this.startActivity(intent)
-            //intent.putExtra("emergencyUid",msg)
-    //            val intentExtras = intent.extras
-    //            if (intentExtras != null) {
-    //                for (key in intentExtras.keySet()) {
-    //                    val value = intentExtras.get(key)
-    //                    Log.d("IntentExtras", "$key: $value")
-    //                }
-    //            }
-
             var intent = Intent(this, MyBroadcastReceiver::class.java).apply {
                 putExtra("emergencyUid", msg)
                 putExtra("nome", nome)
                 putExtra("imagePath",ImageRoot)
                 putExtra("notificationID", "acceptEmergency")
-//                apply { action = "com.example.ACTION_LOG" }
+    //                apply { action = "com.example.ACTION_LOG" }
             }
 
             var refuseIntentExtras = Intent(this, perfil_socorrista::class.java).apply {
@@ -164,7 +154,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_MUTABLE)
             } else {
-               // TODO("VERSION.SDK_INT < S")
+                // TODO("VERSION.SDK_INT < S")
                 PendingIntent.getBroadcast(this, 0, intent,   PendingIntent.FLAG_UPDATE_CURRENT)
             }
             // setting the mutability flag )
@@ -173,7 +163,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
                 PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_IMMUTABLE )
 
             } else {
-//                TODO("VERSION.SDK_INT < S")
+    //                TODO("VERSION.SDK_INT < S")
                 PendingIntent.getBroadcast(this, 1, refuseIntentExtras,   PendingIntent.FLAG_UPDATE_CURRENT )
             } // setting the mutability flag )         }
             val builder = NotificationCompat.Builder(this,getString(R.string.channel_name))
@@ -190,7 +180,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             val notificationID = 0;
             notificationManager.notify(notificationID,builder.build())
 
-        }?.addOnFailureListener {
+        }.addOnFailureListener {
             // Handle any errors
         }
 

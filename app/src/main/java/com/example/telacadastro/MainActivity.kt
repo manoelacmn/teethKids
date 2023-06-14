@@ -19,11 +19,15 @@ import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
 import com.example.telacadastro.databinding.ActivityMainBinding
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
+import kotlinx.coroutines.tasks.await
 import java.util.prefs.Preferences
 
 
@@ -39,6 +43,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val db = Firebase.firestore
+        val user = Firebase.auth.currentUser
+
+
+
+//        user?.let {
+//            val uid = it.uid
+//        }
+
+
+
+
+
+
 
         binding.BtnEntrar.setOnClickListener { bentrar ->
             irParaTelaLogin()
@@ -49,7 +67,6 @@ class MainActivity : AppCompatActivity() {
 
         storage = Firebase.storage
         askNotificationPermission()
-        val user = Firebase.auth.currentUser
         if (user != null) {
 
             var homeScreen = Intent(this, Tela_Inicial::class.java)
@@ -114,5 +131,18 @@ class MainActivity : AppCompatActivity() {
         .setContentText("aceitar emergência?")
         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
+    suspend fun queryDocumentByUID(uid: String) {
+        val firestore = FirebaseFirestore.getInstance()
+        val collection = firestore.collection("your_collection_name")
 
+        try {
+            val querySnapshot = collection.whereEqualTo("uid", uid).get().await()
+            for (document in querySnapshot.documents) {
+                println("Document ID: ${document.id}")
+                println("Document Data: ${document.data}")
+            }
+        } catch (e: Exception) {
+            println("Error querying Firestore: ${e.message}")
+        }
+    }
 }

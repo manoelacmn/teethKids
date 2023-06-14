@@ -52,15 +52,7 @@ class criarConta: AppCompatActivity() {
                 val uid = it.uid
             }
 
-            val usuario = hashMapOf(
-                "email" to email,
-                "senha" to senha,
-                "nome" to nome,
-                "endereco" to endereco,
-                "curriculo" to cv,
-                "uid" to user?.uid
-            )
-            db.collection("usuarios").add(usuario)
+
             irParaTelaLogin()
         }
     }
@@ -78,6 +70,7 @@ class criarConta: AppCompatActivity() {
                         "Authentication succeeded",
                         Toast.LENGTH_SHORT,
                     ).show()
+
                     //updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
