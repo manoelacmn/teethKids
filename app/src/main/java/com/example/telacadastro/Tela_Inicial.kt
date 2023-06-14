@@ -6,14 +6,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.telacadastro.databinding.ActivityTelaInicialBinding
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.functions.FirebaseFunctions
+import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
 import io.grpc.Internal
 
 
 private lateinit var binding: ActivityTelaInicialBinding
+private lateinit var functions: FirebaseFunctions
+
 
 class Tela_Inicial : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -46,6 +51,36 @@ class Tela_Inicial : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents: ", exception)
             }
+
+
+
+        functions = Firebase.functions("southamerica-east1")
+
+
+        fun isBusy(uid: String): Task<String> {
+            // Create the arguments to the callable function.
+            val data = hashMapOf(
+                "userUid" to uid,
+            )
+
+            return functions
+                .getHttpsCallable("isBusy")
+                .call(data)
+                .continueWith { task ->
+                    // This continuation runs on either success or failure, but if the task
+                    // has failed then result will throw an Exception which will be
+                    // propagated down.
+                    val result = task.result?.data as String
+                    Log.d("RESULT:",result)
+                    result
+                }
+
+
+        }
+
+        isBusy(user.uid)
+
+
 
 
 

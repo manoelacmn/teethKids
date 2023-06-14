@@ -22,6 +22,8 @@ private var perfil: MutableList<perfil> = mutableListOf()
 private lateinit var adpterPerfil: AdpterPerfil
 
 class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         functions = Firebase.functions("southamerica-east1")
         super.onCreate(savedInstanceState)

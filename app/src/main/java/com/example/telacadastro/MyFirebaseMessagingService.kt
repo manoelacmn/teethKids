@@ -57,16 +57,20 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
             Log.d(TAG,"UID: ${remoteMessage.data["uid"]}")
             Log.d(TAG,"NOME: ${remoteMessage.data["nome"]}")
             Log.d(TAG,"IMAGE PATH: ${remoteMessage.data["ImageRoot"]}" )
+            Log.d(TAG, "code: ${remoteMessage.data["code"]}")
 
-//            val nome = remoteMessage.data["nome"]}
 
-            remoteMessage.data["uid"]?.let { remoteMessage.data["nome"]?.let { it1 ->
-                remoteMessage.data["ImageRoot"]?.let { it2 ->
-                    sendNotification(it,
-                        it1 , it2
-                    )
-                }
-            } }
+
+            if(remoteMessage.data["code"]=="1"){
+                remoteMessage.data["uid"]?.let { remoteMessage.data["nome"]?.let { it1 ->
+                    remoteMessage.data["ImageRoot"]?.let { it2 ->
+                        sendNotification(it,
+                            it1 , it2
+                        )
+                    }
+                } }
+            }
+
             // Check if data needs to be processed by long running job
             if (needsToBeScheduled()) {
                 // For long-running tasks (10 seconds or more) use WorkManager.
@@ -87,6 +91,7 @@ class MyFirebaseMessagingService :  FirebaseMessagingService(){
      */
     override fun onNewToken(token: String) {
         Log.d(TAG, "Refreshed token: $token")
+
 
         // If you want to send messages to this application instance or
         // manage this apps subscriptions on the server side, send the

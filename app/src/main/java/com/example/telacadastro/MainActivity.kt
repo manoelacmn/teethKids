@@ -19,10 +19,13 @@ import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
 import com.example.telacadastro.databinding.ActivityMainBinding
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.functions.FirebaseFunctions
+import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.FirebaseStorage
@@ -32,6 +35,8 @@ import java.util.prefs.Preferences
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var functions: FirebaseFunctions
 
     private lateinit var binding: ActivityMainBinding
     var storage: FirebaseStorage? = null
@@ -48,9 +53,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-//        user?.let {
-//            val uid = it.uid
-//        }
+
 
 
 
@@ -69,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         askNotificationPermission()
         if (user != null) {
 
-            var homeScreen = Intent(this, Tela_Inicial::class.java)
+            val homeScreen = Intent(this, Tela_Inicial::class.java)
             startActivity(homeScreen)
         } else {
             // No user is signed in
@@ -79,7 +82,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun irParaCriarConta() {
-        var criarcontaTela = Intent(this, criarConta::class.java)
+        val criarcontaTela = Intent(this, criarConta::class.java)
         startActivity(criarcontaTela)
     }
 
