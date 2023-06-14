@@ -44,68 +44,16 @@ class criarConta: AppCompatActivity() {
             val endereco = binding.EtEnderecoCriarConta.text.toString()
             val cv = binding.EtCurriculoCriarConta.text.toString()
 
-           // singUpNewAccount(nome , email, senha)
+            singUpNewAccount(nome , email, senha,cv ,endereco)
 
-
-            (auth.createUserWithEmailAndPassword(email, senha)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "createUserWithEmail:success")
-                        Toast.makeText(
-                            baseContext,
-                            "Authentication succeeded",
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                        val user = Firebase.auth.currentUser
-                        user?.let {
-                            val uid = it.uid
-                        }
-                        Log.d("created UID:",user!!.uid)
-//                        val db = Firebase.firestore
-//                        val usuario = hashMapOf(
-//                            "email" to email,
-//                            "senha" to senha,
-//                            "nome" to nome,
-//                            "endereco" to endereco,
-//                            "curriculo" to cv,
-//                            "uid" to user?.uid
-//                        )
-//                        db.collection("usuarios").add(usuario)
-
-                        irParaTelaLogin()
-
-
-                        //updateUI(user)
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            baseContext,
-                            "Authentication failed.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                        //updateUI(null)
-                    }
-                })
-
-//            val db = Firebase.firestore
-//            val usuario = hashMapOf(
-//                "email" to email,
-//                "senha" to senha,
-//                "nome" to nome,
-//                "endereco" to endereco,
-//                "curriculo" to cv,
-//                "uid" to auth.user?.uid
-//            )
-//            db.collection("usuarios").add(usuario)
 
 
         }
     }
 
-    private fun singUpNewAccount(name: String , email: String, password: String)
+    private fun singUpNewAccount(nome: String , email: String, password: String, cv: String,endereco: String )
     {
+        val db = Firebase.firestore
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -117,7 +65,17 @@ class criarConta: AppCompatActivity() {
                         "Authentication succeeded",
                         Toast.LENGTH_SHORT,
                     ).show()
-                    //updateUI(user)
+
+                    val usuario = hashMapOf(
+                        "email" to email,
+                        "senha" to password,
+                        "nome" to nome,
+                        "endereco" to endereco,
+                        "curriculo" to cv,
+                        "uid" to user?.uid
+                    )
+                    db.collection("usuarios").add(usuario)
+                    irParaTelaLogin()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
