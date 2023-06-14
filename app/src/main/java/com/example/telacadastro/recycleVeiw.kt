@@ -106,14 +106,17 @@ class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
                                 Log.d("CREATING HASHMAP",hashMap.toString())
                             }
                             Log.d("NEW HASHMAP:", hashMap.toString())
-                            var profile = perfil(
+                            val profile = perfil(
                                 R.drawable.baseline_person_24,
                                 hashMap["nome"] as String,
                                 "Distância,Tempo de Espera",
                                 "Analisar",
                                 hashMap["uid"] as String,
-                                hashMap["ImageRoot"] as String
+                                hashMap["ImageRoot1"] as String,
+                                hashMap["ImageRoot2"] as String,
+                                hashMap["ImageRoot3"] as String
                             )
+
 
                             perfil.add(profile)
                         }

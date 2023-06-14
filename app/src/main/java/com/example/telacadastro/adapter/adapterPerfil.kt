@@ -23,13 +23,18 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
         val foto = itemView.findViewById<ImageView>(R.id.imgFotoPerfil) // recuperando a view do layout
         val nome: TextView = itemView.findViewById<TextView>(R.id.nomeUsuario)
         val descrição = itemView.findViewById<TextView>(R.id.descrição)
-        val uid: TextView = itemView.findViewById<TextView>(R.id.uid)
+        val uid  = itemView.findViewById<TextView>(R.id.uid)
         val imagePath = itemView.findViewById<TextView>(R.id.imagePath)
+        val imagePath1 = itemView.findViewById<TextView>(R.id.imagePath1)
+        val imagePath2 = itemView.findViewById<TextView>(R.id.imagePath2)
         init {
             itemView.setOnClickListener{
                 val position = adapterPosition
                 Log.d("NOME Clicked:",nome.text.toString())
                 Log.d("UID Clicked:",uid.text.toString())
+                Log.d("IMAGE Clicked:",imagePath.text.toString())
+                Log.d("IMAGE Clicked:",imagePath1.text.toString())
+                Log.d("IMAGE Clicked:",imagePath2.text.toString())
                 listener.onClick(position)
 
                 startActivity(context,
@@ -37,6 +42,8 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
                         putExtra("nome",nome.text.toString());
                         putExtra("uid",uid.text.toString())
                         putExtra("imagePath",imagePath.text.toString())
+                        putExtra("imagePath1",imagePath1.text.toString())
+                        putExtra("imagePath2",imagePath2.text.toString())
                     },
                     null)
             }
@@ -48,15 +55,15 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
 
 
 
-     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PerfilViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PerfilViewHolder {
         //Responsavel por criar as vizualizações da lista
         val itemLIsta = LayoutInflater.from(context).inflate(R.layout.perfil_cliente,parent,false)//nao usa o root
         //.from() indica o contexto que esta passndo esse inflate
         val holder = PerfilViewHolder(itemLIsta)
         return holder // criado a vizualiçaõ
     }
-        override fun getItemCount(): Int {
-            return perfil.size
+    override fun getItemCount(): Int {
+        return perfil.size
 
     }
 
@@ -66,8 +73,10 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
         holder.foto.setImageResource(perfil[position].fot)
         holder.nome.text = perfil[position].nome
         holder.descrição.text=perfil[position].Descrição
-        //holder.uid.text=perfil[position].uid
-        //holder.imagePath.text=perfil[position].imagePath
+        holder.uid.text=perfil[position].uid
+        holder.imagePath.text=perfil[position].imagePath
+        holder.imagePath1.text = perfil[position].imagePath1
+        holder.imagePath2.text = perfil[position].imagePath2
     }
 
     interface  Myclicklistenner{
@@ -77,8 +86,3 @@ class  AdpterPerfil(private  val context: Context,private val perfil: MutableLis
 
 
 }
-//inner é uma classe interna
-//é necessario criar o construtor da classe RecycleView.ViewHolder -> o iten view
-//é necessario criar Metodos --onCreatViewHolder
-//                              onBindViewHolder
-//                              getItemcout
