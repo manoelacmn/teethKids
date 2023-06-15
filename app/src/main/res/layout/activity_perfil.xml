@@ -7,179 +7,142 @@
     tools:context=".PerfilActivity">
 
 
+    <TextView
+        android:id="@+id/tvendereco"
+        android:layout_width="254dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tvendereco1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvendereco1"
+        app:layout_constraintTop_toBottomOf="@+id/tvendereco1" />
 
-
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imgFotoPerfil"
-        android:layout_width="165dp"
-        android:layout_height="159dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="22dp"
-        android:src="@drawable/download"
-        app:layout_constraintBottom_toTopOf="@+id/etTelefone"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etNomeEditarPerfil"
-        android:textColorHint="@color/Azul_escuro"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="14dp"
-        android:fontFamily="@font/comfortaa_bold"
-        android:hint="Nome"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch1"
-        android:layout_width="65dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/etNomeEditarPerfil"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnVerReputacao"
+    <ImageView
+        android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="76dp"
-        android:backgroundTint="@color/Azul_claro"
-        android:textColor="@color/Azul_escuro"
-        android:fontFamily="@font/comfortaa_bold"
-        android:text="Ver reputação"
-        app:layout_constraintBottom_toTopOf="@+id/etEndereco1EditarPerfil"
-        app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etTelefone"
-        android:textColorHint="@color/Azul_escuro"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="202dp"
-        android:fontFamily="@font/comfortaa_bold"
-        android:hint="Telefone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnVerReputacao" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:textColorHint="@color/Azul_escuro"
-        android:id="@+id/etEmailEditarPerfil"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="130dp"
-        android:fontFamily="@font/comfortaa_bold"
-        android:hint="Email"
-        app:layout_constraintBottom_toTopOf="@+id/etCurriculoEditarPerfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEndereco3EditarPerfil" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etEndereco1EditarPerfil"
-        android:textColorHint="@color/Azul_escuro"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="130dp"
-        android:fontFamily="@font/comfortaa_bold"
-        android:hint="Endereço 1"
-        app:layout_constraintBottom_toTopOf="@+id/etEndereco2EditarPerfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTelefone" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etEndereco2EditarPerfil"
-        android:textColorHint="@color/Azul_escuro"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="130dp"
-        android:fontFamily="@font/comfortaa_bold"
-        android:hint="Endereço 2"
-        app:layout_constraintBottom_toTopOf="@+id/etEndereco3EditarPerfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEndereco1EditarPerfil" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etEndereco3EditarPerfil"
-        android:layout_width="250sp"
-        android:textColorHint="@color/Azul_escuro"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="130dp"
-        android:fontFamily="@font/comfortaa_bold"
-        android:hint="Endereço 3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEndereco2EditarPerfil" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etCurriculoEditarPerfil"
-        android:layout_width="380dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="2dp"
-        android:fontFamily="@font/comfortaa_bold"
-        android:hint="Mini-Currículo"
-        android:textColorHint="@color/Azul_escuro"
-        app:layout_constraintBottom_toTopOf="@+id/btnSalvarDados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailEditarPerfil" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSalvarDados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/Azul_claro"
-        android:fontFamily="@font/comfortaa_bold"
-        android:text="Salvar"
-        android:textColor="@color/Azul_escuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCurriculoEditarPerfil" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/backgroud_1" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView2"
-        android:textColor="@color/Azul_escuro"
+    <ImageView
+        android:id="@+id/imagemDesntista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="15dp"
-        android:fontFamily="@font/comfortaa_bold"
-        android:gravity="center"
-        android:text="Status"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnVerReputacao"
-        app:layout_constraintEnd_toStartOf="@+id/switch1"
-        app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/etNomeEditarPerfil" />
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvnome"
+        android:layout_width="129dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="60dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvendereco1"
+        android:layout_width="251dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="208dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvendereco2"
+        android:layout_width="254dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tvendereco1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvendereco1"
+        app:layout_constraintTop_toBottomOf="@+id/tvendereco1" />
+
+    <TextView
+        android:id="@+id/tvendereco3"
+        android:layout_width="254dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="120dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tvendereco1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvendereco1"
+        app:layout_constraintTop_toBottomOf="@+id/tvendereco1" />
 
 
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="111dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/imagemDesntista"
+        app:layout_constraintTop_toBottomOf="@+id/tvnome" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/BtnEditar"
+        android:layout_width="173dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="104dp"
+        android:background="@drawable/botton_background_bluelieth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/TvAceitar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="Editar"
+            android:textColor="@color/Azul_deBackGround"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/BtnReputacao"
+        android:layout_width="173dp"
+        android:layout_height="52dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/botton_background_bluemoredark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toEndOf="@+id/BtnAceitar"
+        app:layout_constraintTop_toBottomOf="@+id/tvendereco3"
+        app:layout_constraintVertical_bias="0.629">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/TvRejeitar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="Reputaçâo"
+            android:textColor="@color/azul_mais_escuro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
