@@ -105,6 +105,7 @@ class Tela_Inicial : AppCompatActivity() {
             }
         }
         binding.btnConfiguraO.setOnClickListener({btn -> tirarFoto()})
+        binding.btnAvaliaO.setOnClickListener{btn->avaliacao()}
 
 
 
@@ -121,6 +122,10 @@ class Tela_Inicial : AppCompatActivity() {
     }
     private fun tirarFoto(){
         var intent=Intent(this,Emergencia::class.java)
+        startActivity(intent)
+    }
+    private fun avaliacao(){
+        var intent=Intent(this,recycleravaliacao::class.java)
         startActivity(intent)
     }
 }

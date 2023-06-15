@@ -15,7 +15,8 @@ class AdapterAvaliacao(private val context: Context, private val avaliacao:Mutab
         RecyclerView.Adapter<AdapterAvaliacao.avaliacaoViewHolder>() {
                 inner class avaliacaoViewHolder(itemView: android.view.View): RecyclerView.ViewHolder(itemView){
                         val nome: TextView = itemView.findViewById<TextView>(R.id.nome)
-                        val rating: RatingBar = itemView.findViewById(R.id.rating)
+                        val comentario: TextView = itemView.findViewById<TextView>(R.id.tvComentario)
+                        val rate:TextView=itemView.findViewById<TextView>(R.id.rate)
 
                 }
 
@@ -31,7 +32,9 @@ class AdapterAvaliacao(private val context: Context, private val avaliacao:Mutab
         }
 
         override fun onBindViewHolder(holder: avaliacaoViewHolder, position: Int) {
-                TODO("Not yet implemented")
+                holder.nome.text = avaliacao[position].nome
+                holder.rate.text = avaliacao[position].rate.toString()
+                holder.comentario.text=avaliacao[position].comentario
         }
 }
 

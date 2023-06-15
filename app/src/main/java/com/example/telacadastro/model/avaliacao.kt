@@ -1,7 +1,8 @@
 package com.example.telacadastro.model
 
 data class avaliacao(
-    val nome : Int,
-    val rating: Float
+    val nome : String,
+    val rate:Double,
+    val comentario:String
 
 )
