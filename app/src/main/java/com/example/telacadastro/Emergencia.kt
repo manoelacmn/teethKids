@@ -81,10 +81,6 @@ class Emergencia : AppCompatActivity() {
 
 
 
-    private fun iremergencia(){
-        var irParaEmerg = Intent(this,Emergencia::class.java)
-        startActivity(irParaEmerg)
-    }
 
     private fun uploadimage(){
         val bitmap=(binding.uploadImageView.drawable as BitmapDrawable).bitmap

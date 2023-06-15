@@ -66,11 +66,11 @@ class PerfilActivity : AppCompatActivity() {
 
 
 
-    private fun editar(){
+    private fun reputacao(){
         val intent = Intent(this,MainActivity2::class.java)
         startActivity(intent)
     }
-    private fun reputacao(){
+    private fun editar(){
         val intent = Intent(this,recycleravaliacao::class.java)
         startActivity(intent)
     }
