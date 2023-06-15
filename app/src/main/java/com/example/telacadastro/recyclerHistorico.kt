@@ -78,24 +78,38 @@ class recyclerHistorico : AppCompatActivity() {
                                 val uid = jsonObject.optString("uid")
                                 val isRated = jsonObject.optBoolean("isRated")
                                 val emergencyRef = jsonObject.optString("emergencyRef")
+                                var desc = jsonObject.optString("desc")
+                                if (desc=="")
+                                {
+                                    desc = "sem Descrição"
+                                }
+                                val name = jsonObject.optString("nome")
+                                var formattedDateTime : String =""
 
+                                if (concludedTime != null) {
+                                    val seconds = concludedTime.optLong("_seconds")
+                                    val nanoseconds = concludedTime.optInt("_nanoseconds")
 
+                                    val timestamp = Instant.ofEpochSecond(seconds, nanoseconds.toLong())
+                                    val dateTime = LocalDateTime.ofInstant(timestamp, ZoneId.systemDefault())
+                                     formattedDateTime = dateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))
 
-                                val concludedTimeObject = jsonObject.optJSONObject("concludedTime")
-                                val seconds = concludedTimeObject?.optLong("_seconds")
-                                val nanoseconds = concludedTimeObject?.optInt("_nanoseconds")
+                                    Log.d("JSON Object $i:$j", "concludedTime: $formattedDateTime")
+                                }
 
-                                val timestamp = seconds?.let { nanoseconds?.let { it1 -> Instant.ofEpochSecond(it, it1.toLong()) } }
-                                val dateTime = LocalDateTime.ofInstant(timestamp, ZoneId.systemDefault())
-                                val formattedDateTime = dateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))
-
-
-
-
-                                Log.d("JSON Object $i:$j", "concludedTime: $formattedDateTime")
                                 Log.d("JSON Object $i:$j", "uid: $uid")
                                 Log.d("JSON Object $i:$j", "isRated: $isRated")
                                 Log.d("JSON Object $i:$j", "emergencyRef: $emergencyRef")
+
+
+                                binding.recycleHistorico.layoutManager = LinearLayoutManager(this)
+                                binding.recycleHistorico.setHasFixedSize(true)
+                                AdpterHistorico = AdapterHistorico(this, listaHistorico)
+                                binding.recycleHistorico.adapter = AdpterHistorico
+
+                                val toBeAdded = Historico(name,desc,formattedDateTime)
+                                listaHistorico.add(toBeAdded)
+
                             }
                         }
                     }
