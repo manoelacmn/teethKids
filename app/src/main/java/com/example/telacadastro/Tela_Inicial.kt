@@ -40,7 +40,7 @@ class Tela_Inicial : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
-                    binding.tvTeethKids.text = document.data[""].toString()
+                    binding.tvTeethKids.text = document.data["nome"].toString()
                 }
             }
             .addOnFailureListener { exception ->
@@ -57,7 +57,7 @@ class Tela_Inicial : AppCompatActivity() {
         }
         binding.btnConfiguraO.setOnClickListener({btn -> tirarFoto()})
         binding.btnAvaliaO.setOnClickListener{btn->avaliacao()}
-        binding.btnHistorico.setOnClickListener { btn->historico() }
+        binding.btnHistorico.setOnClickListener { btn ->historico() }
 
 
 
