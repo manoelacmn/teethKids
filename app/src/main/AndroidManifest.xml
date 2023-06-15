@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Telacadastro"
         tools:targetApi="31">
         <activity
+            android:name=".segundaConfirmacao"
+            android:exported="false" />
+        <activity
             android:name=".recyclerHistorico"
             android:exported="false" />
         <activity
