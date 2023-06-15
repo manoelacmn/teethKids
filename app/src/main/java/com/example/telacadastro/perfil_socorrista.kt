@@ -1,6 +1,7 @@
 package com.example.telacadastro
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -102,6 +103,7 @@ class perfil_socorrista : AppCompatActivity() {
             if (user != null) {
                 acceptEmergency(uid,user.uid)
             }
+            segundaConfirmacao()
         }
         binding.BtnRejeitar.setOnClickListener {
             Log.d("EMERGENCY UID:",uid)
@@ -135,5 +137,9 @@ class perfil_socorrista : AppCompatActivity() {
         return functions
             .getHttpsCallable("refuseEmergency")
             .call(data)
+    }
+    private  fun segundaConfirmacao(){
+        val intent =Intent(this,segundaConfirmacao::class.java)
+        startActivity(intent)
     }
 }
