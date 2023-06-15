@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/nomeUsuario"
+        android:id="@+id/nome"
         android:layout_width="231dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
@@ -36,17 +36,17 @@
         app:layout_goneMarginStart="140dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/descrição"
+        android:id="@+id/desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:maxLines="4"
-        android:text="......."
+        android:text="descrição"
         android:textColor="@color/Azul_escuro"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/imgFotoPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/nomeUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/nome" />
 
 
     <androidx.appcompat.widget.AppCompatTextView

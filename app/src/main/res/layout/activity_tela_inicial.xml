@@ -182,6 +182,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_Historico"
                     android:layout_width="86dp"
                     android:layout_height="100dp"
                     android:layout_margin="19dp"

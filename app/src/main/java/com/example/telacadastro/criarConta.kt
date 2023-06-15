@@ -11,6 +11,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.net.HttpURLConnection
+import java.net.URL
 
 
 
@@ -45,11 +49,14 @@ class criarConta: AppCompatActivity() {
             val cv = binding.EtCurriculoCriarConta.text.toString()
 
             singUpNewAccount(nome , email, senha,cv ,endereco)
+            registerForContextMenu(binding.EtEnderecoCriarConta)
 
-
+            if(binding.EtEnderecoCriarConta.text.toString().length == 8){
+            }else{Toast.makeText(this,"CEP invalido",Toast.LENGTH_SHORT).show()}
 
         }
     }
+
 
     private fun singUpNewAccount(nome: String , email: String, password: String, cv: String,endereco: String )
     {

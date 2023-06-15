@@ -11,13 +11,13 @@ import com.example.telacadastro.model.Historico
 class AdapterHistorico(private val context: Context, private  val Historico:MutableList<Historico>):
     RecyclerView.Adapter<AdapterHistorico.HistoricoViewHolder>(){
     inner class HistoricoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nome:TextView = itemView.findViewById(R.id.nome)
-        val descricao:TextView = itemView.findViewById(R.id.descrição)
-        val datahora: TextView = itemView.findViewById(R.id.datahora)
+        val nome:TextView = itemView.findViewById<TextView>(R.id.nome)
+        val descricao:TextView = itemView.findViewById<TextView>(R.id.desc)
+        val datahora: TextView = itemView.findViewById<TextView>(R.id.datahora)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoricoViewHolder {
-        val itemList = LayoutInflater.from(context).inflate(R.layout.avaliacoes,parent,false)
+        val itemList = LayoutInflater.from(context).inflate(R.layout.recycler_hist_accept,parent,false)
         val holder = HistoricoViewHolder(itemList)
         return  holder
 
@@ -29,7 +29,7 @@ class AdapterHistorico(private val context: Context, private  val Historico:Muta
 
     override fun onBindViewHolder(holder: HistoricoViewHolder, position: Int) {
         holder.nome.text = Historico[position].nome
-        holder.descricao.text = Historico[position].descricao
+        holder.descricao.text = Historico[position].desc
         holder.datahora.text = Historico[position].datahora
     }
 }
