@@ -2,11 +2,14 @@ package com.example.telacadastro
 
 import AdapterHistorico
 import android.content.ContentValues
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Adapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.telacadastro.adapter.AdapterAvaliacao
+import com.example.telacadastro.adapter.AdpterPerfil
 import com.example.telacadastro.databinding.ActivityRecyclerHistoricoBinding
 import com.example.telacadastro.model.Historico
 import com.example.telacadastro.model.avaliacao
@@ -23,7 +26,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-class recyclerHistorico : AppCompatActivity() {
+class recyclerHistorico : AppCompatActivity(),AdapterHistorico.Myclicklistenner {
 
     private var listaHistorico: MutableList<Historico> = mutableListOf()
     private lateinit var AdpterHistorico: AdapterHistorico
@@ -104,11 +107,13 @@ class recyclerHistorico : AppCompatActivity() {
 
                                 binding.recycleHistorico.layoutManager = LinearLayoutManager(this)
                                 binding.recycleHistorico.setHasFixedSize(true)
-                                AdpterHistorico = AdapterHistorico(this, listaHistorico)
                                 binding.recycleHistorico.adapter = AdpterHistorico
 
                                 val toBeAdded = Historico(name,desc,formattedDateTime)
                                 listaHistorico.add(toBeAdded)
+                                AdpterHistorico = AdapterHistorico(this, listaHistorico,this@recyclerHistorico)
+
+
 
                             }
                         }
@@ -120,8 +125,9 @@ class recyclerHistorico : AppCompatActivity() {
 
         binding.recycleHistorico.layoutManager = LinearLayoutManager(this)
         binding.recycleHistorico.setHasFixedSize(true)
-        AdpterHistorico = AdapterHistorico(this, listaHistorico)
         binding.recycleHistorico.adapter = AdpterHistorico
+        AdpterHistorico = AdapterHistorico(this, listaHistorico,this@recyclerHistorico)
+
 
         itens()
     }
@@ -129,5 +135,15 @@ class recyclerHistorico : AppCompatActivity() {
     private fun itens() {
         val nome = Historico("pereira", "quebrou o dente fazendo capoeira", "10/05/2001-22:53")
         listaHistorico.add(nome)
+    }
+
+    override fun onClick(position: Int) {
+
+            when(position){
+              //  position->
+
+
+            }
+            Log.d("INTENT","INDO A INTENT");
     }
 }

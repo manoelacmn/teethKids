@@ -11,10 +11,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 
 private lateinit var binding: ActivityPerfilBinding
 class PerfilActivity : AppCompatActivity() {
     val db = Firebase.firestore
+
+
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +26,6 @@ class PerfilActivity : AppCompatActivity() {
         binding.BtnEditar.setOnClickListener { btn-> reputacao() }
         binding.BtnReputacao.setOnClickListener { btn->editar() }
 
-        //recuperando dados
 
         val db = Firebase.firestore
 
