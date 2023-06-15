@@ -10,8 +10,9 @@ class segundaConfirmacao : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySegundaConfirmacaoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.btnEnviar.setOnClickListener{btn->
+        binding.btnLocalizacao.setOnClickListener{btn->
 
         }
+        binding.btnTelefone.setOnClickListener{btn ->}
     }
 }
