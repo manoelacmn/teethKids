@@ -125,7 +125,6 @@ class recyclerHistorico : AppCompatActivity(),AdapterHistorico.Myclicklistenner 
 
         binding.recycleHistorico.layoutManager = LinearLayoutManager(this)
         binding.recycleHistorico.setHasFixedSize(true)
-        binding.recycleHistorico.adapter = AdpterHistorico
         AdpterHistorico = AdapterHistorico(this, listaHistorico,this@recyclerHistorico)
 
 
