@@ -57,6 +57,7 @@ class Tela_Inicial : AppCompatActivity() {
         }
         binding.btnConfiguraO.setOnClickListener({btn -> tirarFoto()})
         binding.btnAvaliaO.setOnClickListener{btn->avaliacao()}
+        binding.btnHistorico.setOnClickListener { btn->historico() }
 
 
 
@@ -77,6 +78,10 @@ class Tela_Inicial : AppCompatActivity() {
     }
     private fun avaliacao(){
         var intent=Intent(this,recycleravaliacao::class.java)
+        startActivity(intent)
+    }
+    private fun historico(){
+        var intent=Intent(this,recyclerHistorico::class.java)
         startActivity(intent)
     }
 }
