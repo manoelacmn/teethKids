@@ -341,6 +341,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnLog"
                     android:layout_width="86dp"
                     android:layout_height="100dp"
                     android:layout_margin="19dp"

@@ -55,10 +55,10 @@ class Tela_Inicial : AppCompatActivity() {
         binding.btnTelaEmergencia.setOnClickListener { btnir ->
             emergencia()
         }
-        binding.btnConfiguraO.setOnClickListener({btn -> tirarFoto()})
+        binding.btnConfiguraO.setOnClickListener({btn -> configuracao()})
         binding.btnAvaliaO.setOnClickListener{btn->avaliacao()}
         binding.btnHistorico.setOnClickListener { btn->historico() }
-        binding.TvLogout.setOnClickListener{btn->atual()}
+        binding.btnLog.setOnClickListener{btn->atual()}
 
 
 
@@ -73,7 +73,7 @@ class Tela_Inicial : AppCompatActivity() {
         var irEmergencia = Intent(this,recycleVeiw::class.java)
         startActivity(irEmergencia)
     }
-    private fun tirarFoto(){
+    private fun configuracao(){
         var intent=Intent(this,Emergencia::class.java)
         startActivity(intent)
     }
