@@ -18,15 +18,18 @@ import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import org.json.JSONArray
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 
 class recyclerHistorico : AppCompatActivity() {
 
     private var listaHistorico: MutableList<Historico> = mutableListOf()
     private lateinit var AdpterHistorico: AdapterHistorico
-    private lateinit var binding:ActivityRecyclerHistoricoBinding
+    private lateinit var binding: ActivityRecyclerHistoricoBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var functions: FirebaseFunctions
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +38,8 @@ class recyclerHistorico : AppCompatActivity() {
         val db = Firebase.firestore
         functions = Firebase.functions("southamerica-east1")
 
-
         auth = Firebase.auth
         val user = Firebase.auth.currentUser
-        user?.let {
-            val uid = it.uid
-        }
-
 
         db.collection("historico")
             .whereEqualTo("uid", user!!.uid)
@@ -49,13 +47,7 @@ class recyclerHistorico : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
-                    Log.d("HISTOIC OBJECT: ",document.data["historic"].toString())
-//                    val jsonArray = JSONArray(document.data.toString())
-//                    Log.d("NEW ARRAY",jsonArray.toString())
-
-//                    for (i in 0 until jsonArray.length()){
-//                        Log.d("NEW ARRAY",i.toString())
-//                    }
+                    Log.d("HISTORIC OBJECT: ", document.data["historic"].toString())
                 }
             }
             .addOnFailureListener { exception ->
@@ -63,92 +55,65 @@ class recyclerHistorico : AppCompatActivity() {
             }
 
         fun callAllAvaliations() {
-
             val data = hashMapOf<String, Any>(
                 "uid" to user!!.uid
-            ) // Pass any necessary data to the function
-
+            )
 
             val result = functions.getHttpsCallable("getHistoric")
                 .call(data)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        val result =
-                            task.result?.data.toString()
-
-                        Log.d(
-                            "RESULT:",
-                            result.toString()
-                        )
-
+                        val result = task.result?.data.toString()
+                        Log.d("RESULT:", result.toString())
 
                         val jsonArray = JSONArray(result)
-                        val gson = Gson()
 
-                        Log.d("JSON ARRAY",jsonArray.toString()) // "[[{\"concludedTime\":{\"_seconds\":1686921322,\"_nanoseconds\":9000000},\"uid\":\"ODB1nWrOQidi2jh34gDjX8EhKeY2\",\"isRated\":false,\"emergencyRef\":\"emergencias/CRj1AH8yXcGdU3c9sXkw\"},{\"uid\":\"xasaxssxasxaasx\",\"nothing\":\"dwe\",\"desc\":\"2ddqwqwdwqq\"}]]"
+                        for (i in 0 until jsonArray.length()) {
+                            val jsonObjectArray = jsonArray.getJSONArray(i)
 
+                            for (j in 0 until jsonObjectArray.length()) {
+                                val jsonObject = jsonObjectArray.getJSONObject(j)
 
-                        Log.d("LENGTH",jsonArray.length().toString())
-
-
-//                        val formattedJsonArray = jsonArray.toString(4)
-
-
-//                        for (i in 0 until jsonArray.length()) {
-//
-//                            val jsonObject = jsonArray.getJSONObject(i)
-//
-//                            val concludedTime = jsonObject.opt("concludedTime")
-//                            val uid = jsonObject.opt("uid")
-//                            val isRated = jsonObject.opt("isRated")
-//                            val emergencyRef = jsonObject.opt("emergencyRef")
-//
-//                            println("concludedTime: $concludedTime")
-//                            println("uid: $uid")
-//                            println("isRated: $isRated")
-//                            println("emergencyRef: $emergencyRef")
-//
-//                        }
+                                val concludedTime = jsonObject.optJSONObject("concludedTime")
+                                val uid = jsonObject.optString("uid")
+                                val isRated = jsonObject.optBoolean("isRated")
+                                val emergencyRef = jsonObject.optString("emergencyRef")
 
 
-//                        val list = result
-//                            .substring(1, result.length - 1) // Remove the square brackets
-//                            .split("}, ") // Split the elements
 
-//                        val hashMapList = list.map { element ->
-//                            val keyValuePairs = element
-//                                .replace("{", "")
-//                                .replace("}", "")
-//                                .split(", ")
-//
-                        val hashMap = hashMapOf<String, Any>()
-//                            Log.d("CREATING RESULT",list.toString())
-//                            keyValuePairs.forEach { pair ->
-//                                val keyValue = pair.split("=")
-//                                val key = keyValue[0].trim()
-//                                val value = keyValue[1].trim()
-//                                hashMap[key] = value
-//                                Log.d("CREATING HASHMAP",hashMap.toString())
-//                            }
-                        Log.d("NEW HASHMAP:", hashMap.toString())
+                                val concludedTimeObject = jsonObject.optJSONObject("concludedTime")
+                                val seconds = concludedTimeObject?.optLong("_seconds")
+                                val nanoseconds = concludedTimeObject?.optInt("_nanoseconds")
 
+                                val timestamp = seconds?.let { nanoseconds?.let { it1 -> Instant.ofEpochSecond(it, it1.toLong()) } }
+                                val dateTime = LocalDateTime.ofInstant(timestamp, ZoneId.systemDefault())
+                                val formattedDateTime = dateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))
+
+
+
+
+                                Log.d("JSON Object $i:$j", "concludedTime: $formattedDateTime")
+                                Log.d("JSON Object $i:$j", "uid: $uid")
+                                Log.d("JSON Object $i:$j", "isRated: $isRated")
+                                Log.d("JSON Object $i:$j", "emergencyRef: $emergencyRef")
+                            }
+                        }
                     }
                 }
         }
+
         callAllAvaliations()
 
-
-
-
-        binding.recycleHistorico.layoutManager =
-            LinearLayoutManager(this)
+        binding.recycleHistorico.layoutManager = LinearLayoutManager(this)
         binding.recycleHistorico.setHasFixedSize(true)
-        AdpterHistorico= AdapterHistorico(this,listaHistorico)
+        AdpterHistorico = AdapterHistorico(this, listaHistorico)
         binding.recycleHistorico.adapter = AdpterHistorico
+
         itens()
-}
-    private fun itens(){
-        val nome =  Historico("pereira","quebrou o dente fazendo capoeira","10/05/2001-22:53")
+    }
+
+    private fun itens() {
+        val nome = Historico("pereira", "quebrou o dente fazendo capoeira", "10/05/2001-22:53")
         listaHistorico.add(nome)
     }
 }
