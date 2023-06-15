@@ -25,6 +25,7 @@ class recyclerHistorico : AppCompatActivity() {
         binding.recycleHistorico.setHasFixedSize(true)
         AdpterHistorico= AdapterHistorico(this,listaHistorico)
         binding.recycleHistorico.adapter = AdpterHistorico
+        
         itens()
 }
     private fun itens(){
