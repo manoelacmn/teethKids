@@ -11,8 +11,8 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/TvTitulo"
-        android:layout_width="166dp"
-        android:layout_height="237dp"
+        android:layout_width="201dp"
+        android:layout_height="126dp"
         android:ellipsize="end"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
@@ -20,30 +20,31 @@
         android:text="Seja"
         android:textColor="@color/Azul_escuro"
         android:textSize="50sp"
+        android:backgroundTint="@color/Azul_escuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.165" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/TvTitulo2"
-        android:layout_width="305dp"
-        android:layout_height="241dp"
+        android:layout_width="331dp"
+        android:layout_height="225dp"
         android:ellipsize="end"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:singleLine="true"
-        android:text="bem-vindo"
+        android:text="Bem-Vindo"
         android:textColor="@color/Azul_escuro"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintVertical_bias="0.225" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView11"
@@ -54,18 +55,19 @@
         android:text="Somos a OdontApp, promovendo o cuidado odontológico infantil com amor e urgência"
         android:textAlignment="center"
         android:textColor="@color/Azul_escuro"
+
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/TvTitulo2"
-        app:layout_constraintVertical_bias="0.236" />
+        app:layout_constraintVertical_bias="0.36" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/BtnEntrar"
-        android:layout_width="388dp"
-        android:layout_height="67dp"
+        android:layout_width="359dp"
+        android:layout_height="69dp"
         android:background="@drawable/botton_background_bluelieth"
         app:layout_constraintBottom_toTopOf="@+id/BtnCriarConta"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +82,7 @@
             android:layout_marginTop="18dp"
             android:layout_marginBottom="18dp"
             android:fontFamily="sans-serif-black"
-            android:text="Login"
+            android:text="Entrar"
             android:textAlignment="center"
             android:textColor="@color/design_default_color_background"
             android:textSize="28dp"
@@ -92,8 +94,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/BtnCriarConta"
-        android:layout_width="382dp"
-        android:layout_height="66dp"
+        android:layout_width="367dp"
+        android:layout_height="69dp"
         android:background="@drawable/botton_background_bluemoredark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +104,7 @@
         app:layout_constraintVertical_bias="0.96">
 
         <TextView
-            android:id="@+id/Register"
+            android:id="@+id/Registro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
