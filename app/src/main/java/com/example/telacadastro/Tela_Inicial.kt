@@ -35,6 +35,7 @@ class Tela_Inicial : AppCompatActivity() {
         binding= ActivityTelaInicialBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var hasActiveEmergency: Boolean = false
 
         Log.d("userUID",user!!.uid)
 
@@ -45,6 +46,12 @@ class Tela_Inicial : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
+                    if(document.data["current"]!= null) run {
+                        hasActiveEmergency = true
+                        Log.d("HAS ACTIVE EMERGERNCY", hasActiveEmergency.toString())
+
+
+                    }
                     binding.tvTeethKids.text = document.data["nome"].toString()
                 }
             }
@@ -88,7 +95,13 @@ class Tela_Inicial : AppCompatActivity() {
             irTelaperfil()
         }
         binding.btnTelaEmergencia.setOnClickListener { btnir ->
-            emergencia()
+
+            if(hasActiveEmergency){
+                val goToEmergencia = Intent(this,current_emergency::class.java)
+                startActivity(goToEmergencia)
+            }else{
+                emergencia()
+            }
         }
         binding.btnConfiguraO.setOnClickListener({btn -> tirarFoto()})
 

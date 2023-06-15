@@ -51,6 +51,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+          android:name=".current_emergency"
+            android:exported="true"
+            />
 
         <service
             android:name=".MyFirebaseMessagingService"
