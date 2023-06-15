@@ -57,7 +57,8 @@ class Tela_Inicial : AppCompatActivity() {
         }
         binding.btnConfiguraO.setOnClickListener({btn -> tirarFoto()})
         binding.btnAvaliaO.setOnClickListener{btn->avaliacao()}
-        binding.btnHistorico.setOnClickListener { btn ->historico() }
+        binding.btnHistorico.setOnClickListener { btn->historico() }
+        binding.TvLogout.setOnClickListener{btn->atual()}
 
 
 
@@ -65,7 +66,7 @@ class Tela_Inicial : AppCompatActivity() {
     }
 
     private fun irTelaperfil(){
-        var irPerfil = Intent(this,MainActivity2::class.java)
+        var irPerfil = Intent(this,PerfilActivity::class.java)
         startActivity(irPerfil)
     }
     private fun emergencia(){
@@ -82,6 +83,10 @@ class Tela_Inicial : AppCompatActivity() {
     }
     private fun historico(){
         var intent=Intent(this,recyclerHistorico::class.java)
+        startActivity(intent)
+    }
+    private fun atual(){
+        val intent = Intent(this,segundaConfirmacao::class.java)
         startActivity(intent)
     }
 }
