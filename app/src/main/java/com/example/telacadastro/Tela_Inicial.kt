@@ -53,7 +53,6 @@ class Tela_Inicial : AppCompatActivity() {
 
                     }
                     binding.tvTeethKids.text = document.data["nome"].toString()
-                    binding.tvTeethKids.text = document.data[""].toString()
                 }
             }
             .addOnFailureListener { exception ->
@@ -104,7 +103,7 @@ class Tela_Inicial : AppCompatActivity() {
                 emergencia()
             }
         }
-        binding.btnConfiguraO.setOnClickListener({btn -> tirarFoto()})
+        binding.btnConfiguraO.setOnClickListener { btn -> tirarFoto() }
         binding.btnAvaliaO.setOnClickListener{btn->avaliacao()}
 
 
