@@ -75,6 +75,23 @@ class criarConta: AppCompatActivity() {
                         "uid" to user?.uid
                     )
                     db.collection("usuarios").add(usuario)
+
+                    val avaliacoesCollection = db.collection("avaliacoes")
+
+                    val data1 = hashMapOf(
+                        "uid" to user?.uid,
+                    )
+                    avaliacoesCollection.add(data1)
+                        .addOnSuccessListener {
+                            // Document added successfully
+                            println("Avaliacao added successfully")
+                        }
+                        .addOnFailureListener { exception ->
+                            // Error occurred while adding document
+                            println("Failed to add avaliacao: $exception")
+                        }
+
+
                     irParaTelaLogin()
                 } else {
                     // If sign in fails, display a message to the user.

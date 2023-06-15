@@ -16,5 +16,7 @@ class recyclerHistorico : AppCompatActivity() {
         binding=ActivityRecyclerHistoricoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
     }
 }
