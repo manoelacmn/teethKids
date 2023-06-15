@@ -96,6 +96,8 @@ class criarConta: AppCompatActivity() {
     }
     companion object {
         private const val TAG = "singUp"
+
     }
+
 }
 

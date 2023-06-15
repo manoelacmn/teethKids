@@ -53,6 +53,7 @@ class Tela_Inicial : AppCompatActivity() {
 
                     }
                     binding.tvTeethKids.text = document.data["nome"].toString()
+                    binding.tvTeethKids.text = document.data[""].toString()
                 }
             }
             .addOnFailureListener { exception ->
