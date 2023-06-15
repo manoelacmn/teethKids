@@ -16,6 +16,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 import org.json.JSONArray
 
 class recyclerHistorico : AppCompatActivity() {
@@ -73,7 +74,7 @@ class recyclerHistorico : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val result =
-                            task.result?.data.toString()  //[ {uid=2211221121221, nome=guts, status=new}, {uid=2112122121, nome=uwu, status=new}]
+                            task.result?.data.toString()
 
                         Log.d(
                             "RESULT:",
@@ -82,23 +83,32 @@ class recyclerHistorico : AppCompatActivity() {
 
 
                         val jsonArray = JSONArray(result)
+                        val gson = Gson()
 
-                        Log.d("JSON ARRAY",jsonArray.toString())
+                        Log.d("JSON ARRAY",jsonArray.toString()) // "[[{\"concludedTime\":{\"_seconds\":1686921322,\"_nanoseconds\":9000000},\"uid\":\"ODB1nWrOQidi2jh34gDjX8EhKeY2\",\"isRated\":false,\"emergencyRef\":\"emergencias/CRj1AH8yXcGdU3c9sXkw\"},{\"uid\":\"xasaxssxasxaasx\",\"nothing\":\"dwe\",\"desc\":\"2ddqwqwdwqq\"}]]"
 
-                        for (i in 0 until jsonArray.length()) {
-                            val jsonObject = jsonArray.getJSONObject(i)
 
-                            val concludedTime = jsonObject.opt("concludedTime")
-                            val uid = jsonObject.opt("uid")
-                            val isRated = jsonObject.opt("isRated")
-                            val emergencyRef = jsonObject.opt("emergencyRef")
+                        Log.d("LENGTH",jsonArray.length().toString())
 
-                            println("concludedTime: $concludedTime")
-                            println("uid: $uid")
-                            println("isRated: $isRated")
-                            println("emergencyRef: $emergencyRef")
 
-                        }
+//                        val formattedJsonArray = jsonArray.toString(4)
+
+
+//                        for (i in 0 until jsonArray.length()) {
+//
+//                            val jsonObject = jsonArray.getJSONObject(i)
+//
+//                            val concludedTime = jsonObject.opt("concludedTime")
+//                            val uid = jsonObject.opt("uid")
+//                            val isRated = jsonObject.opt("isRated")
+//                            val emergencyRef = jsonObject.opt("emergencyRef")
+//
+//                            println("concludedTime: $concludedTime")
+//                            println("uid: $uid")
+//                            println("isRated: $isRated")
+//                            println("emergencyRef: $emergencyRef")
+//
+//                        }
 
 
 //                        val list = result

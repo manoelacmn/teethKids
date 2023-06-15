@@ -53,6 +53,7 @@ class recycleVeiw : AppCompatActivity(),AdpterPerfil.Myclicklistenner {
                 adpterPerfil.notifyDataSetChanged()//notoficando a lista
             }//metodos obrigatorios onSwipe desliza e some da lista
         }//variavel vai receber um objeto,Dirs é onde configura a direção
+
         val itemTouchHelper=ItemTouchHelper(swipe)
         //anexar o swipe na recycleview
         itemTouchHelper.attachToRecyclerView(binding.recyclerView)
