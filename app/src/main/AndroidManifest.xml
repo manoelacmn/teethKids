@@ -18,8 +18,11 @@
         android:theme="@style/Theme.Telacadastro"
         tools:targetApi="31">
         <activity
+            android:name=".recyclerHistorico"
+            android:exported="false" />
+        <activity
             android:name=".recycleravaliacao"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".PerfilActivity"
             android:exported="false" />
