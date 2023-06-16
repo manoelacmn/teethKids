@@ -27,26 +27,32 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/backgroud_1" />
 
     <ImageView
-        android:id="@+id/imagemDesntista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:id="@+id/roundedImageView"
+        android:layout_width="361dp"
+        android:layout_height="647dp"
+        android:bottomLeftRadius="30dp"
+        android:bottomRightRadius="30dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/box_widget"
+        android:textColor="@color/teal_700"
+        android:topLeftRadius="30dp"
+        android:topRightRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.587"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvnome"
         android:layout_width="129dp"
         android:layout_height="41dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="140dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -55,18 +61,17 @@
         android:id="@+id/tvendereco1"
         android:layout_width="251dp"
         android:layout_height="41dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="348dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.356"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvendereco2"
+        android:id="@+id/tvendereco3"
         android:layout_width="254dp"
         android:layout_height="42dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="108dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/tvendereco1"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,10 +79,10 @@
         app:layout_constraintTop_toBottomOf="@+id/tvendereco1" />
 
     <TextView
-        android:id="@+id/tvendereco3"
+        android:id="@+id/tvendereco2"
         android:layout_width="254dp"
         android:layout_height="42dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="28dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/tvendereco1"
         app:layout_constraintHorizontal_bias="0.0"
@@ -89,11 +94,41 @@
         android:id="@+id/email"
         android:layout_width="111dp"
         android:layout_height="33dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="44dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/imagemDesntista"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/tvnome" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/BtnReputacao"
+        android:layout_width="173dp"
+        android:layout_height="52dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/botton_background_bluemoredark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toEndOf="@+id/BtnAceitar"
+        app:layout_constraintTop_toBottomOf="@+id/tvendereco3"
+        app:layout_constraintVertical_bias="0.703">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/TvRejeitar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="Reputaçâo"
+            android:textColor="@color/azul_mais_escuro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.517" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/BtnEditar"
@@ -118,31 +153,15 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/BtnReputacao"
-        android:layout_width="173dp"
-        android:layout_height="52dp"
-        android:layout_margin="16dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/botton_background_bluemoredark"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imagemDesntista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.727"
-        app:layout_constraintStart_toEndOf="@+id/BtnAceitar"
-        app:layout_constraintTop_toBottomOf="@+id/tvendereco3"
-        app:layout_constraintVertical_bias="0.629">
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/TvRejeitar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/comfortaa_bold"
-            android:text="Reputaçâo"
-            android:textColor="@color/azul_mais_escuro"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
