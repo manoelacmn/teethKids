@@ -280,13 +280,13 @@
 
                     <TextView
                         android:id="@+id/TvConfiguração"
-                        android:layout_width="match_parent"
-                        android:layout_height="29dp"
+                        android:layout_width="86dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
                         android:fontFamily="sans-serif-condensed-medium"
                         android:text="Configuração"
-                        android:textAlignment="viewStart"
                         android:textColor="@color/Azul_escuro"
-                        android:textSize="12sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
