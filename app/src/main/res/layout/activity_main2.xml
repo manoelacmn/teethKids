@@ -4,22 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/teeth_1_3"
+    android:background="@drawable/teeth_1"
     tools:context=".MainActivity2">
 
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/imgFotoPerfil"
-        android:layout_width="165dp"
-        android:layout_height="159dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="22dp"
-        android:src="@drawable/download"
-        app:layout_constraintBottom_toTopOf="@+id/etTelefone"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        android:layout_width="167dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_circle_25" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView"
+
+        android:layout_width="115dp"
+        android:layout_height="102dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgFotoPerfil"
+        app:layout_constraintEnd_toEndOf="@+id/imgFotoPerfil"
+        app:layout_constraintStart_toStartOf="@+id/imgFotoPerfil"
+        app:layout_constraintTop_toTopOf="@+id/imgFotoPerfil"
+        app:srcCompat="@drawable/baseline_person_24" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etNomeEditarPerfil"
@@ -37,42 +47,31 @@
         app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch1"
-        android:layout_width="44dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/etNomeEditarPerfil"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnVerReputacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="76dp"
-        android:backgroundTint="@color/Azul_claro"
-        android:textColor="@color/Azul_escuro"
-        android:fontFamily="@font/comfortaa_bold"
-        android:text="Ver reputação"
-        app:layout_constraintBottom_toTopOf="@+id/etEndereco1EditarPerfil"
-        app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil" />
-
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etTelefone"
-        android:textColorHint="@color/Azul_escuro"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="202dp"
         android:fontFamily="@font/comfortaa_bold"
         android:hint="Telefone"
+        android:textColorHint="@color/Azul_escuro"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnVerReputacao" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFotoPerfil" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:textColorHint="@color/Azul_escuro"
@@ -147,18 +146,35 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/etEmailEditarPerfil" />
 
-    <androidx.appcompat.widget.AppCompatButton
-      android:id="@+id/btnSalvarDados"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:backgroundTint="@color/Azul_claro"
-      android:fontFamily="@font/comfortaa_bold"
-      android:text="Salvar"
-      android:textColor="@color/Azul_escuro"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/etCurriculoEditarPerfil" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="173dp"
+        android:id="@+id/btnSalvarDados"
+        android:layout_height="52dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/botton_background_bluemoredark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCurriculoEditarPerfil" >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/TvRejeitar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="59dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="Salvar"
+            android:textSize="16sp"
+            android:textColor="@color/azul_mais_escuro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView2"
@@ -173,7 +189,6 @@
         android:gravity="center"
         android:text="Status"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnVerReputacao"
         app:layout_constraintEnd_toStartOf="@+id/switch1"
         app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil"
         app:layout_constraintTop_toBottomOf="@+id/etNomeEditarPerfil" />

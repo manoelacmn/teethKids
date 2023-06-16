@@ -7,100 +7,101 @@
     tools:context=".PerfilActivity">
 
 
-    <TextView
-        android:id="@+id/tvendereco"
-        android:layout_width="254dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/tvendereco1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvendereco1"
-        app:layout_constraintTop_toBottomOf="@+id/tvendereco1" />
-
-    <ImageView
-        android:id="@+id/imageView6"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/backgroud_1" />
+        app:srcCompat="@drawable/background_2" />
 
     <ImageView
-        android:id="@+id/imagemDesntista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:id="@+id/BTN_tirarfoto"
+        android:layout_width="167dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_circle_25" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView"
+        android:layout_width="119dp"
+        android:layout_height="104dp"
+        app:layout_constraintBottom_toBottomOf="@+id/BTN_tirarfoto"
+        app:layout_constraintEnd_toEndOf="@+id/BTN_tirarfoto"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="@+id/BTN_tirarfoto"
+        app:layout_constraintTop_toTopOf="@+id/BTN_tirarfoto"
+        app:layout_constraintVertical_bias="0.387"
+        app:srcCompat="@drawable/baseline_person_24" />
 
     <TextView
         android:id="@+id/tvnome"
+        android:gravity="center"
         android:layout_width="129dp"
         android:layout_height="41dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="60dp"
         android:text="TextView"
+        android:textColor="@color/Azul_escuro"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:gravity="center"
         android:id="@+id/tvendereco1"
-        android:layout_width="251dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="208dp"
+        android:layout_width="313dp"
+        android:layout_height="247dp"
+        android:layout_marginTop="60dp"
         android:text="TextView"
+        android:textColor="@color/Azul_escuro"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.356"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/BTN_tirarfoto" />
 
-    <TextView
-        android:id="@+id/tvendereco2"
-        android:layout_width="254dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/tvendereco1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvendereco1"
-        app:layout_constraintTop_toBottomOf="@+id/tvendereco1" />
-
-    <TextView
-        android:id="@+id/tvendereco3"
-        android:layout_width="254dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="120dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/tvendereco1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvendereco1"
-        app:layout_constraintTop_toBottomOf="@+id/tvendereco1" />
 
 
     <TextView
-        android:id="@+id/email"
-        android:layout_width="111dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="32dp"
+        android:id="@+id/tvemail"
+        android:layout_width="206dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/imagemDesntista"
+        android:textColor="@color/Azul_escuro"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/BTN_tirarfoto"
         app:layout_constraintTop_toBottomOf="@+id/tvnome" />
+
+    <TextView
+        android:id="@+id/tvTelefone"
+        android:layout_width="79dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="155dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="99-99999"
+        android:textAlignment="textEnd"
+        android:textColor="@color/Azul_escuro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/BTN_tirarfoto" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/BtnEditar"
         android:layout_width="173dp"
         android:layout_height="54dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginBottom="164dp"
         android:background="@drawable/botton_background_bluelieth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -123,15 +124,10 @@
         android:layout_width="173dp"
         android:layout_height="52dp"
         android:layout_margin="16dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="16dp"
         android:background="@drawable/botton_background_bluemoredark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.727"
-        app:layout_constraintStart_toEndOf="@+id/BtnAceitar"
-        app:layout_constraintTop_toBottomOf="@+id/tvendereco3"
-        app:layout_constraintVertical_bias="0.629">
+        app:layout_constraintEnd_toEndOf="@+id/BtnEditar"
+        app:layout_constraintStart_toStartOf="@+id/BtnEditar"
+        app:layout_constraintTop_toBottomOf="@+id/BtnEditar">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/TvRejeitar"

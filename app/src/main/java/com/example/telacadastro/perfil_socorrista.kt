@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.core.graphics.drawable.toIcon
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -113,8 +114,10 @@ class perfil_socorrista : AppCompatActivity() {
             if (user != null) {
                 refuseEmergency(uid,user.uid)
             }
-
+            recicle()
+            Toast.makeText(baseContext,"Rejeitado",Toast.LENGTH_SHORT).show()
         }
+
     }
     fun acceptEmergency(emergency: String, uid: String): Task<HttpsCallableResult> {
 
@@ -140,6 +143,10 @@ class perfil_socorrista : AppCompatActivity() {
     }
     private  fun segundaConfirmacao(){
         val intent =Intent(this,segundaConfirmacao::class.java)
+        startActivity(intent)
+    }
+    private fun recicle(){
+        val intent=Intent(this,recycleVeiw::class.java)
         startActivity(intent)
     }
 }

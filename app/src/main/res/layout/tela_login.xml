@@ -4,19 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/teeth_1_3">
+    android:background="@drawable/backgroud_1">
 
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Login"
-        android:textSize="49sp"
-        android:textColor="@color/Azul_escuro"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="47dp" />
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="250dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="Entrar"
+        android:textColor="@color/azul_mais_claro"
+        android:textSize="59sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -32,9 +38,9 @@
         android:id="@+id/appCompatTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="@string/usu_rio"
-        android:textColor="@color/Azul_escuro"
+        android:textColor="@color/azul_mais_escuro"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,16 +51,16 @@
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtUsuario"
-        android:layout_width="335dp"
-        android:layout_height="55dp"
+        android:layout_width="314dp"
+        android:layout_height="58dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="11dp"
         android:layout_marginBottom="247dp"
-        android:backgroundTint="@color/green_project"
-        android:fontFamily="sans-serif-condensed-medium"
+        android:backgroundTint="@color/Azul_claro"
+        android:fontFamily="@font/comfortaa_bold"
         android:hint="Digite o E-mail"
         android:textColor="@color/Azul_escuro"
-        android:textColorHint="@color/teal_700"
+        android:textColorHint="@color/azul_mais_escuro"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView12"
@@ -69,9 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="289dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="@string/senha"
-        android:textColor="@color/Azul_escuro"
+        android:fontFamily="@font/comfortaa_bold"        android:text="@string/senha"
+        android:textColor="@color/azul_mais_escuro"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,17 +87,17 @@
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/EtSenha"
-        android:layout_width="314dp"
-        android:layout_height="42dp"
+        android:layout_width="317dp"
+        android:layout_height="48dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="11dp"
         android:layout_marginBottom="127dp"
         android:backgroundTint="@color/green_project"
-        android:fontFamily="sans-serif-condensed-medium"
+        android:fontFamily="@font/comfortaa_bold"
         android:hint="Digite a Senha"
         android:inputType="textPassword"
         android:textColor="@color/Azul_escuro"
-        android:textColorHint="@color/teal_700"
+        android:textColorHint="@color/azul_mais_escuro"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView12"
@@ -101,76 +106,30 @@
         app:layout_constraintTop_toBottomOf="@+id/TvSenha"
         app:layout_constraintVertical_bias="0.0" />
 
-    <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/CboxSalvarSenha"
-        android:layout_width="83dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="349dp"
-        android:layout_marginBottom="82dp"
-        android:backgroundTint="@color/green_project"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/EtSenha"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/imageView12"
-        app:layout_constraintTop_toBottomOf="@+id/EtSenha"
-        app:layout_constraintVertical_bias="0.0" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/TvRelembrarSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="235dp"
-        android:layout_marginBottom="80dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="Relembrar senha"
-        android:textColor="@color/Azul_escuro"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/TvSenha"
-        app:layout_constraintTop_toBottomOf="@+id/EtSenha"
-        app:layout_constraintVertical_bias="0.094" />
-
-    <androidx.appcompat.widget.AppCompatCheckedTextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-
-        android:layout_marginTop="22dp"
-        android:layout_marginBottom="80dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="Esqueceu senha"
-        android:textColor="@color/red_project"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/imageView12"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/TvRelembrarSenha"
-        app:layout_constraintTop_toBottomOf="@+id/EtSenha"
-        app:layout_constraintVertical_bias="0.064" />
-
-    <androidx.appcompat.widget.AppCompatButton
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/BtnEntar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="54dp"
-        android:backgroundTint="@color/green_project"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="Entrar"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="173dp"
+        android:layout_height="52dp"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/botton_background_bluemoredark"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TvRelembrarSenha"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/Tventrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="Entrar"
+            android:textColor="@color/azul_mais_escuro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView3"
@@ -179,6 +138,7 @@
         android:layout_marginTop="48dp"
         android:text="Não tem uma conta ?"
         android:textSize="14sp"
+        android:fontFamily="@font/comfortaa_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -193,6 +153,7 @@
         android:layout_marginStart="240sp"
         android:layout_marginEnd="10dp"
         android:text="CADASTRE-SE "
+        android:fontFamily="@font/comfortaa_bold"
         android:textColor="@color/red_project"
         android:textSize="14sp"
 

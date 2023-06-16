@@ -103,7 +103,7 @@ class Tela_Inicial : AppCompatActivity() {
     }
 
     private fun configuracao() {
-        val intent = Intent(this, Emergencia::class.java)
+        val intent = Intent(this, MainActivity2::class.java)
         startActivity(intent)
     }
 

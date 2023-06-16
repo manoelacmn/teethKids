@@ -26,11 +26,11 @@ class telaLogin:AppCompatActivity() {
         binding.BtnEntar.setOnClickListener {btn ->
 
             if(binding.EtSenha.text.isNullOrEmpty()){
-                Toast.makeText(baseContext,"ze da manga",Toast.LENGTH_LONG).show()
+                Toast.makeText(baseContext,"Email ou Senha Inválido",Toast.LENGTH_LONG).show()
 
 
             }else if (binding.EtUsuario.text.isNullOrEmpty()){
-                Toast.makeText(baseContext,"ze da manga",Toast.LENGTH_LONG).show()
+                Toast.makeText(baseContext,"Email ou senha Inválidos",Toast.LENGTH_LONG).show()
             }else{
                 val password = binding.EtSenha.text.toString();
                 val email = binding.EtUsuario.text.toString();

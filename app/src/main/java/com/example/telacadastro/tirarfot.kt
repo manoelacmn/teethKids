@@ -1,31 +1,30 @@
 package com.example.telacadastro
 
-import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStore
+import androidx.core.content.FileProvider
 import com.example.telacadastro.databinding.ActivityEmergenciaBinding
-import com.google.firebase.firestore.util.Util
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import java.io.ByteArrayOutputStream
+import java.io.File
 
 private const val REQUEST_IMAGE_CAPTURE = 1
-class Emergencia : AppCompatActivity() {
+class tirarfot : AppCompatActivity() {
 
     private lateinit var binding : ActivityEmergenciaBinding
     var storage : FirebaseStorage? = null
+    var uri_Image:Uri?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +35,15 @@ class Emergencia : AppCompatActivity() {
         }
         binding.btnEnviar
         storage= Firebase.storage
+
+        var file = Uri.fromFile(File(""))
+
+
+
+
+
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)
@@ -48,7 +55,13 @@ class Emergencia : AppCompatActivity() {
     }
     private fun TirarFoto(){
         val intent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
+        val autorizacao = "androidx.core.content.FileProvider"
+        val diretorio = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+        val nomeImage = diretorio.path + "/imagemperfil"+ System.currentTimeMillis()+".jpg" //nome do caminho onde vai ser armazenadas
+        val file = File(nomeImage)
+        uri_Image=FileProvider.getUriForFile(baseContext,autorizacao,file)
+        intent.putExtra(MediaStore.EXTRA_OUTPUT,uri_Image)
+        startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)//comunicacao com a camera, aguardando a resposta =imagem
     }
 
 
@@ -77,6 +90,7 @@ class Emergencia : AppCompatActivity() {
         if (requestCode== REQUEST_IMAGE_CAPTURE && resultCode== RESULT_OK){
             val imageBitMap= data?.extras?.get("data") as Bitmap
             binding.uploadImageView.setImageBitmap(imageBitMap)
+
     }}
 
 
@@ -87,7 +101,7 @@ class Emergencia : AppCompatActivity() {
         val bounce = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.JPEG,20,bounce)
         val data = bounce.toByteArray()
-        val reference = storage!!.reference.child("imagens").child("uploadimage.png")
+        val reference = storage!!.reference.child("imagens/recivers")
         var uploadTask = reference.putBytes(data)
         uploadTask.addOnFailureListener {
             Toast.makeText(baseContext,"Erro",Toast.LENGTH_SHORT).show()

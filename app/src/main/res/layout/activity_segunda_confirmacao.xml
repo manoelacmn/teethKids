@@ -4,32 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_2"
     tools:context=".segundaConfirmacao">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_telefone"
-        android:layout_width="128dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="604dp"
-        android:text="Telefone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_localizacao"
-        android:layout_width="140dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="604dp"
-        android:layout_marginEnd="91dp"
-        android:layout_marginBottom="54dp"
-        android:text="Locatlização"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn_telefone"
+        android:layout_width="179dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="96dp"
+        android:background="@drawable/botton_background_bluelieth"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_telefone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tel"
+            android:layout_width="96dp"
+            android:layout_height="26dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="Telefone"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn_localizacao"
+        android:layout_width="173dp"
+        android:layout_height="52dp"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/botton_background_bluemoredark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_telefone"
+        app:layout_constraintStart_toStartOf="@+id/btn_telefone">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/Tvloca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="Localização"
+            android:textColor="@color/azul_mais_escuro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/imagem1"
