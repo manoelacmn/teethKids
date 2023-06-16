@@ -10,7 +10,7 @@
     tools:context=".Tela_Inicial">
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/BTN_tirarfoto"
         android:layout_width="167dp"
         android:layout_height="135dp"
         android:layout_margin="10dp"
@@ -29,9 +29,9 @@
         android:text=""
         android:textColor="@color/Azul_escuro"
         android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView9"
-        app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintEnd_toEndOf="@+id/BTN_tirarfoto"
+        app:layout_constraintStart_toStartOf="@+id/BTN_tirarfoto"
+        app:layout_constraintTop_toBottomOf="@+id/BTN_tirarfoto"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -280,13 +280,13 @@
 
                     <TextView
                         android:id="@+id/TvConfiguração"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="29dp"
                         android:fontFamily="sans-serif-condensed-medium"
                         android:text="Configuração"
-                        android:textAlignment="center"
+                        android:textAlignment="viewStart"
                         android:textColor="@color/Azul_escuro"
-                        android:textSize="16sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -333,7 +333,7 @@
                         android:fontFamily="sans-serif-condensed-medium"
                         android:gravity="center"
                         android:text="Avaliações"
-                        android:textAlignment="center"
+                        android:textAlignment="textStart"
                         android:textColor="@color/Azul_escuro"
                         android:textSize="16sp"
                         tools:layout_marginStart="1dp"
@@ -387,7 +387,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:fontFamily="sans-serif-condensed-medium"
-                        android:text="Logout"
+                        android:text="Processo"
                         android:textAlignment="center"
                         android:textColor="@color/Azul_escuro"
                         android:textSize="16sp"

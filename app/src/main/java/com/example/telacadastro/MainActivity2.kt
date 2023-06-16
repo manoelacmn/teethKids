@@ -23,10 +23,6 @@ import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 
 //val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings");
@@ -291,7 +287,7 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     private fun iremergencia(){
-        var irParaEmerg = Intent(this,Emergencia::class.java)
+        var irParaEmerg = Intent(this,tirarfot::class.java)
         startActivity(irParaEmerg)
     }
     companion object {
