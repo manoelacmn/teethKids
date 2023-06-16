@@ -56,9 +56,25 @@ class Tela_Inicial : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
+                    // document.data =  senha=asriel, uid=jhyjNs3cG7O0W9XYbXlloZHR1ot2, current={emergencyPATH=femboyFurry}, telefone=seeszeee, endereco=asriel, curriculo=, nome=asriel, email=asriel@dreemurr.com, fcmtoken=cCBb6Vt4QAmlfGDxDJH7wS:APA91bE9EstYRHzLjhiXkODdS_lrIuYsGmeG_HlvRXPSb9AK8U_oFxi4TDX9qX-n5Qxd1fzSlAFsqbb0wLHDQjmnv2n23YTgTY_mbKEwQDZAxPT71oyyJZ1LdkyUF8AYXvmgW6T2yWMq, endereços=[I m tired terdd, tf foi fqddfwfwd, rfrfdfffghh], status=busy}
                     val dataString = gson.toJson(document.data)
                     val jsonData: Data = gson.fromJson(dataString, Data::class.java)
                     binding.tvTeethKids.text = jsonData.nome ?: ""
+
+                    val addresses = jsonData.enderecos
+                    if (addresses != null) {
+                        for (address in addresses) {
+                            // Process each address here
+                            Log.d("Address", address)
+                        }
+                    }
+
+                    val current = jsonData.current
+                    val emergencyPath = current?.emergencyPATH
+                    if (emergencyPath != null) {
+                        // Process the emergency path here
+                        Log.d("EmergencyPath", emergencyPath)
+                    }
                 }
             }
             .addOnFailureListener { exception ->
