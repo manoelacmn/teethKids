@@ -76,23 +76,46 @@ class perfil_socorrista : AppCompatActivity() {
 
         val  imagePath = intent?.getStringExtra("imagePath").toString();
 
+        val imageRef = storageReference.child(imagePath)
+
+
         binding.tvNome.text = nome
 
         Log.d("IMGEPATH",imagePath)
         Log.d("INTENT EXTRA",uid)
 
 
-        val imageRef = storageReference.child(imagePath)
+        val imageRef1 = storageReference.child(imagePath1)
+
+        val imageRef2 = storageReference.child(imagePath2)
+
+
 
 //        binding.imageView5
 
         val ONE_MEGABYTE: Long = 4096 * 4096
         imageRef.getBytes(ONE_MEGABYTE).addOnSuccessListener {image->
-            val uwu = BitmapFactory.decodeByteArray(image, 0, image.size)
-            binding.imageView5.setImageBitmap(uwu)
+            val profilePhoto = BitmapFactory.decodeByteArray(image, 0, image.size)
+            binding.imageView5.setImageBitmap(profilePhoto)
         }.addOnFailureListener {
             // Handle any errors
         }
+
+
+//        imageRef1.getBytes(ONE_MEGABYTE).addOnSuccessListener {image->
+//            val profilePhoto = BitmapFactory.decodeByteArray(image, 0, image.size)
+//            binding.imageView5.setImageBitmap(profilePhoto)
+//        }.addOnFailureListener {
+//            // Handle any errors
+//        }
+//
+//
+//        imageRef2.getBytes(ONE_MEGABYTE).addOnSuccessListener {image->
+//            val profilePhoto = BitmapFactory.decodeByteArray(image, 0, image.size)
+//            binding.imageView5.setImageBitmap(profilePhoto)
+//        }.addOnFailureListener {
+//            // Handle any errors
+//        }
 
 
         binding.BtnAceitar.setOnClickListener {
@@ -104,7 +127,7 @@ class perfil_socorrista : AppCompatActivity() {
             if (user != null) {
                 acceptEmergency(uid,user.uid)
             }
-            segundaConfirmacao()
+            Toast.makeText(this,"EMERGÊNCIA ACEITA",Toast.LENGTH_SHORT).show()
         }
         binding.BtnRejeitar.setOnClickListener {
             Log.d("EMERGENCY UID:",uid)

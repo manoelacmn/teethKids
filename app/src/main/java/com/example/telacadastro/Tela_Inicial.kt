@@ -2,6 +2,7 @@ package com.example.telacadastro
 
 import android.content.ContentValues
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
 import com.google.gson.Gson
 
 data class Data(
@@ -18,12 +21,13 @@ data class Data(
     val current: Current?,
     val telefone: String?,
     val endereco: String?,
-    val curriculo: String?,
+    val curriculo:String?,
     val nome: String?,
     val email: String?,
     val fcmtoken: String?,
     val enderecos: List<String>?,
-    val status: String?
+    val status: String?,
+    val profilePhoto: String?
 )
 
 data class Current(
@@ -31,12 +35,16 @@ data class Current(
 )
 
 private lateinit var binding: ActivityTelaInicialBinding
+lateinit var storage: FirebaseStorage
+
 
 class Tela_Inicial : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private val gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        storage = Firebase.storage
+        val storageReference = FirebaseStorage.getInstance().reference
         val db = Firebase.firestore
 
         auth = Firebase.auth
@@ -63,9 +71,32 @@ class Tela_Inicial : AppCompatActivity() {
 
                     Log.d("DATASTRING",dataString)
 
+                    Log.d("PROFILE PHOTO",jsonData.profilePhoto.toString())
+
+
+                    val imageRef1 = jsonData.profilePhoto?.toString()
+                        ?.let { storageReference.child(it) }
+
+                    val multiGiga: Long = 4096 * 4096
+                    imageRef1?.getBytes(multiGiga)?.addOnSuccessListener { image->
+                        val profilePhoto = BitmapFactory.decodeByteArray(image, 0, image.size)
+                        binding.imageView.setImageBitmap(profilePhoto)
+                    }?.addOnFailureListener {
+                        // Handle any errors
+                    }
+
+
+
+
                     binding.tvTeethKids.text = jsonData.nome ?: ""
 
-                    val currentEmergencyPath = jsonData.current?.emergencyPATH
+
+
+
+                    val currentEmergencyPath = gson.toJson(document.data["current"])
+
+
+                    Log.d("DATASTRING",currentEmergencyPath.toString())
 
 
 
