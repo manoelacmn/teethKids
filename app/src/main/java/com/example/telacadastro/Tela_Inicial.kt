@@ -121,11 +121,17 @@ class Tela_Inicial : AppCompatActivity() {
         binding.btnConfiguraO.setOnClickListener({ btn -> configuracao() })
         binding.btnAvaliaO.setOnClickListener { btn -> avaliacao() }
         binding.btnHistorico.setOnClickListener { btn -> historico() }
+        binding.btnLog.setOnClickListener { btn->ir() }
+
     }
 
     private fun irTelaperfil() {
         val irPerfil = Intent(this, PerfilActivity::class.java)
         startActivity(irPerfil)
+    }
+    private fun ir(){
+        val intent = Intent(this,segundaConfirmacao::class.java)
+        startActivity(intent)
     }
 
     private fun emergencia() {
