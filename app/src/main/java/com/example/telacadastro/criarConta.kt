@@ -51,11 +51,24 @@ class criarConta: AppCompatActivity() {
             singUpNewAccount(nome , email, senha,cv ,endereco)
             registerForContextMenu(binding.EtEnderecoCriarConta)
 
-            if(binding.EtEnderecoCriarConta.text.toString().length == 8){
-            }else{Toast.makeText(this,"CEP invalido",Toast.LENGTH_SHORT).show()}
 
-        }
-    }
+
+            if(binding.EtSenhaCriarConta.text.isNullOrEmpty()){
+                Toast.makeText(baseContext,"Senha Inválido",Toast.LENGTH_LONG).show()
+
+
+            }else if (binding.EtEmailCriarConta.text.isNullOrEmpty()){
+                Toast.makeText(baseContext,"Email Inválido",Toast.LENGTH_LONG).show()
+            }else if (binding.EtNomeCriarConta.text.isNullOrEmpty()){
+                    Toast.makeText(baseContext,"Nome Inválido",Toast.LENGTH_LONG).show()
+            }else if (binding.EtEnderecoCriarConta.text.isNullOrEmpty()){
+                Toast.makeText(baseContext,"Endereço Inválido",Toast.LENGTH_LONG).show()
+            }else if(binding.EtEnderecoCriarConta.text.isNullOrEmpty()){
+                Toast.makeText(baseContext,"Endereço Inválido",Toast.LENGTH_LONG).show()
+            }else if(binding.EtCurriculoCriarConta.text.isNullOrEmpty()){
+                Toast.makeText(baseContext,"Curriculo Inválido",Toast.LENGTH_LONG).show()
+
+    }}}
 
 
     private fun singUpNewAccount(nome: String , email: String, password: String, cv: String,endereco: String )
