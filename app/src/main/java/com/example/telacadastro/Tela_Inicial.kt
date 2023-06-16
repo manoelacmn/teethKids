@@ -56,25 +56,25 @@ class Tela_Inicial : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
-                    // document.data =  senha=asriel, uid=jhyjNs3cG7O0W9XYbXlloZHR1ot2, current={emergencyPATH=femboyFurry}, telefone=seeszeee, endereco=asriel, curriculo=, nome=asriel, email=asriel@dreemurr.com, fcmtoken=cCBb6Vt4QAmlfGDxDJH7wS:APA91bE9EstYRHzLjhiXkODdS_lrIuYsGmeG_HlvRXPSb9AK8U_oFxi4TDX9qX-n5Qxd1fzSlAFsqbb0wLHDQjmnv2n23YTgTY_mbKEwQDZAxPT71oyyJZ1LdkyUF8AYXvmgW6T2yWMq, endereços=[I m tired terdd, tf foi fqddfwfwd, rfrfdfffghh], status=busy}
+
+                    // document.data =  {senha=asriel, uid=jhyjNs3cG7O0W9XYbXlloZHR1ot2, current={emergencyPATH=femboyFurry}, telefone=seeszeee, endereco=asriel, curriculo=, nome=asriel, email=asriel@dreemurr.com, fcmtoken=cCBb6Vt4QAmlfGDxDJH7wS:APA91bE9EstYRHzLjhiXkODdS_lrIuYsGmeG_HlvRXPSb9AK8U_oFxi4TDX9qX-n5Qxd1fzSlAFsqbb0wLHDQjmnv2n23YTgTY_mbKEwQDZAxPT71oyyJZ1LdkyUF8AYXvmgW6T2yWMq, endereços=[I m tired terdd, tf foi fqddfwfwd, rfrfdfffghh], status=busy}
                     val dataString = gson.toJson(document.data)
                     val jsonData: Data = gson.fromJson(dataString, Data::class.java)
+
+                    Log.d("DATASTRING",dataString)
+
                     binding.tvTeethKids.text = jsonData.nome ?: ""
 
-                    val addresses = jsonData.enderecos
-                    if (addresses != null) {
-                        for (address in addresses) {
-                            // Process each address here
-                            Log.d("Address", address)
-                        }
-                    }
+                    val currentEmergencyPath = jsonData.current?.emergencyPATH
 
-                    val current = jsonData.current
-                    val emergencyPath = current?.emergencyPATH
-                    if (emergencyPath != null) {
-                        // Process the emergency path here
-                        Log.d("EmergencyPath", emergencyPath)
-                    }
+
+
+                    Log.d("Debug1", "Current Emergency Path: $currentEmergencyPath")
+
+
+//                    binding.btnLog.setOnClickListener { btn ->
+//                        atual("", currentEmergencyPath)
+//                    }
                 }
             }
             .addOnFailureListener { exception ->
@@ -90,7 +90,6 @@ class Tela_Inicial : AppCompatActivity() {
         binding.btnConfiguraO.setOnClickListener({ btn -> configuracao() })
         binding.btnAvaliaO.setOnClickListener { btn -> avaliacao() }
         binding.btnHistorico.setOnClickListener { btn -> historico() }
-        binding.btnLog.setOnClickListener { btn -> atual() }
     }
 
     private fun irTelaperfil() {
@@ -118,8 +117,12 @@ class Tela_Inicial : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun atual() {
+    private fun atual(addresses: List<String>?, currentEmergencyPath: String?) {
         val intent = Intent(this, segundaConfirmacao::class.java)
+        intent.putExtra("addresses", addresses?.toTypedArray())
+        intent.putExtra("currentEmergencyPath", currentEmergencyPath)
+        Log.d("Debug", "Addresses: ${addresses?.joinToString()}")
+        Log.d("Debug", "Current Emergency Path: $currentEmergencyPath")
         startActivity(intent)
     }
 }
